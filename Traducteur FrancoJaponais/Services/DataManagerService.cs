@@ -23,8 +23,14 @@ namespace Traducteur_FrancoJaponais.Services
 
         public Task<List<T>> Get(Expression<Func<T, bool>> expr)
         {
+            //pour test à virer
             Func<T, bool> deleg = expr.Compile();
             return _dataBaseService.Table<T>().Where(expr).ToListAsync();
+        }
+
+        public Task<T> GetById(int id)
+        {
+            return _dataBaseService.Table<T>().Where(e => e.Id == id).FirstOrDefaultAsync();
         }
 
         public SQLiteAsyncConnection returndatabaseservice()

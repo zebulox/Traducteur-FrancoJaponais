@@ -18,5 +18,7 @@ namespace Traducteur_FrancoJaponais.Services.Interface
 
         SQLiteAsyncConnection returndatabaseservice();
 
+        Task<T> GetById(int id);
+
     }
 }

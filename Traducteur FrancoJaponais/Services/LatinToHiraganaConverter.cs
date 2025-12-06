@@ -15,7 +15,7 @@ namespace Traducteur_FrancoJaponais.Services
             }
 
             string workingString = latin;
-            char[] voyelles = new char[] { 'a', 'e', 'i', 'o', 'u' };
+            char[] voyelles = new char[] { 'a', 'e', 'i', 'o', 'u', 'n', ' ' };
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < workingString.Length - 1; i++)
             {

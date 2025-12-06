@@ -7,28 +7,24 @@
       "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\components\\pages\\components\\hiromicoursecomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\services\\datamanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\services\\datamanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\services\\interface\\idatamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\services\\interface\\idatamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\model\\hiromiphrase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\model\\hiromiphrase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\model\\hiromicourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\model\\hiromicourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\components\\pages\\hiromilanguageschool.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\components\\pages\\hiromilanguageschool.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|c:\\users\\hadrien\\source\\repos\\traducteur-francojaponais\\traducteur francojaponais\\constants\\hiragana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8282D52F-5499-C48A-E0FB-2CA3A2351FAC}|Traducteur FrancoJaponais\\Traducteur FrancoJaponais.csproj|solutionrelative:traducteur francojaponais\\constants\\hiragana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +34,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HiromiLanguageSchool.razor",
+              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Components\\Pages\\HiromiLanguageSchool.razor",
+              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Components\\Pages\\HiromiLanguageSchool.razor",
+              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Components\\Pages\\HiromiLanguageSchool.razor",
+              "RelativeToolTip": "Traducteur FrancoJaponais\\Components\\Pages\\HiromiLanguageSchool.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-06T21:16:04.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\wwwroot\\index.html",
+              "RelativeToolTip": "Traducteur FrancoJaponais\\wwwroot\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-12-06T21:09:48.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Traducteur FrancoJaponais\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-06T21:02:32.483Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -48,87 +83,35 @@
               "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Components\\Pages\\components\\HiromiCourseComponent.razor",
               "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Components\\Pages\\components\\HiromiCourseComponent.razor",
               "RelativeToolTip": "Traducteur FrancoJaponais\\Components\\Pages\\components\\HiromiCourseComponent.razor",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAhwDQAAABbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-06T18:13:39.236Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataManagerService.cs",
-              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\DataManagerService.cs",
-              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Services\\DataManagerService.cs",
-              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\DataManagerService.cs",
-              "RelativeToolTip": "Traducteur FrancoJaponais\\Services\\DataManagerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T17:19:40.434Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IDataManager.cs",
-              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\Interface\\IDataManager.cs",
-              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Services\\Interface\\IDataManager.cs",
-              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\Interface\\IDataManager.cs",
-              "RelativeToolTip": "Traducteur FrancoJaponais\\Services\\Interface\\IDataManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T19:08:20.651Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HiromiCourse.cs",
-              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Model\\HiromiCourse.cs",
-              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Model\\HiromiCourse.cs",
-              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Model\\HiromiCourse.cs",
-              "RelativeToolTip": "Traducteur FrancoJaponais\\Model\\HiromiCourse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T18:13:44.736Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HiromiPhrase.cs",
-              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Model\\HiromiPhrase.cs",
-              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Model\\HiromiPhrase.cs",
-              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Model\\HiromiPhrase.cs",
-              "RelativeToolTip": "Traducteur FrancoJaponais\\Model\\HiromiPhrase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T18:46:04.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DataBaseService.cs",
-              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
-              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
-              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
-              "RelativeToolTip": "Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T17:44:40.534Z",
+              "WhenOpened": "2025-12-06T21:01:35.935Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\MauiProgram.cs",
-              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\MauiProgram.cs",
-              "RelativeToolTip": "Traducteur FrancoJaponais\\MauiProgram.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABcAAABDAAAAAAAAAA==",
+              "Title": "Hiragana.cs",
+              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Constants\\Hiragana.cs",
+              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Constants\\Hiragana.cs",
+              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Constants\\Hiragana.cs",
+              "RelativeToolTip": "Traducteur FrancoJaponais\\Constants\\Hiragana.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T17:40:18.658Z",
+              "WhenOpened": "2025-12-06T20:55:07.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataBaseService.cs",
+              "DocumentMoniker": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
+              "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
+              "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
+              "RelativeToolTip": "Traducteur FrancoJaponais\\Services\\DataBaseService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAABsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T17:44:40.534Z",
               "EditorCaption": ""
             }
           ]
