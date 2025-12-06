@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Traducteur FrancoJaponais.props" />
-</Project>
