@@ -5,7 +5,7 @@
 @inject IDataManager<HiromiCourse> HiromiCourseDataManager;
 
 <h3>Hiromi's language school</h3>
-<div class="accordion accordion-flush" id="accordionFlushExample">
+<div class="accordion accordion-flush" id="HiromiCourseaccordion">
     @foreach (HiromiCourse item in HiromiCourseDataManager.GetAll().Result)
     {
         <HiromiCourseComponent Course="@item"></HiromiCourseComponent>

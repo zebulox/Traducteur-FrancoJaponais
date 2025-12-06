@@ -1,4 +1,8 @@
-﻿@using Traducteur_FrancoJaponais.Model
+﻿@using System.Linq.Expressions
+@using SQLite
+@using Traducteur_FrancoJaponais.Model
+@using Traducteur_FrancoJaponais.Services.Interface
+@inject IDataManager<HiromiPhrase> HiromiPhraseDataManager;
 
 <div class="accordion-item">
     <h2 class="accordion-header">
@@ -6,10 +10,29 @@
             Accordion Item #@Course.Number
         </button>
     </h2>
-    <div id=@($"flush-collapse{Course.Id}") class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the 
-            <code>.accordion-flush</code> class. This is the first item’s accordion body.
-        </div>
+    <div id=@($"flush-collapse{Course.Id}") class="accordion-collapse collapse" data-bs-parent="#HiromiCourseaccordion">
+        @foreach (HiromiPhrase phrase in Phrases)
+        {
+            <div class="accordion-body">
+                <div class="card text-center">
+                    <div class="card-header">
+                        @(phrase.Japonais)
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@(phrase.Francais)</h5>
+                        <p class="card-text">@(phrase.Explication)</p>
+                        @* <a href="#" class="btn btn-primary">Go somewhere</a> *@
+                    </div>
+    @*                 <div class="card-footer text-body-secondary">
+                        2 days ago
+                    </div> *@
+                </div>
+            </div>
+
+
+        }
+        @* <a href="#" class="card-link">@Course.Link</a> *@
+        <a href="https://www.youtube.com/watch?v=qmsbP13xu6k&list=RDMMiR-K2rUP86M&index=4" class="card-link">https://www.youtube.com/watch?v=qmsbP13xu6k&list=RDMMiR-K2rUP86M&index=4</a>
     </div>
 </div>
 
@@ -17,4 +40,28 @@
 @code {
     [Parameter]
     public HiromiCourse Course { get; set; }
+    private List<HiromiPhrase> Phrases;
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue<HiromiCourse>(nameof(Course), out HiromiCourse course))
+        {
+            if (course != null)
+            {
+                try
+                {
+                    //se casse la guele comme une vielle merde sur la compilation de l'expression ?.??????
+                    // Phrases = await HiromiPhraseDataManager.Get(f => f.CourseNumber == course.Id);
+                    var db = HiromiPhraseDataManager.returndatabaseservice();
+                    //et la ça marche .....
+                    Phrases = db.Table<HiromiPhrase>().Where(f => f.CourseNumber == course.Id).ToListAsync().Result;
+                }
+                catch (Exception e)
+                {
+                    
+                }
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
 }
