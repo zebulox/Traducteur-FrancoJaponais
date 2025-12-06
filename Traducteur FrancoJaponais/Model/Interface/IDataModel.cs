@@ -6,5 +6,6 @@ namespace Traducteur_FrancoJaponais.Model.Interface
 {
     public interface IDataModel
     {
+        
     }
 }

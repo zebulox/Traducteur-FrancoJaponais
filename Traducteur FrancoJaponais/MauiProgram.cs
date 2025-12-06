@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using Traducteur_FrancoJaponais.Model;
 using Traducteur_FrancoJaponais.Services;
+using Traducteur_FrancoJaponais.Services.Interface;
 
 namespace Traducteur_FrancoJaponais
 {
@@ -16,9 +18,9 @@ namespace Traducteur_FrancoJaponais
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddSingleton<IDataBaseService>(new DataBaseService());
+            builder.Services.AddSingleton<IDataManager<HiromiCourse>>(new DataManagerService<HiromiCourse>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
 
-            IDataBaseService dbService = new DataBaseService();
-            dbService.Init();
             /*Faire la DI ici ex:*/
             /*
             builder.Services.AddTransient<ILogger>();

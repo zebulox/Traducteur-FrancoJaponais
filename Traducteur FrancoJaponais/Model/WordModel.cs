@@ -16,5 +16,10 @@ namespace Traducteur_FrancoJaponais.Model
         public String Romanji { get; set; } = String.Empty;
         public String Francais { get; set; } = String.Empty;
         public String Detail { get; set; } = String.Empty;
+
+        public WordModel()
+        {
+                
+        }
     }
 }
