@@ -1,0 +1,52 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Traducteur FrancoJaponais.slnx/FileContentIndex/2908f6bc-f7c9-4b67-aeff-6660a481022e.vsidx
+/.vs/Traducteur FrancoJaponais.slnx/FileContentIndex/4a88fd6d-91b2-4f5c-acdd-2ab5b1b6af10.vsidx
+/.vs/Traducteur FrancoJaponais.slnx/FileContentIndex/bd3b06fa-7a41-4ba7-b4cb-661459644512.vsidx
+/.vs/Traducteur FrancoJaponais.slnx/FileContentIndex/be8f1825-8698-49f1-8340-fddf8a568843.vsidx
+/.vs/Traducteur FrancoJaponais.slnx/v18/.suo
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/designtime/build.props
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/libraryprojectimports.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/rjimswa.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/rjsmcshtml.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/rjsmrazor.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/rpswa.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/staticwebassets.build.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/staticwebassets.build.json.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/staticwebassets.development.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/staticwebassets.pack.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/staticwebassets.publish.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/Traducteur FrancoJaponais.AssemblyInfo.cs
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/Traducteur FrancoJaponais.AssemblyInfoInputs.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/Traducteur FrancoJaponais.assets.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/Traducteur FrancoJaponais.GeneratedMSBuildEditorConfig.editorconfig
+/Traducteur FrancoJaponais/obj/Debug/net10.0-android/_AndroidResolvedResources.hash
+/Traducteur FrancoJaponais/obj/Debug/net10.0-ios/iossimulator-x64/rpswa.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-ios/iossimulator-x64/Traducteur FrancoJaponais.AssemblyInfo.cs
+/Traducteur FrancoJaponais/obj/Debug/net10.0-ios/iossimulator-x64/Traducteur FrancoJaponais.AssemblyInfoInputs.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-ios/iossimulator-x64/Traducteur FrancoJaponais.assets.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-ios/iossimulator-x64/Traducteur FrancoJaponais.GeneratedMSBuildEditorConfig.editorconfig
+/Traducteur FrancoJaponais/obj/Debug/net10.0-maccatalyst/maccatalyst-x64/rpswa.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-maccatalyst/maccatalyst-x64/Traducteur FrancoJaponais.AssemblyInfo.cs
+/Traducteur FrancoJaponais/obj/Debug/net10.0-maccatalyst/maccatalyst-x64/Traducteur FrancoJaponais.AssemblyInfoInputs.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-maccatalyst/maccatalyst-x64/Traducteur FrancoJaponais.assets.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-maccatalyst/maccatalyst-x64/Traducteur FrancoJaponais.GeneratedMSBuildEditorConfig.editorconfig
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/rjimswa.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/rjsmcshtml.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/rjsmrazor.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/rpswa.dswa.cache.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/staticwebassets.build.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/staticwebassets.build.json.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/staticwebassets.development.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/staticwebassets.pack.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/staticwebassets.publish.json
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/Traducteur FrancoJaponais.AssemblyInfo.cs
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/Traducteur FrancoJaponais.AssemblyInfoInputs.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/Traducteur FrancoJaponais.assets.cache
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/Traducteur FrancoJaponais.GeneratedMSBuildEditorConfig.editorconfig
+/Traducteur FrancoJaponais/obj/Debug/net10.0-windows10.0.19041.0/win-x64/XamlSaveStateFile.xml
+/Traducteur FrancoJaponais/obj/project.assets.json
+/Traducteur FrancoJaponais/obj/project.nuget.cache
+/Traducteur FrancoJaponais/obj/Traducteur FrancoJaponais.csproj.nuget.dgspec.json
