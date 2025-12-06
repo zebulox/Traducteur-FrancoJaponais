@@ -34,8 +34,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0b70bd46-6688-36ac-9352-407daa38242e}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -83,7 +87,7 @@
               "RelativeDocumentMoniker": "Traducteur FrancoJaponais\\Components\\Pages\\components\\HiromiCourseComponent.razor",
               "ToolTip": "C:\\Users\\Hadrien\\source\\repos\\Traducteur-FrancoJaponais\\Traducteur FrancoJaponais\\Components\\Pages\\components\\HiromiCourseComponent.razor",
               "RelativeToolTip": "Traducteur FrancoJaponais\\Components\\Pages\\components\\HiromiCourseComponent.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-06T21:01:35.935Z",
               "EditorCaption": ""
