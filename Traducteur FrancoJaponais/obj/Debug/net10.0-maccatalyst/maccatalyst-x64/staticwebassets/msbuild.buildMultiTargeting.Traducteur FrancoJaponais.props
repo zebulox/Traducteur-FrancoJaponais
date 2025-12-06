@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Traducteur FrancoJaponais.props" />
-</Project>
