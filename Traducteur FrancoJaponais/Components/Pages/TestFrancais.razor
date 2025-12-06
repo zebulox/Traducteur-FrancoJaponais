@@ -1,0 +1,34 @@
+﻿@page "/TestFrancais"
+@using System.Text.RegularExpressions
+@using System.Text
+@using Traducteur_FrancoJaponais.Constants
+@using Traducteur_FrancoJaponais.Services
+<h3>Traducteur Français => Japonais</h3>
+<div>
+    <div class="mb-3">
+        <label for="latinInput">Latin : </label>
+        <InputText id="latinInput" @bind-Value="InputText" @oninput="OnInput"></InputText>
+    </div>
+    <div class="mb-3">
+        <label for="hiraganaOutput">Hiragana : </label>
+        <span id="hiraganaOutput" class="fw-bolder">@HiraganaTrad</span>
+    </div>
+        <button class="btn btn-primary" @onclick="Translate">Traduire</button>
+
+</div>
+
+
+
+@code {
+    String InputText = String.Empty;
+    String HiraganaTrad = String.Empty;
+    private void Translate()
+    {
+        string inputtest = InputText;
+
+    }
+    private void OnInput(ChangeEventArgs e)
+    {
+        HiraganaTrad = LatinToHiraganaConverter.ConvertLatinToHiragana(e.Value.ToString().ToLower());
+    }
+}

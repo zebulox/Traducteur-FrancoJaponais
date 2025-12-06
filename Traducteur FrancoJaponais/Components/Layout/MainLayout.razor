@@ -1,0 +1,29 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+@*         <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+ *@
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+    <footer class="position-absolute bottom-0 start-50 translate-middle-x">
+        <a class="btn btn-primary" 
+           data-bs-toggle="offcanvas" 
+           href="#offcanvasExample" 
+           role="button" 
+           aria-controls="offcanvasExample">
+            Menu
+        </a>
+        @* <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            Button with data-bs-target
+        </button> *@
+    </footer>
+</div>

@@ -1,0 +1,10 @@
+<api type="debug" assembly-name="Traducteur FrancoJaponais" mvid="9efdac11f35b4f1eb6dc5449692d3200">
+  <java-to-managed>
+    <entry java-name="crc645a8db18f0192975b/MainActivity" managed-name="Traducteur_FrancoJaponais.MainActivity, Traducteur FrancoJaponais" managed-type-token-id="33554441" />
+    <entry java-name="crc645a8db18f0192975b/MainApplication" managed-name="Traducteur_FrancoJaponais.MainApplication, Traducteur FrancoJaponais" managed-type-token-id="33554442" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="crc645a8db18f0192975b/MainActivity" managed-name="Traducteur_FrancoJaponais.MainActivity, Traducteur FrancoJaponais" managed-type-token-id="33554441" />
+    <entry java-name="crc645a8db18f0192975b/MainApplication" managed-name="Traducteur_FrancoJaponais.MainApplication, Traducteur FrancoJaponais" managed-type-token-id="33554442" />
+  </managed-to-java>
+</api>
