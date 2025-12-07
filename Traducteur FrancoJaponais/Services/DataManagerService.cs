@@ -40,5 +40,10 @@ namespace Traducteur_FrancoJaponais.Services
         {
             return _dataBaseService.InsertAsync(data);
         }
+
+        public Task<int> Delete(T data)
+        {
+            return _dataBaseService.DeleteAsync(data);
+        }
     }
 }
