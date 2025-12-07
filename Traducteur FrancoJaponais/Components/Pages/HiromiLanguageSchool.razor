@@ -3,6 +3,7 @@
 @using Traducteur_FrancoJaponais.Services.Interface
 @using Traducteur_FrancoJaponais.Components.Pages.components
 @inject IDataManager<HiromiCourse> HiromiCourseDataManager;
+@inject IDataManager<HiromiPhrase> HiromiPhrasesDataManager;
 @inject NavigationManager _navigationManager
 
 <h3>Hiromi's language school</h3>
@@ -10,9 +11,10 @@
     @* TODO Voir si on peut se passer du .Result et faire le chargement en async pur *@
     @foreach (HiromiCourse item in HiromiCourseDataManager.GetAll().Result)
     {
-        <HiromiCourseComponent Course="@item" onCourseDeleted="Reload"></HiromiCourseComponent>
+        <HiromiCourseComponent Course="@item" onRefreshView="Reload"></HiromiCourseComponent>
     }
     <button class="btn btn-primary d-flex align-content-end flex-wrap mt-4" data-bs-toggle="modal" data-bs-target="#modalNvCour" @onclick="InitCreaCour">Ajouter un cour</button>
+    <button class="btn btn-primary d-flex align-content-end flex-wrap mt-4" data-bs-toggle="modal" data-bs-target="#modalNvllePhrase" @onclick="modalNvllePhrase">Ajouter une Phrase</button>
 </div>
 
 <!-- Modal nouveau cour -->
@@ -41,7 +43,6 @@
                         <label for="courLink" class="form-label">Lien: </label>
                         <input @bind="@NewCourse.Link" type="text" class="form-control" id="courLink" aria-describedby="Lien">
                     </div>
-                    @* <button type="submit" class="btn btn-primary">Submit</button> *@
                 </form>
             </div>
             <div class="modal-footer">
@@ -52,10 +53,50 @@
     </div>
 </div>
 
+<!-- Modal Nouvelle phrase cour -->
+<div class="modal fade" id="modalNvllePhrase" tabindex="-1" aria-labelledby="modalNvllePhraseLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalNvllePhraseLabel">Ajouter un cour</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <select @bind="@NewPhrase.CourseNumber" class="form-select form-select-lg mb-3" aria-label="Large select example">
+                            @foreach (HiromiCourse item in HiromiCourseDataManager.GetAll().Result)
+                            {
+                                <option value="@item.Number">@item.Titre</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phraseLatin" class="form-label">Latin: </label>
+                        <input @bind="@NewPhrase.Francais" type="text" class="form-control" id="phraseLatin" aria-describedby="Latin">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phraseJaponais" class="form-label">Japonais :</label>
+                        <input @bind="@NewPhrase.Japonais" type="text" class="form-control" id="phraseJaponais">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phraseExplication" class="form-label">Explication: </label>
+                        <input @bind="@NewPhrase.Explication" type="text" class="form-control" id="phraseExplication" aria-describedby="Explication">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary" @onclick="CreatePhrase">Ajouter la phrase</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
-    
+
     private HiromiCourse NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
+    private HiromiPhrase NewPhrase = new HiromiPhrase() { CourseNumber = 0, Explication = String.Empty, Francais = String.Empty, Japonais = String.Empty };
     private String AddButtonClass = "btn btn-primary";
     private String AddButtonLabel = "Ajouter le cour";
     private bool AddButtonDisabled = false;
@@ -64,6 +105,11 @@
     {
         NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
         enableSaveBtn();
+    }
+
+    private void modalNvllePhrase()
+    {
+        NewPhrase = new HiromiPhrase() { CourseNumber = 0, Explication = String.Empty, Francais = String.Empty, Japonais = String.Empty };
     }
 
     private void CreateCour()
@@ -75,8 +121,20 @@
         else
         {
             disableSaveBtn();
+            Reload();
         }
-        Reload();
+    }
+
+    private void CreatePhrase()
+    {
+        if (HiromiPhrasesDataManager.Insert(NewPhrase).Result != 1)
+        {
+            throw new Exception("une erreur est survenue. La phrase n'a pas pu être ajoutée");
+        }
+        else
+        {
+            Reload();
+        }
     }
 
     private void enableSaveBtn()
