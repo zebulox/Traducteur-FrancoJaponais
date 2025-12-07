@@ -20,6 +20,7 @@ namespace Traducteur_FrancoJaponais.Services
 
         private void InitDataBaseTables()
         {
+
             database.CreateTableAsync<WordModel>();
             database.CreateTableAsync<HiromiPhrase>();
             database.CreateTableAsync<HiromiCourse>();
@@ -30,6 +31,12 @@ namespace Traducteur_FrancoJaponais.Services
 
         private void InitCoursesDataForBase()
         {
+            var courses = database.Table<HiromiCourse>().ToListAsync().Result;
+            foreach (var cour in courses)
+            {
+                int ret = database.DeleteAsync<HiromiCourse>(cour.Id).GetAwaiter().GetResult();
+            }
+
             List<HiromiCourse> Cours = new List<HiromiCourse>()
             {
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=RP17L8jqK2Q&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=2", Number = 1   , HorsSerie = false, Titre = "Salutations et Politesses"},
@@ -47,6 +54,12 @@ namespace Traducteur_FrancoJaponais.Services
 
         private void InitPhrasesDataForBase()
         {
+
+            var courses = database.Table<HiromiPhrase>().ToListAsync().Result;
+            foreach (var cour in courses)
+            {
+                int ret = database.DeleteAsync<HiromiPhrase>(cour.Id).GetAwaiter().GetResult();
+            }
             /*Cours 1*/
             List<HiromiPhrase> Cours = new List<HiromiPhrase>()
             {
@@ -58,6 +71,7 @@ namespace Traducteur_FrancoJaponais.Services
                 new HiromiPhrase(){CourseNumber = 1, Japonais = "おつかれ さま でした", Francais = "Otsukare sama deshita", Explication = "forme passée de Otsukare sama desu"},
 
             };
+            database.InsertAllAsync(Cours);
 
             List<HiromiPhrase> Cours2 = new List<HiromiPhrase>()
             {

@@ -43,7 +43,7 @@ namespace Traducteur_FrancoJaponais.Services
 
         public Task<int> Delete(T data)
         {
-            return _dataBaseService.DeleteAsync(data);
+            return _dataBaseService.DeleteAsync<T>(data.Id);
         }
     }
 }
