@@ -42,7 +42,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="courLink" class="form-label">Lien: </label>
-                        <input @bind="@NewCourse.Link" type="text" class="@NewCourseTitreCss" id="courLink" aria-describedby="Lien">
+                        <input @bind="@NewCourse.Link" type="text" class="@NewCourseLinkCss" id="courLink" aria-describedby="Lien">
                     </div>
                 </form>
             </div>
@@ -65,7 +65,7 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <select @bind="@NewPhrase.CourseNumber" class="form-select form-select-lg mb-3" aria-label="Large select example">
+                        <select @bind="@NewPhrase.CourseNumber" class="@NewPhraseSelectCourseCss" aria-label="Large select example">
                             <option value="0" default selected="selected">Choisir un cour</option>
                             @foreach (HiromiCourse item in HiromiCourseDataManager.GetAll().Result)
                             {
@@ -75,15 +75,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="phraseLatin" class="form-label">Latin: </label>
-                        <input @bind="@NewPhrase.Francais" @oninput="OnInputLatin" type="text" class="form-control" id="phraseLatin" aria-describedby="Latin">
+                        <input @bind="@NewPhrase.Francais" @oninput="OnInputLatin" type="text" class="@NewPhraseFrancaisCss" id="phraseLatin" aria-describedby="Latin">
                     </div>
                     <div class="mb-3">
                         <label for="phraseJaponais" class="form-label">Japonais :</label>
-                        <input @bind="@NewPhrase.Japonais" type="text" class="form-control" id="phraseJaponais">
+                        <input @bind="@NewPhrase.Japonais" type="text" class="@NewPhraseJaponaisCss" id="phraseJaponais">
                     </div>
                     <div class="mb-3">
                         <label for="phraseExplication" class="form-label">Explication: </label>
-                        <input @bind="@NewPhrase.Explication" type="text" class="form-control" id="phraseExplication" aria-describedby="Explication">
+                        <input @bind="@NewPhrase.Explication" type="text" class="@NewPhraseExplicationCss" id="phraseExplication" aria-describedby="Explication">
                     </div>
                 </form>
             </div>
@@ -104,6 +104,11 @@
     string NewCourseNumberCss = "form-control";
     string NewCourseTitreCss = "form-control";
 
+    string NewPhraseSelectCourseCss = "form-select form-select-lg mb-3";
+    string NewPhraseFrancaisCss = "form-control";
+    string NewPhraseJaponaisCss = "form-control";
+    string NewPhraseExplicationCss = "form-control";
+
     private void InitCreaCour()
     {
         NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
@@ -118,6 +123,9 @@
     {
         //check if object is set ajouter dans la classe .is-invalid et .is-valid respectivement
         bool valid = true;
+        NewCourseLinkCss = "form-control";
+        NewCourseNumberCss = "form-control";
+        NewCourseTitreCss = "form-control";
         if (NewCourse.Link == string.Empty)
         {
             NewCourseLinkCss = "form-control is-invalid";
@@ -137,9 +145,7 @@
         {
             return;
         }
-        NewCourseLinkCss = "form-control";
-        NewCourseNumberCss = "form-control";
-        NewCourseTitreCss = "form-control";
+        
 
         if (HiromiCourseDataManager.Insert(NewCourse).Result != 1)
         {
@@ -153,9 +159,36 @@
 
     private void CreatePhrase()
     {
-        //check if object is set
-        if (NewPhrase.Explication == string.Empty || NewPhrase.Francais == String.Empty || NewPhrase.Japonais == string.Empty || NewPhrase.CourseNumber == 0)
+        bool valid = true;
+        NewPhraseSelectCourseCss = "form-select form-select-lg mb-3";
+        NewPhraseFrancaisCss = "form-control";
+        NewPhraseJaponaisCss = "form-control";
+        NewPhraseExplicationCss = "form-control";
+        if (NewPhrase.Explication == string.Empty)
+        {
+            NewPhraseExplicationCss = "form-control is-invalid";
+            valid = false;
+        }
+        if (NewPhrase.Francais == string.Empty)
+        {
+            NewPhraseFrancaisCss = "form-control is-invalid";
+            valid = false;
+        }
+        if (NewPhrase.Japonais == string.Empty)
+        {
+            NewPhraseJaponaisCss = "form-control is-invalid";
+            valid = false;
+        }
+        if (NewPhrase.CourseNumber == 0)
+        {
+            NewPhraseSelectCourseCss = "form-select form-select-lg mb-3 is-invalid";
+            valid = false;
+        }
+        if (!valid)
+        {
             return;
+        }
+
         if (HiromiPhrasesDataManager.Insert(NewPhrase).Result != 1)
         {
             throw new Exception("une erreur est survenue. La phrase n'a pas pu être ajoutée");
