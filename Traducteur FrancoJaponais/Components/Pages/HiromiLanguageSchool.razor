@@ -47,7 +47,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                <button type="button" class="@(AddButtonClass)" @onclick="CreateCour" disabled="@AddButtonDisabled">@(AddButtonLabel)</button>
+                <button type="button" class="btn btn-primary" @onclick="CreateCour">Ajouter le cour</button>
             </div>
         </div>
     </div>
@@ -97,14 +97,10 @@
 
     private HiromiCourse NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
     private HiromiPhrase NewPhrase = new HiromiPhrase() { CourseNumber = 0, Explication = String.Empty, Francais = String.Empty, Japonais = String.Empty };
-    private String AddButtonClass = "btn btn-primary";
-    private String AddButtonLabel = "Ajouter le cour";
-    private bool AddButtonDisabled = false;
 
     private void InitCreaCour()
     {
         NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
-        enableSaveBtn();
     }
 
     private void modalNvllePhrase()
@@ -120,7 +116,6 @@
         }
         else
         {
-            disableSaveBtn();
             Reload();
         }
     }
@@ -135,20 +130,6 @@
         {
             Reload();
         }
-    }
-
-    private void enableSaveBtn()
-    {
-        AddButtonClass = "btn btn-primary";
-        AddButtonLabel = "Ajouter le cour";
-        AddButtonDisabled = false;
-    }
-
-    private void disableSaveBtn()
-    {
-        AddButtonClass = "btn btn-success";
-        AddButtonLabel = "Le cour à été crée";
-        AddButtonDisabled = true;
     }
 
     void Reload()
