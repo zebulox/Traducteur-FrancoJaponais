@@ -9,6 +9,7 @@ namespace Traducteur_FrancoJaponais.Services.Interface
     {
         SQLiteAsyncConnection Getdatabase();
 
+        void InitDataOnBase();
         void backupCoursesOnFileSystem();
         void ReinitCourses();
     }

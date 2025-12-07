@@ -26,9 +26,12 @@ namespace Traducteur_FrancoJaponais.Services
             database.CreateTableAsync<WordModel>();
             database.CreateTableAsync<HiromiPhrase>();
             database.CreateTableAsync<HiromiCourse>();
-            backupCoursesOnFileSystem();
-            //InitCoursesDataForBase();
-            //InitPhrasesDataForBase();
+        }
+
+        public void InitDataOnBase()
+        {
+            InitCoursesDataForBase();
+            InitPhrasesDataForBase();
         }
 
         private void InitCoursesDataForBase()

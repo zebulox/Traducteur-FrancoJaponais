@@ -4,11 +4,15 @@
 @inject IDataBaseService dataBaseService;
 
 <h3>Parameters</h3>
-
+<button class="btn btn-primary mt-4" @onclick="InitData">Init dataBase</button>
 <button class="btn btn-primary mt-4" @onclick="BackupDb">Backup dataBase to file</button>
 <button class="btn btn-primary mt-4" @onclick="RestoreDbFromFile">Restore dataBase from file</button>
 
 @code {
+    private void InitData()
+    {
+        dataBaseService.InitDataOnBase();
+    }
     private void BackupDb()
     {
         dataBaseService.backupCoursesOnFileSystem();
