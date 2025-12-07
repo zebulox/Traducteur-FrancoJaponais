@@ -3,6 +3,7 @@
 @using Traducteur_FrancoJaponais.Services.Interface
 @using Traducteur_FrancoJaponais.Components.Pages.components
 @inject IDataManager<HiromiCourse> HiromiCourseDataManager;
+@inject NavigationManager _navigationManager
 
 <h3>Hiromi's language school</h3>
 <div class="accordion accordion-flush" id="HiromiCourseaccordion">
@@ -10,8 +11,88 @@
     {
         <HiromiCourseComponent Course="@item"></HiromiCourseComponent>
     }
+    <button class="btn btn-primary d-flex align-content-end flex-wrap mt-4" data-bs-toggle="modal" data-bs-target="#modalNvCour" @onclick="InitCreaCour">Ajouter un cour</button>
 </div>
 
-@code {
+<!-- Modal nouveau cour -->
+<div class="modal fade" id="modalNvCour" tabindex="-1" aria-labelledby="modalNvCourLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalNvCourLabel">Ajouter un cour</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="courTitre" class="form-label">Titre: </label>
+                        <input @bind="@NewCourse.Titre" type="text" class="form-control" id="courTitre" aria-describedby="Titre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="courNumero" class="form-label">Numéro :</label>
+                        <input @bind="@NewCourse.Number" type="number" class="form-control" id="courNumero">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input @bind="@NewCourse.HorsSerie" type="checkbox" class="form-check-input" id="courIsHs">
+                        <label class="form-check-label" for="courIsHs">Hors série ?</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="courLink" class="form-label">Lien: </label>
+                        <input @bind="@NewCourse.Link" type="text" class="form-control" id="courLink" aria-describedby="Lien">
+                    </div>
+                    @* <button type="submit" class="btn btn-primary">Submit</button> *@
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <button type="button" class="@(AddButtonClass)" @onclick="CreateCour" disabled="@AddButtonDisabled">@(AddButtonLabel)</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+@code {
+    private HiromiCourse NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
+    private String AddButtonClass = "btn btn-primary";
+    private String AddButtonLabel = "Ajouter le cour";
+    private bool AddButtonDisabled = false;
+
+    private void InitCreaCour()
+    {
+        NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
+        enableSaveBtn();
+    }
+
+    private void CreateCour()
+    {
+        if (HiromiCourseDataManager.Insert(NewCourse).Result != 1)
+        {
+            throw new Exception("une erreur est survenue. Le cours n'a pas pu être ajouté");
+        }
+        else
+        {
+            disableSaveBtn();
+        }
+        Reload();
+    }
+
+    private void enableSaveBtn()
+    {
+        AddButtonClass = "btn btn-primary";
+        AddButtonLabel = "Ajouter le cour";
+        AddButtonDisabled = false;
+    }
+
+    private void disableSaveBtn()
+    {
+        AddButtonClass = "btn btn-success";
+        AddButtonLabel = "Le cour à été crée";
+        AddButtonDisabled = true;
+    }
+
+    void Reload()
+    {
+        _navigationManager.NavigateTo("HiromiLanguageSchool");
+    }
 }
