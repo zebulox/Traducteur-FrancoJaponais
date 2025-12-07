@@ -10,7 +10,7 @@
     @* TODO Voir si on peut se passer du .Result et faire le chargement en async pur *@
     @foreach (HiromiCourse item in HiromiCourseDataManager.GetAll().Result)
     {
-        <HiromiCourseComponent Course="@item"></HiromiCourseComponent>
+        <HiromiCourseComponent Course="@item" onCourseDeleted="Reload"></HiromiCourseComponent>
     }
     <button class="btn btn-primary d-flex align-content-end flex-wrap mt-4" data-bs-toggle="modal" data-bs-target="#modalNvCour" @onclick="InitCreaCour">Ajouter un cour</button>
 </div>
@@ -54,6 +54,7 @@
 
 
 @code {
+    
     private HiromiCourse NewCourse = new HiromiCourse() { Number = 0, HorsSerie = false, Titre = String.Empty, Link = String.Empty };
     private String AddButtonClass = "btn btn-primary";
     private String AddButtonLabel = "Ajouter le cour";
@@ -94,6 +95,6 @@
 
     void Reload()
     {
-        _navigationManager.NavigateTo("HiromiLanguageSchool");
+        _navigationManager.Refresh();
     }
 }

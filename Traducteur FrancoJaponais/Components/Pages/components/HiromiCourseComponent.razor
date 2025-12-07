@@ -3,11 +3,14 @@
 @using Traducteur_FrancoJaponais.Model
 @using Traducteur_FrancoJaponais.Services.Interface
 @inject IDataManager<HiromiPhrase> HiromiPhraseDataManager;
+@inject IDataManager<HiromiCourse> HiromiCourseDataManager;
+@inject NavigationManager _navigationManager
 
 <div class="accordion-item">
     <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=@($"#flush-collapse{Course.Id}") aria-expanded="false" aria-controls=@($"flush-collapse{Course.Id}")>
             #@Course.Number => @Course.Titre 
+            <span class="bi bi-trash3 position-absolute end-0" type="button" @onclick="DeleteCour"></span>
         </button>
     </h2>
     <div id=@($"flush-collapse{Course.Id}") class="accordion-collapse collapse" data-bs-parent="#HiromiCourseaccordion">
@@ -32,6 +35,8 @@
 
 @code {
     [Parameter]
+    public EventCallback onCourseDeleted { get; set; }
+    [Parameter]
     public HiromiCourse Course { get; set; }
     private List<HiromiPhrase> Phrases;
     public override async Task SetParametersAsync(ParameterView parameters)
@@ -51,11 +56,32 @@
                 }
                 catch (Exception e)
                 {
-                    
+
                 }
             }
         }
 
         await base.SetParametersAsync(parameters);
+    }
+
+    private void DeleteCour()
+    {
+        foreach (var phrasesInCourse in Phrases)
+        {
+            HiromiPhraseDataManager.Delete(phrasesInCourse);
+        }
+        // Phrases = new List<HiromiPhrase>();
+        HiromiCourseDataManager.Delete(Course);
+        ReturnToLanguageSchool();
+    }
+
+    void ReturnToLanguageSchool()
+    {
+        _navigationManager.Refresh();
+    }
+
+    protected async Task DeleteButtonClicked()
+    {
+        await onCourseDeleted.InvokeAsync();
     }
 }
