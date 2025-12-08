@@ -1,11 +1,19 @@
 ﻿@page "/OCR"
+@using Plugin.Maui.OCR
 @using Traducteur_FrancoJaponais.Services.Interface
 @inject IJSRuntime js
 @inject IPermissionManager PermissionManager;
+@inject IOcrService OcrService;
 <h3>OCR</h3>
 
 <button class="btn btn-primary" @onclick="Capture">Click me</button>
 <img id="image" class="img-fluid" alt="OCR Image source"/>
+<div>
+    <span>AllText</span>
+    <span>@AllText</span>
+</div>
+
+
 @code {
     //permissions management
     //https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/appmodel/permissions?view=net-maui-10.0&tabs=windows
@@ -14,7 +22,7 @@
     //OCR nugget
     //https://www.nuget.org/packages/Plugin.Maui.OCR
     //
-
+    private string AllText = String.Empty;
     private async void Capture()
     {
         var permissionCamera = await PermissionManager.CheckAndRequestCameraPermission();
@@ -33,12 +41,47 @@
             {
                 return;
             }
+            else
+            {
+                try
+                {
+                    OcrResult result = await ProcessPhoto(photo);
+                    if (result != null)
+                    {
+                        AllText = result.AllText;
+                    }
+                }
+                catch (Exception e)
+                {
+                    AllText = e.Message;
+                }
+            }
             using (var stream = await photo.OpenReadAsync())
             {
                 var dotnetImageStream = new DotNetStreamReference(stream);
                 await js.InvokeAsync<bool>("captureImage", "image", dotnetImageStream);
             }
         }
+    }
+
+    /// <summary>
+    /// Takes a photo and processes it using the OCR service.
+    /// </summary>
+    /// <param name="photo">The photo to process.</param>
+    /// <returns>The OCR result.</returns>
+    private async Task<OcrResult> ProcessPhoto(FileResult photo)
+    {
+        // Open a stream to the photo
+        using var sourceStream = await photo.OpenReadAsync();
+
+        // Create a byte array to hold the image data
+        var imageData = new byte[sourceStream.Length];
+
+        // Read the stream into the byte array
+        await sourceStream.ReadAsync(imageData);
+
+        // Process the image data using the OCR service
+        return await OcrService.RecognizeTextAsync(imageData);
     }
 }
 

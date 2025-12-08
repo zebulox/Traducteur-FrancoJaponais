@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Plugin.Maui.OCR;
 using Traducteur_FrancoJaponais.Model;
 using Traducteur_FrancoJaponais.Services;
 using Traducteur_FrancoJaponais.Services.Interface;
@@ -16,7 +17,7 @@ namespace Traducteur_FrancoJaponais
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                });
+                }).UseOcr(); 
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddSingleton<IDataBaseService>(new DataBaseService());
