@@ -1,5 +1,7 @@
 ﻿@page "/OCR"
+@using Traducteur_FrancoJaponais.Services.Interface
 @inject IJSRuntime js
+@inject IPermissionManager PermissionManager;
 <h3>OCR</h3>
 
 <button class="btn btn-primary" @onclick="Capture">Click me</button>
@@ -15,19 +17,27 @@
 
     private async void Capture()
     {
-        FileResult photo = null;
-        if (DeviceInfo.Current.Platform == DevicePlatform.Android || DeviceInfo.Current.Platform == DevicePlatform.iOS)
+        var permissionCamera = await PermissionManager.CheckAndRequestCameraPermission();
+        if ( permissionCamera == PermissionStatus.Granted)
         {
-            photo = await MediaPicker.CapturePhotoAsync();
-        }
-        if (photo == null)
-        {
-            return;
-        }
-        using (var stream = await photo.OpenReadAsync())
-        {
-            var dotnetImageStream = new DotNetStreamReference(stream);
-            await js.InvokeAsync<bool>("captureImage", "image", dotnetImageStream);
+            FileResult photo = null;
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android || DeviceInfo.Current.Platform == DevicePlatform.iOS)
+            {
+                var permissionWrite = await PermissionManager.CheckAndRequestWriteExternalStorage();
+                if (permissionWrite == PermissionStatus.Granted)
+                {
+                    photo = await MediaPicker.Default.CapturePhotoAsync();//Finit dans le cache /data/user/0/com.grimonthadrien.traducteurfrajap/cache/2203693cc04e0be7f4f024d5f9499e13/636358e875444c92b10a69c899293036/7d4cf09ddb2348a1afc7f3caf2a720f0.jpg
+                }
+            }
+            if (photo == null)
+            {
+                return;
+            }
+            using (var stream = await photo.OpenReadAsync())
+            {
+                var dotnetImageStream = new DotNetStreamReference(stream);
+                await js.InvokeAsync<bool>("captureImage", "image", dotnetImageStream);
+            }
         }
     }
 }

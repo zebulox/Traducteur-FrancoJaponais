@@ -7,5 +7,9 @@ namespace Traducteur_FrancoJaponais.Services.Interface
     public interface IPermissionManager
     {
         Task<PermissionStatus> CheckAndRequestCameraPermission();
+
+        Task<PermissionStatus> CheckAndRequestWriteExternalStorage();
+
+        Task<PermissionStatus> CheckAndRequestReadExternalStorage();
     }
 }
