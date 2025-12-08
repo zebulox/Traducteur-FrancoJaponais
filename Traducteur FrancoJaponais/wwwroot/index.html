@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="Traducteur FrancoJaponais.styles.css" />
     <link rel="stylesheet" href="lib/bootstrap/dist/icons/bootstrap-icons-1.13.1/bootstrap-icons.css">
     <link rel="icon" href="data:,">
+
+    <!--Access camera from app-->
+    <script>
+        async function captureImage(imageId, imageStream) {
+            const arrayBuffer = await imageStream.arrayBuffer();
+            const blob = new Blob([arrayBuffer]);
+            const url = URL.createObjectURL(blob);
+            document.getElementById(imageId).src = url;
+            document.getElementById(imageId).style.display = 'block';
+            return true;
+        }
+    </script>
+
 </head>
 
 <body class="container flex-column min-vh-100">

@@ -1,0 +1,37 @@
+﻿@page "/OCR"
+@inject IJSRuntime js
+<h3>OCR</h3>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<img id="image" />
+@code {
+    //permissions management
+    //https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/appmodel/permissions?view=net-maui-10.0&tabs=windows
+    //camera usage
+    //https://stackoverflow.com/questions/77624261/unable-to-use-mobile-device-camera-in-blazor-maui-hybrid-application
+    //OCR nugget
+    //https://www.nuget.org/packages/Plugin.Maui.OCR
+    //
+
+    private int currentCount = 0;
+    private async void IncrementCount()
+    {
+        FileResult photo = new FileResult("");//mouhais pas foufou
+        if (DeviceInfo.Current.Platform == DevicePlatform.Android || DeviceInfo.Current.Platform == DevicePlatform.iOS)
+        {
+            photo = await MediaPicker.CapturePhotoAsync();
+        }
+        if (photo == null)
+        {
+            return;
+        }
+        using (var stream = await photo.OpenReadAsync())
+        {
+            var dotnetImageStream = new DotNetStreamReference(stream);
+            await js.InvokeAsync<bool>("captureImage", "image", dotnetImageStream);
+        }
+    }
+}
+
