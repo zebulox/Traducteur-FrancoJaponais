@@ -2,9 +2,7 @@
 @inject IJSRuntime js
 <h3>OCR</h3>
 
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="Capture">Click me</button>
 <img id="image" />
 @code {
     //permissions management
@@ -15,8 +13,7 @@
     //https://www.nuget.org/packages/Plugin.Maui.OCR
     //
 
-    private int currentCount = 0;
-    private async void IncrementCount()
+    private async void Capture()
     {
         FileResult photo = null;
         if (DeviceInfo.Current.Platform == DevicePlatform.Android || DeviceInfo.Current.Platform == DevicePlatform.iOS)
