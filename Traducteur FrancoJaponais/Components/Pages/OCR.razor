@@ -18,7 +18,7 @@
     private int currentCount = 0;
     private async void IncrementCount()
     {
-        FileResult photo = new FileResult("");//mouhais pas foufou
+        FileResult photo = null;
         if (DeviceInfo.Current.Platform == DevicePlatform.Android || DeviceInfo.Current.Platform == DevicePlatform.iOS)
         {
             photo = await MediaPicker.CapturePhotoAsync();
