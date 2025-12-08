@@ -15,6 +15,12 @@
 
 
 @code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await OcrService.InitAsync();
+        await base.OnInitializedAsync();
+    }
     //permissions management
     //https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/appmodel/permissions?view=net-maui-10.0&tabs=windows
     //camera usage
@@ -79,8 +85,20 @@
 
         // Read the stream into the byte array
         await sourceStream.ReadAsync(imageData);
-
+        
+        //  Exemple avec un option
+        //  private OcrOptions(string? language, bool tryHard, List<OcrPatternConfig> patternConfigs, CustomOcrValidationCallback? customCallback)
+        // {
+        //     Language = language; => "ja-JP"
+        //     TryHard = tryHard; => fait appel à google direct Specify "tryHard" if you want to tell the platform API to do a better job (fast vs accurate, and use language correction (ios/mac)) though it seems very accurate normally.
+        //     PatternConfigs = patternConfigs;
+        //     CustomCallback = customCallback;
+        // }
+        // var options = new OcrOptions.Builder().SetTryHard(TryHardSwitch.IsToggled).Build();
+        // var result = await _ocr.RecognizeTextAsync(_preprocessedImageData, options);
+            
         // Process the image data using the OCR service
+        var options = new OcrOptions.Builder().SetLanguage("ja-JP").SetTryHard(true);
         return await OcrService.RecognizeTextAsync(imageData);
     }
 }
