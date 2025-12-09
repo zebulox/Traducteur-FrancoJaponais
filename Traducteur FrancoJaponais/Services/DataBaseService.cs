@@ -53,6 +53,7 @@ namespace Traducteur_FrancoJaponais.Services
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=10", Number = 101 , HorsSerie = true,  Titre = "Nourriture"},
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=11", Number = 7   , HorsSerie = false,  Titre = "Réconfort"},
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=12", Number = 8   , HorsSerie = false,  Titre = "Interractions en magasin"},
+                new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 102   , HorsSerie = true,  Titre = "Prononciation du R en Japonais"},
             };
             database.InsertAllAsync(Cours);
         }
@@ -180,6 +181,16 @@ namespace Traducteur_FrancoJaponais.Services
                 new HiromiPhrase(){CourseNumber = 8, Japonais = "これも ください", Francais = "koremo kudasai", Explication = "Je prendrai aussi cela s'il vous plait."},
             };
             database.InsertAllAsync(Cours8);
+
+            List<HiromiPhrase> CoursHs2 = new List<HiromiPhrase>()
+            {
+                new HiromiPhrase(){CourseNumber = 101, Japonais = "らめん", Francais = "Ramen", Explication = "Ramen"},
+                new HiromiPhrase(){CourseNumber = 101, Japonais = "りんご", Francais = "Ringo", Explication = "Pomme"},
+                new HiromiPhrase(){CourseNumber = 101, Japonais = "るび", Francais = "Rubi", Explication = "Rubis"},
+                new HiromiPhrase(){CourseNumber = 101, Japonais = "れもん", Francais = "Remon", Explication = "Citron"},
+                new HiromiPhrase(){CourseNumber = 101, Japonais = "ろうそく", Francais = "Rousoku", Explication = "Bougie"}
+            };
+            database.InsertAllAsync(CoursHs2);
 
         }
 
