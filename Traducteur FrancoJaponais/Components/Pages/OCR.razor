@@ -4,19 +4,18 @@
 @inject IJSRuntime js
 @inject IPermissionManager PermissionManager;
 @inject IOcrService OcrService;
-<h3>OCR</h3>
+<h3 class="text-center bolder mt-5">OCR</h3>
 
 <button class="btn btn-primary" @onclick="Capture">Click me</button>
-<img id="image" class="img-fluid" alt="OCR Image source"/>
+<img id="image" class="img-fluid" alt="OCR Image source" hidden=@ImgHidden/>
 <div>
-    <span>AllText</span>
     <span>@AllText</span>
 </div>
 
 
 @code {
     //tester voir si google translate à une api sur laquelle on peut envoyer des images ?
-
+    private bool ImgHidden = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -68,6 +67,7 @@
             {
                 var dotnetImageStream = new DotNetStreamReference(stream);
                 await js.InvokeAsync<bool>("captureImage", "image", dotnetImageStream);
+                ImgHidden = false;
             }
         }
     }

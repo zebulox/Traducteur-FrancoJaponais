@@ -1,26 +1,28 @@
 ﻿@page "/MoneyConverter"
-<h3>Convertisseur de devises</h3>
+<h3 class="text-center bolder mt-5">Convertisseur de devises</h3>
 
-<div class="d-flex align-items-center fs-3">
-    <div>
-        <label for="EuroInput"><span class="bi bi-currency-euro"></span></label>
-        <InputNumber id="EuroInput" @bind-Value="InputEuro" @oninput="OnInputEuro"></InputNumber>
+<div class="d-flex flex-column mt-3 text-center vh-80 align-center justify-spaced">
+    <div class="d-flex" style="align-items: center !important;">
+        <div>
+            <label for="EuroInput"><span class="bi bi-currency-euro bolder"></span></label>
+            <InputNumber id="EuroInput" @bind-Value="InputEuro" @oninput="OnInputEuro"></InputNumber>
+        </div>
+        <span class="p-2 bolder">&lt;=&gt;</span>
+        <div>
+            <label for="YenOutput"><span class="bi bi-currency-yen"></span></label>
+            <span id="YenOutput" class="fw-bolder">@YenConversion</span>
+        </div>
     </div>
-    <span class="p-2">&lt;=&gt;</span>
-    <div>
-        <label for="YenOutput"><span class="bi bi-currency-yen"></span></label>
-        <span id="YenOutput" class="fw-bolder">@YenConversion</span>
-    </div>
-</div>
-<div class="d-flex align-items-center fs-3">
-    <div>
-        <label for="YenInput"><span class="bi bi-currency-yen"></span></label>
-        <InputNumber id="YenInput" @bind-Value="InputYen" @oninput="OnInputYen"></InputNumber>
-    </div>
-    <span class="p-2">&lt;=&gt;</span>
-    <div>
-        <label for="EuroOutput"><span class="bi bi-currency-euro"></span></label>
-        <span id="EuroOutput" class="fw-bolder">@EuroConversion</span>
+    <div class="d-flex" style="align-items: center !important;">
+        <div>
+            <label for="YenInput"><span class="bi bi-currency-yen bolder"></span></label>
+            <InputNumber id="YenInput" @bind-Value="InputYen" @oninput="OnInputYen"></InputNumber>
+        </div>
+        <span class="p-2 bolder">&lt;=&gt;</span>
+        <div>
+            <label for="EuroOutput"><span class="bi bi-currency-euro"></span></label>
+            <span id="EuroOutput" class="fw-bolder">@EuroConversion</span>
+        </div>
     </div>
 </div>
 @code {

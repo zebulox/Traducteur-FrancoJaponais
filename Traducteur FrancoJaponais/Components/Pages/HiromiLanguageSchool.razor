@@ -7,7 +7,7 @@
 @inject IDataManager<HiromiPhrase> HiromiPhrasesDataManager;
 @inject NavigationManager _navigationManager
 
-<h3>Hiromi's language school</h3>
+<h3 class="text-center bolder mt-5">Hiromi's language school</h3>
 <div class="accordion accordion-flush" id="HiromiCourseaccordion">
     @* TODO Voir si on peut se passer du .Result et faire le chargement en async pur *@
     @foreach (HiromiCourse item in HiromiCourseDataManager.GetAll().Result)
@@ -17,7 +17,7 @@
 </div>
     <div class="d-flex mt-4">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNvCour" @onclick="InitCreaCour">Ajouter un cour</button>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNvllePhrase" @onclick="modalNvllePhrase">Ajouter une Phrase</button>
+        <button class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#modalNvllePhrase" @onclick="modalNvllePhrase">Ajouter une Phrase</button>
     </div>
 
 <!-- Modal nouveau cour -->

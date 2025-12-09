@@ -1,48 +1,58 @@
-﻿<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Traducteur FrancoJaponais</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-            <nav class="nav flex-column">
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link fs-3" href="HiromiLanguageSchool">
-                        <span class="bi bi-book"></span>
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Hiromi's school
-                    </NavLink>
-                </div> 
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link fs-3" href="">
-                        <span class="bi bi-card-list"></span>
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Dico
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link fs-3" href="LatinToKana">
-                        <span class="bi bi-translate"></span>
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Latin &lt;=&gt; Kana
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link fs-3" href="MoneyConverter">
-                        <span class="bi bi-currency-yen"></span>
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Yen &lt;=&gt; Euros
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link fs-3" href="OCR">
-                        <span class="bi bi-camera"></span>
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> OCR 
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link fs-3" href="Parameters">
-                        <span class="bi bi-gear"></span>
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Paramètres
-                    </NavLink>
-                </div>
-            </nav>
+﻿<nav class="navbar bg-light fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Traducteur FrancoJaponais</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <NavLink class="nav-link fs-3" href="HiromiLanguageSchool">
+                            <span class="bi bi-book"></span>
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Hiromi's school
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link fs-3" href="">
+                            <span class="bi bi-card-list"></span>
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Dico
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link fs-3" href="LatinToKana">
+                            <span class="bi bi-translate"></span>
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Latin &lt;=&gt; Kana
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link fs-3" href="MoneyConverter">
+                            <span class="bi bi-currency-yen"></span>
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Yen &lt;=&gt; Euros
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link fs-3" href="OCR">
+                            <span class="bi bi-camera"></span>
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> OCR
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link fs-3" href="Parameters">
+                            <span class="bi bi-gear"></span>
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Paramètres
+                        </NavLink>
+                    </li>
+                </ul>
+@*                 <form class="d-flex mt-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> *@
+            </div>
         </div>
     </div>
-</div>
+</nav>

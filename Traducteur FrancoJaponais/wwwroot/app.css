@@ -99,7 +99,19 @@ h1:focus {
         padding-left: env(safe-area-inset-left);
     }
 
-    .bolder {
-        font-weight: bolder !important;
-    }
+}
+.bolder {
+    font-weight: bolder !important;
+}
+
+.vh-80 {
+    height: 80vh !important;
+}
+
+.align-center {
+    align-items: center !important;
+}
+
+.justify-spaced {
+    justify-content: space-around !important;
 }
