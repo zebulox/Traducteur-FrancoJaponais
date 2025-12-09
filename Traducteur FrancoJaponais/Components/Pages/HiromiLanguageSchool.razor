@@ -14,9 +14,11 @@
     {
         <HiromiCourseComponent Course="@item" onRefreshView="Reload"></HiromiCourseComponent>
     }
-    <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#modalNvCour" @onclick="InitCreaCour">Ajouter un cour</button>
-    <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#modalNvllePhrase" @onclick="modalNvllePhrase">Ajouter une Phrase</button>
 </div>
+    <div class="d-flex mt-4">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNvCour" @onclick="InitCreaCour">Ajouter un cour</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNvllePhrase" @onclick="modalNvllePhrase">Ajouter une Phrase</button>
+    </div>
 
 <!-- Modal nouveau cour -->
 <div class="modal fade" id="modalNvCour" tabindex="-1" aria-labelledby="modalNvCourLabel" aria-hidden="true">
