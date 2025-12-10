@@ -184,11 +184,11 @@ namespace Traducteur_FrancoJaponais.Services
 
             List<HiromiPhrase> CoursHs2 = new List<HiromiPhrase>()
             {
-                new HiromiPhrase(){CourseNumber = 101, Japonais = "らめん", Francais = "Ramen", Explication = "Ramen"},
-                new HiromiPhrase(){CourseNumber = 101, Japonais = "りんご", Francais = "Ringo", Explication = "Pomme"},
-                new HiromiPhrase(){CourseNumber = 101, Japonais = "るび", Francais = "Rubi", Explication = "Rubis"},
-                new HiromiPhrase(){CourseNumber = 101, Japonais = "れもん", Francais = "Remon", Explication = "Citron"},
-                new HiromiPhrase(){CourseNumber = 101, Japonais = "ろうそく", Francais = "Rousoku", Explication = "Bougie"}
+                new HiromiPhrase(){CourseNumber = 102, Japonais = "らめん", Francais = "Ramen", Explication = "Ramen"},
+                new HiromiPhrase(){CourseNumber = 102, Japonais = "りんご", Francais = "Ringo", Explication = "Pomme"},
+                new HiromiPhrase(){CourseNumber = 102, Japonais = "るび", Francais = "Rubi", Explication = "Rubis"},
+                new HiromiPhrase(){CourseNumber = 102, Japonais = "れもん", Francais = "Remon", Explication = "Citron"},
+                new HiromiPhrase(){CourseNumber = 102, Japonais = "ろうそく", Francais = "Rousoku", Explication = "Bougie"}
             };
             database.InsertAllAsync(CoursHs2);
 
