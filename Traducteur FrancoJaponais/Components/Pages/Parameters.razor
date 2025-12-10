@@ -2,6 +2,7 @@
 @using Traducteur_FrancoJaponais.Services
 @using Traducteur_FrancoJaponais.Services.DataBase.Interface
 @inject IDataBaseService dataBaseService;
+@inject IDataBaseInitializer dataBaseInitializer;
 
 <h3 class="text-center bolder mt-5">Parameters</h3>
 <button class="btn btn-primary mt-4" @onclick="InitData">Init dataBase</button>
@@ -11,7 +12,7 @@
 @code {
     private void InitData()
     {
-        dataBaseService.InitDataOnBase();
+        dataBaseInitializer.InitData();
     }
     private void BackupDb()
     {
