@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Traducteur_FrancoJaponais.Model;
 
 namespace Traducteur_FrancoJaponais.Constants.Dico
 {
     public static class DictionnaryFrJap_A
     {
+        public static List<WordModel> Dico = new List<WordModel>()
         {
             new WordModel() { Detail = "", Francais = "amour", Japonais = "愛", Kana = "あい", Romanji = "ai" },
             new WordModel() { Detail = "Désigne ce qui est éloigné du locuteur comme de l'interlocuteur contrairement à この et その.", Francais = "ce (cet; cette) là-bas", Japonais = "あの", Kana = "あの", Romanji = "ano" },
