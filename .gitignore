@@ -23,3 +23,7 @@
 /.vs/ProjectEvaluation/traducteur francojaponais.projects.v10.bin
 /.vs/ProjectEvaluation/traducteur francojaponais.strings.v10.bin
 /.vs/Traducteur FrancoJaponais.slnx/v18/.futdcache.v2
+/DataModels/bin/
+/DataModels/obj/
+/DictionnaryFra_Jap/bin/
+/DictionnaryFra_Jap/obj/

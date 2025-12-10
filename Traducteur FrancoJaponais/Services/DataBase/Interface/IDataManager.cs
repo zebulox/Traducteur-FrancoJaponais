@@ -1,11 +1,6 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
+﻿using DataModels.Model.Interface;
+using SQLite;
 using System.Linq.Expressions;
-using System.Text;
-using Traducteur_FrancoJaponais.Model;
-using Traducteur_FrancoJaponais.Model.Interface;
-using DataModels.Model;
 
 namespace Traducteur_FrancoJaponais.Services.DataBase.Interface
 {
