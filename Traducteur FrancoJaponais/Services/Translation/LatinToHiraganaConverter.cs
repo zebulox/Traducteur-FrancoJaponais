@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Traducteur_FrancoJaponais.Constants;
 
-namespace Traducteur_FrancoJaponais.Services
+namespace Traducteur_FrancoJaponais.Services.Translation
 {
     public static class LatinToHiraganaConverter
     {
