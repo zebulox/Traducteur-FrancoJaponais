@@ -8455,5 +8455,5 @@ namespace Traducteur_FrancoJaponais.Constants.Dico
 
 
         };
-}
+    }
 }
