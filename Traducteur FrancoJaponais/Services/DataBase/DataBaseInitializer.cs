@@ -1,9 +1,6 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Traducteur_FrancoJaponais.Constants.Dico;
-using Traducteur_FrancoJaponais.Model;
+﻿using DataModels.Model;
+using DictionnaryFra_Jap;
+using SQLite;
 using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 
 namespace Traducteur_FrancoJaponais.Services.DataBase

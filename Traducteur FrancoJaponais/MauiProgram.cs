@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DataModels.Model;
+using Microsoft.Extensions.Logging;
 using Plugin.Maui.OCR;
-using Traducteur_FrancoJaponais.Model;
 using Traducteur_FrancoJaponais.Services.DataBase;
 using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 using Traducteur_FrancoJaponais.Services.Permission;
