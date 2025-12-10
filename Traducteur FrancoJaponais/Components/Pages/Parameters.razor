@@ -5,14 +5,52 @@
 @inject IDataBaseInitializer dataBaseInitializer;
 
 <h3 class="text-center bolder mt-5">Parameters</h3>
-<button class="btn btn-primary mt-4" @onclick="InitData">Init dataBase Cours</button>
-<button class="btn btn-primary mt-4" @onclick="BackupDb">Backup dataBase to file</button>
-<button class="btn btn-primary mt-4" @onclick="RestoreDbFromFile">Restore dataBase from file</button>
+<div class="d-flex mt-3 text-center align-center justify-spaced">
+    <button class="btn btn-primary" @onclick="InitData">Init dataBase Cours</button>
+    <div class="@spinnerClassInitData" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div class="d-flex mt-3 text-center align-center justify-spaced">
+    <button class="btn btn-primary" @onclick="InitDataDico">Init dataBase Dico</button>
+    <div class="@spinnerClassInitDataDico" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div class="d-flex mt-3 text-center align-center justify-spaced">
+    <button class="btn btn-primary" @onclick="BackupDb">Backup dataBase to file</button>
+    <div class="@spinnerClassBackupDb" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div class="d-flex mt-3 text-center align-center justify-spaced">
+    <button class="btn btn-primary" @onclick="RestoreDbFromFile">Restore dataBase from file</button>
+    <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
 
 @code {
-    private void InitData()
+
+    private string spinnerClassInitData = "text-primary";
+    private string spinnerClassInitDataDico = "text-primary";
+    private string spinnerClassBackupDb = "text-primary";
+
+    private async Task InitData()
     {
-        dataBaseInitializer.InitCourData();
+        spinnerClassInitData = "spinner-grow text-primary";
+        if (await dataBaseInitializer.InitCourData())
+        {
+            spinnerClassInitData = "text-primary";
+        }
+    }
+    private async Task InitDataDico()
+    {
+        spinnerClassInitDataDico = "spinner-grow text-primary";
+        if (await dataBaseInitializer.InitDicoData())
+        {
+            spinnerClassInitDataDico = "text-primary";
+        }
     }
     private void BackupDb()
     {

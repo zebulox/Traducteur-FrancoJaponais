@@ -1,11 +1,7 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using Traducteur_FrancoJaponais.Model.Interface;
+﻿using DataModels.Model.Interface;
+using SQLite;
 
-namespace Traducteur_FrancoJaponais.Model
+namespace DataModels.Model
 {
     public class HiromiCourse : IDataModel
     {
@@ -21,7 +17,7 @@ namespace Traducteur_FrancoJaponais.Model
 
         public HiromiCourse()
         {
-                
+
         }
     }
 }

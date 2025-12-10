@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Traducteur_FrancoJaponais.Model.Interface
+namespace DataModels.Model.Interface
 {
     public interface IDataModel
     {

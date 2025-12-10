@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Traducteur_FrancoJaponais.Constants.Dico;
 using Traducteur_FrancoJaponais.Model;
 using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 
@@ -16,22 +17,24 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             database = db;
         }
 
-        public void InitCourData()
+        public async Task<bool> InitCourData()
         {
-            if (database == null)
+
+            if (database != null)
             {
-                return;
+                await InitCoursesDataForBase();
+                await InitPhrasesDataForBase();
+                return true;
             }
-            InitCoursesDataForBase();
-            InitPhrasesDataForBase();
+            return false;
         }
 
-        private void InitCoursesDataForBase()
+        private async Task InitCoursesDataForBase()
         {
             var courses = database.Table<HiromiCourse>().ToListAsync().Result;
             foreach (var cour in courses)
             {
-                int ret = database.DeleteAsync<HiromiCourse>(cour.Id).GetAwaiter().GetResult();
+                int ret = await database.DeleteAsync<HiromiCourse>(cour.Id);
             }
 
             List<HiromiCourse> Cours = new List<HiromiCourse>()
@@ -47,16 +50,16 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=12", Number = 8   , HorsSerie = false,  Titre = "Interractions en magasin"},
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 102   , HorsSerie = true,  Titre = "Prononciation du R en Japonais"},
             };
-            database.InsertAllAsync(Cours);
+            await database.InsertAllAsync(Cours);
         }
 
-        private void InitPhrasesDataForBase()
+        private async Task InitPhrasesDataForBase()
         {
 
             var courses = database.Table<HiromiPhrase>().ToListAsync().Result;
             foreach (var cour in courses)
             {
-                int ret = database.DeleteAsync<HiromiPhrase>(cour.Id).GetAwaiter().GetResult();
+                int ret = await database.DeleteAsync<HiromiPhrase>(cour.Id);
             }
             /*Cours 1*/
             List<HiromiPhrase> Cours = new List<HiromiPhrase>()
@@ -69,7 +72,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 1, Japonais = "おつかれ さま でした", Francais = "Otsukare sama deshita", Explication = "forme passée de Otsukare sama desu"},
 
             };
-            database.InsertAllAsync(Cours);
+            await database.InsertAllAsync(Cours);
 
             List<HiromiPhrase> Cours2 = new List<HiromiPhrase>()
             {
@@ -79,7 +82,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 2, Japonais = "たすかります ありがとう", Francais = "Tasukarimasu Arigatou", Explication = "Remerciements, lit. ça m'a aidé / vous m'avez aidé forme poli"},
                 new HiromiPhrase(){CourseNumber = 2, Japonais = "どうしましたか", Francais = "Doushimashitaka", Explication = "Comment puis je vous aider?"},
             };
-            database.InsertAllAsync(Cours2);
+            await database.InsertAllAsync(Cours2);
 
             List<HiromiPhrase> Cours3 = new List<HiromiPhrase>()
             {
@@ -88,7 +91,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 3, Japonais = "なるほど", Francais = "Naruhodo", Explication = "Je vois, ça fait sens. Utiliser pour marquer l'accord avec l'interlocuteur"},
                 new HiromiPhrase(){CourseNumber = 3, Japonais = "たしかに", Francais = "Tashikani", Explication = "Marquer l'accord avec l'interlocuteur, forme familière"},
             };
-            database.InsertAllAsync(Cours3);
+            await database.InsertAllAsync(Cours3);
 
             List<HiromiPhrase> Cours4 = new List<HiromiPhrase>()
             {
@@ -102,7 +105,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 4, Japonais = "だいじょぶ", Francais = "Daijobu", Explication = "Es ce que tu va bien ?"},
                 new HiromiPhrase(){CourseNumber = 4, Japonais = "だいじょぶ ですか", Francais = "Daijobu Desuka", Explication = "Es ce que vous allez bien ?"},
             };
-            database.InsertAllAsync(Cours4);
+            await database.InsertAllAsync(Cours4);
 
             List<HiromiPhrase> Cours5 = new List<HiromiPhrase>()
             {
@@ -117,7 +120,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 5, Japonais = "ゆつくりで いいょ", Francais = "Yukkuride iiyo", Explication = "Prends ton temps, tout va bien. Autre forme"},
                 new HiromiPhrase(){CourseNumber = 5, Japonais = "ゆつくり", Francais = "Yukkuri", Explication = "Lentement, doucement"},
             };
-            database.InsertAllAsync(Cours5);
+            await database.InsertAllAsync(Cours5);
 
             List<HiromiPhrase> Cours6 = new List<HiromiPhrase>()
             {
@@ -132,7 +135,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 6, Japonais = "すばらしい かつたです", Francais = "Subarashii kattadesu", Explication = "Encouragements soutenu, forme passée"},
                 new HiromiPhrase(){CourseNumber = 6, Japonais = "あなたなら だいじょぶ", Francais = "Anatanara daijobu", Explication = "Je crois en toi. Tout ira bien. Anata => toi, nara marque l'emphase sur le sujet"},
             };
-            database.InsertAllAsync(Cours6);
+            await database.InsertAllAsync(Cours6);
 
             List<HiromiPhrase> CoursHs1 = new List<HiromiPhrase>()
             {
@@ -146,7 +149,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 101, Japonais = "ぶろつこりい", Francais = "Burokkorii", Explication = "Brocoli"},
                 new HiromiPhrase(){CourseNumber = 101, Japonais = "おにぎり", Francais = "Onigiri", Explication = "Boule de riz"},
             };
-            database.InsertAllAsync(CoursHs1);
+            await database.InsertAllAsync(CoursHs1);
 
             List<HiromiPhrase> Cours7 = new List<HiromiPhrase>()
             {
@@ -156,7 +159,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 7, Japonais = "ゆつくり やすんで ください", Francais = "Yukkuri yasunde kudasai", Explication = "Reposes toi s 'il te plait. Forme poli"},
                 new HiromiPhrase(){CourseNumber = 7, Japonais = "はなして くれて ありがとう", Francais = "hanashite kurete arigatou", Explication = "Merci de m'avoir parlé, de me l'avoir dit"},
             };
-            database.InsertAllAsync(Cours7);
+            await database.InsertAllAsync(Cours7);
 
             List<HiromiPhrase> Cours8 = new List<HiromiPhrase>()
             {
@@ -172,7 +175,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 8, Japonais = "も", Francais = "mo", Explication = "Aussi"},
                 new HiromiPhrase(){CourseNumber = 8, Japonais = "これも ください", Francais = "koremo kudasai", Explication = "Je prendrai aussi cela s'il vous plait."},
             };
-            database.InsertAllAsync(Cours8);
+            await database.InsertAllAsync(Cours8);
 
             List<HiromiPhrase> CoursHs2 = new List<HiromiPhrase>()
             {
@@ -182,13 +185,17 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 102, Japonais = "れもん", Francais = "Remon", Explication = "Citron"},
                 new HiromiPhrase(){CourseNumber = 102, Japonais = "ろうそく", Francais = "Rousoku", Explication = "Bougie"}
             };
-            database.InsertAllAsync(CoursHs2);
+            await database.InsertAllAsync(CoursHs2);
 
         }
 
-        public void InitDicoData()
+        public async Task<bool> InitDicoData()
         {
-
+            foreach (var word in DictionnaryFrJap_A.Dico)
+            {
+                await database.InsertAsync(word);
+            }
+            return true;
         }
     }
 }

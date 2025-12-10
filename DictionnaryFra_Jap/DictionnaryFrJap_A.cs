@@ -1,6 +1,8 @@
-﻿using Traducteur_FrancoJaponais.Model;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Traducteur_FrancoJaponais.Constants.Dico
+namespace DictionnaryFra_Jap
 {
     public static class DictionnaryFrJap_A
     {

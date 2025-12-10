@@ -1,10 +1,7 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Traducteur_FrancoJaponais.Model.Interface;
+﻿using DataModels.Model.Interface;
+using SQLite;
 
-namespace Traducteur_FrancoJaponais.Model
+namespace DataModels.Model
 {
     public class WordModel : IDataModel
     {
@@ -19,7 +16,7 @@ namespace Traducteur_FrancoJaponais.Model
 
         public WordModel()
         {
-                
+
         }
     }
 }
