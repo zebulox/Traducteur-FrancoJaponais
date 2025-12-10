@@ -16,7 +16,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             database = db;
         }
 
-        public void InitData()
+        public void InitCourData()
         {
             if (database == null)
             {
@@ -183,6 +183,11 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 102, Japonais = "ろうそく", Francais = "Rousoku", Explication = "Bougie"}
             };
             database.InsertAllAsync(CoursHs2);
+
+        }
+
+        public void InitDicoData()
+        {
 
         }
     }
