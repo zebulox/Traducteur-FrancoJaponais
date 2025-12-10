@@ -24,6 +24,7 @@ namespace Traducteur_FrancoJaponais
             builder.Services.AddSingleton<IDataBaseService>(new DataBaseService());
             builder.Services.AddSingleton<IDataManager<HiromiCourse>>(new DataManagerService<HiromiCourse>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
             builder.Services.AddSingleton<IDataManager<HiromiPhrase>>(new DataManagerService<HiromiPhrase>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
+            builder.Services.AddSingleton<IDataManager<WordModel>>(new DataManagerService<WordModel>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
             builder.Services.AddSingleton<IPermissionManager>(new PermissionManager());
             builder.Services.AddSingleton<IDataBaseInitializer>(new DataBaseInitializer(builder.Services.BuildServiceProvider().GetService<IDataBaseService>().Getdatabase()));
             /*Faire la DI ici ex:*/
