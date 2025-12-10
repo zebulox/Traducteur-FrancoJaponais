@@ -3,9 +3,9 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using Traducteur_FrancoJaponais.Model;
-using Traducteur_FrancoJaponais.Services.Interface;
+using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 
-namespace Traducteur_FrancoJaponais.Services
+namespace Traducteur_FrancoJaponais.Services.DataBase
 {
     public class DataBaseService : IDataBaseService
     {

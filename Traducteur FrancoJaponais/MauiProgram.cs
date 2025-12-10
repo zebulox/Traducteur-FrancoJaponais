@@ -3,7 +3,8 @@ using Microsoft.Extensions.Logging;
 using Plugin.Maui.OCR;
 using Traducteur_FrancoJaponais.Model;
 using Traducteur_FrancoJaponais.Services;
-using Traducteur_FrancoJaponais.Services.Interface;
+using Traducteur_FrancoJaponais.Services.DataBase.Interface;
+using Traducteur_FrancoJaponais.Services.Permissions.Interface;
 
 namespace Traducteur_FrancoJaponais
 {

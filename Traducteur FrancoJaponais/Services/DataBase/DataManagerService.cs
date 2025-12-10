@@ -5,9 +5,9 @@ using System.Linq.Expressions;
 using System.Text;
 using Traducteur_FrancoJaponais.Model;
 using Traducteur_FrancoJaponais.Model.Interface;
-using Traducteur_FrancoJaponais.Services.Interface;
+using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 
-namespace Traducteur_FrancoJaponais.Services
+namespace Traducteur_FrancoJaponais.Services.DataBase
 {
     public class DataManagerService<T> : IDataManager<T> where T : IDataModel, new()
     {

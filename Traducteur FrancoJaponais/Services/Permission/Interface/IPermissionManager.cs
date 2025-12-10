@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Traducteur_FrancoJaponais.Services.Interface
+namespace Traducteur_FrancoJaponais.Services.Permission.Interface
 {
     public interface IPermissionManager
     {

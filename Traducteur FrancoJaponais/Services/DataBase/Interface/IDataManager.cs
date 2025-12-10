@@ -6,7 +6,7 @@ using System.Text;
 using Traducteur_FrancoJaponais.Model;
 using Traducteur_FrancoJaponais.Model.Interface;
 
-namespace Traducteur_FrancoJaponais.Services.Interface
+namespace Traducteur_FrancoJaponais.Services.DataBase.Interface
 {
     public interface IDataManager<T> where T : IDataModel, new()
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Traducteur_FrancoJaponais.Services.Interface;
+using Traducteur_FrancoJaponais.Services.Permission.Interface;
 
-namespace Traducteur_FrancoJaponais.Services
+namespace Traducteur_FrancoJaponais.Services.Permission
 {
     public class PermissionManager : IPermissionManager
     {
