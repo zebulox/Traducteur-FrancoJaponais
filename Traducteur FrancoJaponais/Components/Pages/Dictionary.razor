@@ -1,0 +1,27 @@
+﻿@page "/Dictionary"
+@using DataModels.Model
+@using Traducteur_FrancoJaponais.Constants
+@using Traducteur_FrancoJaponais.Services.DataBase.Interface
+@inject IDataManager<WordModel> WordsDataManager;
+
+<h3 class="text-center bolder mt-5">Dictionary</h3>
+
+<div class="d-flex justify-spaced align-center">
+    @foreach (char lettre in Latin._Dictionary)
+    {
+        <span class="text-primary bolder" @onclick="(() => this.DisplayLetter(lettre))">@lettre</span>
+    }
+</div>
+
+<div class="d-flex">
+
+</div>
+
+@code {
+    private List<WordModel> Lwords = new List<WordModel>();
+
+    private void DisplayLetter(char letter)
+    {
+        Lwords = WordsDataManager.Get(w => w.);
+    }
+}
