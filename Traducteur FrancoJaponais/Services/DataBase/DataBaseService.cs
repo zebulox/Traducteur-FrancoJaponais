@@ -23,7 +23,6 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
         private void InitDataBaseTables()
         {
 
-            database.CreateTableAsync<WordModel>();
             database.CreateTableAsync<HiromiPhrase>();
             database.CreateTableAsync<HiromiCourse>();
         }

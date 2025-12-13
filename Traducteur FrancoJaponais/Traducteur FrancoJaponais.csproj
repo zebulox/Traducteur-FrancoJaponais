@@ -75,7 +75,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DataModels\DataModels.csproj" />
-      <ProjectReference Include="..\DictionnaryFra_Jap\DictionnaryFra_Jap.csproj" />
     </ItemGroup>
 
 </Project>

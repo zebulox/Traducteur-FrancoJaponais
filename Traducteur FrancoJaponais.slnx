@@ -1,6 +1,5 @@
 <Solution>
   <Project Path="DataModels/DataModels.csproj" Id="fcdd0326-d702-4112-89ec-72fe4de2740e" />
-  <Project Path="DictionnaryFra_Jap/DictionnaryFra_Jap.csproj" Id="4f0eff9a-347c-4a51-8bcf-9b0e22c12f6f" />
   <Project Path="Traducteur FrancoJaponais/Traducteur FrancoJaponais.csproj">
     <Deploy Solution="Debug|*" />
   </Project>

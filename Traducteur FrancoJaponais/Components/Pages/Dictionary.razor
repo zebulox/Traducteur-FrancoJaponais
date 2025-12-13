@@ -2,7 +2,6 @@
 @using DataModels.Model
 @using Traducteur_FrancoJaponais.Constants
 @using Traducteur_FrancoJaponais.Services.DataBase.Interface
-@inject IDataManager<WordModel> WordsDataManager;
 
 <h3 class="text-center bolder mt-5">Dictionary</h3>
 
@@ -18,10 +17,9 @@
 </div>
 
 @code {
-    private List<WordModel> Lwords = new List<WordModel>();
 
     private void DisplayLetter(char letter)
     {
-        Lwords = WordsDataManager.Get(w => w.);
+        // Lwords = WordsDataManager.Get(w => w.);
     }
 }

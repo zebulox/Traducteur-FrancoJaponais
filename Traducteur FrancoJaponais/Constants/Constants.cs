@@ -18,5 +18,8 @@ namespace Traducteur_FrancoJaponais.Constants
 
         public static string DatabasePath =>
             Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+
+        /*Ressources*/
+        public const string DicoFrJapRessource = "fr_fra_jpn_normalized.json";
     }
 }

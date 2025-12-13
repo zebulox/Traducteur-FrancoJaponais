@@ -1,6 +1,6 @@
 ﻿using DataModels.Model;
-using DictionnaryFra_Jap;
 using SQLite;
+using System.Text.Json;
 using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 
 namespace Traducteur_FrancoJaponais.Services.DataBase
@@ -188,10 +188,24 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
 
         public async Task<bool> InitDicoData()
         {
-            foreach (var word in DictionnaryFrJap_A.Dico)
+            //foreach (var word in DictionnaryFrJap_A.Dico)
+            //{
+            //    await database.InsertAsync(word);
+            //}
+
+            var contents = String.Empty;
+
+            using (var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoFrJapRessource))
             {
-                await database.InsertAsync(word);
+                using (var reader = new StreamReader(stream))
+                {
+                    contents = reader.ReadToEnd();
+                }
             }
+
+            List<Article> articles = JsonSerializer.Deserialize<List<Article>>(contents);
+
+
             return true;
         }
     }
