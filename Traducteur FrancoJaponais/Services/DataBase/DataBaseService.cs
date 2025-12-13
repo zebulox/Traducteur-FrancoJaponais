@@ -17,14 +17,6 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 return;
 
             database = new SQLiteAsyncConnection(Constants.Constants.DatabasePath, Constants.Constants.Flags);
-            InitDataBaseTables();
-        }
-
-        private void InitDataBaseTables()
-        {
-
-            database.CreateTableAsync<HiromiPhrase>();
-            database.CreateTableAsync<HiromiCourse>();
         }
 
         public SQLiteAsyncConnection Getdatabase()

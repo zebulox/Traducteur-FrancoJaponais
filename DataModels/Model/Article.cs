@@ -5,6 +5,10 @@ using System.Xml.Serialization;
 
 namespace DataModels.Model
 {
+    /// <summary>
+    /// Utilisé pour générer le dico dans la DB à partir du Json
+    /// </summary>
+
     public class Forme
     {
         public string Vedette { get; set; }

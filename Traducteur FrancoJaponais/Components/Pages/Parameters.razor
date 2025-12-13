@@ -6,6 +6,12 @@
 
 <h3 class="text-center bolder mt-5">Parameters</h3>
 <div class="d-flex mt-3 text-center align-center justify-spaced">
+    <button class="btn btn-primary" @onclick="InitDataBaseTables">Init dataBase Tables</button>
+    <div class="@spinnerClassInitDataBaseTable" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div class="d-flex mt-3 text-center align-center justify-spaced">
     <button class="btn btn-primary" @onclick="InitData">Init dataBase Cours</button>
     <div class="@spinnerClassInitData" role="status">
         <span class="visually-hidden">Loading...</span>
@@ -23,18 +29,27 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
-<div class="d-flex mt-3 text-center align-center justify-spaced">
+@* <div class="d-flex mt-3 text-center align-center justify-spaced">
     <button class="btn btn-primary" @onclick="RestoreDbFromFile">Restore dataBase from file</button>
     <div class="spinner-grow text-primary" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
-</div>
+</div> *@
 
 @code {
-
+    private string spinnerClassInitDataBaseTable = "text-primary";
     private string spinnerClassInitData = "text-primary";
     private string spinnerClassInitDataDico = "text-primary";
     private string spinnerClassBackupDb = "text-primary";
+
+    private async Task InitDataBaseTables()
+    {
+        spinnerClassInitDataBaseTable = "spinner-grow text-primary";
+        if (await dataBaseInitializer.InitDataBaseTables())
+        {
+            spinnerClassInitDataBaseTable = "text-primary";
+        }
+    }
 
     private async Task InitData()
     {

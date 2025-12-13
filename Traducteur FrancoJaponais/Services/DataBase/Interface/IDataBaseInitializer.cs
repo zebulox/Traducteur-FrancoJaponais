@@ -6,8 +6,8 @@ namespace Traducteur_FrancoJaponais.Services.DataBase.Interface
 {
     public interface IDataBaseInitializer
     {
+        Task<bool> InitDataBaseTables();
         Task<bool> InitCourData();
-
         Task<bool> InitDicoData();
     }
 }

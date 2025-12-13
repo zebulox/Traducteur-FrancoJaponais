@@ -14,6 +14,17 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             database = db;
         }
 
+
+
+        public async Task<bool> InitDataBaseTables()
+        {
+            await database.CreateTableAsync<HiromiPhrase>();
+            await database.CreateTableAsync<HiromiCourse>();
+            await database.CreateTableAsync<Article_Db>();
+            await database.CreateTableAsync<Segment_DB>();
+            await database.CreateTableAsync<Sens_DB>();
+            return true;
+        }
         public async Task<bool> InitCourData()
         {
 
@@ -188,11 +199,6 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
 
         public async Task<bool> InitDicoData()
         {
-            //foreach (var word in DictionnaryFrJap_A.Dico)
-            //{
-            //    await database.InsertAsync(word);
-            //}
-
             var contents = String.Empty;
 
             using (var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoFrJapRessource))
@@ -205,8 +211,26 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
 
             List<Article> articles = JsonSerializer.Deserialize<List<Article>>(contents);
 
+            foreach (var article in articles)
+            {
+                Article_Db articleDb = new Article_Db(article);
+                await database.InsertAsync(articleDb);
+
+                foreach (var sens in article.Sémantique.Sens)
+                {
+                    Sens_DB sensDb = new Sens_DB(sens, articleDb.Id);
+                    await database.InsertAsync(sensDb);
+
+                    foreach (var segment in sens.Segments.Segment)
+                    {
+                        Segment_DB segDb = new Segment_DB(segment, sensDb.Id);
+                        await database.InsertAsync(segDb);
+                    }
+                }
+            }
 
             return true;
         }
+
     }
 }
