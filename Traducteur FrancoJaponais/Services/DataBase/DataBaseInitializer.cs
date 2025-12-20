@@ -57,6 +57,12 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=11", Number = 7   , HorsSerie = false,  Titre = "Réconfort"},
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=12", Number = 8   , HorsSerie = false,  Titre = "Interractions en magasin"},
                 new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 102   , HorsSerie = true,  Titre = "Prononciation du R en Japonais"},
+                new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 9   , HorsSerie = false,  Titre = "Encouragements"},
+                new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 10   , HorsSerie = false,  Titre = "Présentation"},
+                new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 11   , HorsSerie = false,  Titre = "Légumes"},
+                new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 12   , HorsSerie = false,  Titre = "Chiffres"},
+                new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 103   , HorsSerie = true,  Titre = "Bento box 2"},
+                new HiromiCourse() { Link = "https://www.youtube.com/watch?v=5JtSDdBWUwM&list=PLYrBUPk0ywvrBfvG8SsrKeuZEDYdWU7bk&index=13", Number = 104   , HorsSerie = true,  Titre = "Soupe Miso"},
             };
             await database.InsertAllAsync(Cours);
         }
@@ -194,6 +200,98 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new HiromiPhrase(){CourseNumber = 102, Japonais = "ろうそく", Francais = "Rousoku", Explication = "Bougie"}
             };
             await database.InsertAllAsync(CoursHs2);
+
+            List<HiromiPhrase> Cours9 = new List<HiromiPhrase>()
+            {
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "おめでとう", Francais = "Omedeto", Explication = "Félicitations"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "おめでとう ございます", Francais = "Omedeto gozaimasu", Explication = "Félicitations (poli)"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "がんばつて", Francais = "Ganbatte", Explication = "Je crois en toi, fais de ton mieux"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "がんばつて ください", Francais = "Ganbatte Kudasai", Explication = "Je crois en toi, fais de ton mieux (poli)"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "ょかつた", Francais = "Yokatta", Explication = "Utilisé pour dire qu'on est content pour l'interlocuteur"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "ょかつたね", Francais = "Yokatta ne", Explication = "Utilisé pour dire qu'on est content pour l'interlocuteur"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "ね", Francais = "ne", Explication = "N'est ce pas?, Empathie partage de sentiments, peut être utilisé seul pour répondre"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "ょくやつたね", Francais = "Yokuyattane", Explication = "Bon travail"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "いたかつたね", Francais = "Itakattane", Explication = "Tu as du te faire mal ?"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "たのしい かつたね", Francais = "Tanoshii kattane", Explication = "C 'était fun?"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "うれしいね", Francais = "Ureshii ne", Explication = "Tu est content/heureux?"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "ほそい", Francais = "Hosoi", Explication = "fin, mince (épaisseur)"},
+                new HiromiPhrase(){CourseNumber = 9, Japonais = "みかん", Francais = "Mikan", Explication = "une orange"},
+            };
+            await database.InsertAllAsync(Cours9);
+
+            List<HiromiPhrase> Cours10 = new List<HiromiPhrase>()
+            {
+                new HiromiPhrase(){CourseNumber = 10, Japonais = "はじめ まして", Francais = "Hajime mashite", Explication = "Ravi de faire votre connaissance"},
+                new HiromiPhrase(){CourseNumber = 10, Japonais = "ょろしく おねがい します", Francais = "Yoroshiku onegai shimasu", Explication = "J'ai hâte de travailler avec vous (Pro.), Cordialement (Pro.), C 'est un plaisir de faire votre connaissance."},
+                new HiromiPhrase(){CourseNumber = 10, Japonais = "ょろしくね", Francais = "Yoroshikune", Explication = "Demander une faveure (casu.)"},
+            };
+            await database.InsertAllAsync(Cours10);
+
+            List<HiromiPhrase> Cours11 = new List<HiromiPhrase>()
+            {
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "れたす", Francais = "Retasu", Explication = "Laitue"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "ちんげんさい", Francais = "Chingensai", Explication = "Choux chinois"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "なす", Francais = "Nasu", Explication = "Aubergine"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "だいこん", Francais = "Daikon", Explication = "Radis blanc"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "おくら", Francais = "Okura", Explication = "Gombo"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "まいたけ", Francais = "Maitake", Explication = "Champignon Maitake"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "にんじん", Francais = "Ninjin", Explication = "Carrotes"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "たまねぎ", Francais = "Tamanegi", Explication = "Oignon"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "えだまめ", Francais = "Edamame", Explication = "Haricots sur branches (Soja)"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "もも", Francais = "Momo", Explication = "Pêche"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "とまと", Francais = "Tomato", Explication = "Tomate"},
+                new HiromiPhrase(){CourseNumber = 11, Japonais = "とまと は すきですか", Francais = "Tomato wa sukidesuka", Explication = "Tu aimes les tomate?"},
+            };
+            await database.InsertAllAsync(Cours11);
+
+            List<HiromiPhrase> Cours12 = new List<HiromiPhrase>()
+            {
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "ぜろ", Francais = "Zero", Explication = "Zero"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "いち", Francais = "Ichi", Explication = "un"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "に", Francais = "Ni", Explication = "deux"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "さん", Francais = "San", Explication = "trois"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "ょん / し", Francais = "Yon / shi", Explication = "quatre"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "ご", Francais = "Go", Explication = "cinq"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "ろく", Francais = "Roku", Explication = "six"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "なな / しち", Francais = "Nana / Shichi", Explication = "sept"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "はち", Francais = "Hachi", Explication = "huit"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "きゆ", Francais = "Kyu", Explication = "neuf"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "じゆ", Francais = "Ju", Explication = "dix"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "ひやく", Francais = "hyaku", Explication = "cent"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "わたし は さんじゆなな さい です", Francais = "Watashi wa sanjunana sai desu", Explication = "J'ai 37 ans"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "かのじょ", Francais = "Kanojo", Explication = "Elle"},
+                new HiromiPhrase(){CourseNumber = 12, Japonais = "おばちやん", Francais = "Oba - chan", Explication = "Grand mère"},
+            };
+            await database.InsertAllAsync(Cours12);
+
+            List<HiromiPhrase> CoursHs3 = new List<HiromiPhrase>()
+            {
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "はんばぐ", Francais = "Hanbagu", Explication = "Steak à hamburger"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "たまごやき", Francais = "Tamagoyaki", Explication = "Omelette"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "たまご", Francais = "Tamago", Explication = "Oeuf"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "やき", Francais = "Yaki", Explication = "Cuisiné"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "ごまあえ", Francais = "Gomaae", Explication = "Salade au sésame"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "こまつな", Francais = "Komatsuna", Explication = "Epinard"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "おあげ", Francais = "Oage", Explication = "Tofu frit"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "あぶらげ", Francais = "Aburage", Explication = "Qqch de frit"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "あげ", Francais = "Age", Explication = "huile"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "あぶら", Francais = "Abura", Explication = "huile"},
+                new HiromiPhrase(){CourseNumber = 103, Japonais = "ぐらたん", Francais = "Guratan", Explication = "Gratin"},
+            };
+            await database.InsertAllAsync(CoursHs3);
+
+            List<HiromiPhrase> CoursHs4 = new List<HiromiPhrase>()
+            {
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "みそ しる", Francais = "Miso shiru", Explication = "Soupe miso"},
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "だし", Francais = "Dashi", Explication = "Bouillon japonnais"},
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "わかめ", Francais = "Wakame", Explication = "Algue wakame"},
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "おあげ", Francais = "Oage", Explication = "Fines tranche de tofu frit"},
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "とふ", Francais = "Tofu", Explication = "Tofu"},
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "おはし", Francais = "Ohashi", Explication = "Baguettes"},
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "おわん", Francais = "Owan", Explication = "Bol à soupe"},
+                new HiromiPhrase(){CourseNumber = 104, Japonais = "おいし", Francais = "Oishi", Explication = "Délicieux"},
+            };
+            await database.InsertAllAsync(CoursHs4);
 
         }
 
