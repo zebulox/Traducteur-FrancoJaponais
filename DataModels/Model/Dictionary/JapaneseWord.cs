@@ -1,12 +1,15 @@
-﻿using System;
+﻿using DataModels.Model.Interface;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DataModels.Model.Dictionary
 {
-    public class JapaneseWord
+    public class JapaneseWord : IDataModel
     {
         public JapaneseWord() { }
+        [PrimaryKey]
         public int Id { get; set; }
         public String Value { get; set; }
     }

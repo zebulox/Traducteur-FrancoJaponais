@@ -2,9 +2,6 @@
 @using DataModels.Model
 @using Traducteur_FrancoJaponais.Constants
 @using Traducteur_FrancoJaponais.Services.DataBase.Interface
-@inject IDataManager<Article_Db> ArticleDataManager;
-@inject IDataManager<Sens_DB> SensDataManager;
-@inject IDataManager<Segment_DB> SegmentDataManager;
 
 <h3 class="text-center bolder mt-5">Dictionary</h3>
 
@@ -24,7 +21,7 @@
 
 <div class="d-flex flex-column align-center justify-spaced">
     <div class="accordion" id="accordionDico">
-        @foreach (Article_Db mot in Resultats)
+@*         @foreach (Article_Db mot in Resultats)
         {
             <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -53,27 +50,26 @@
                     </div>
                 </div>
             </div>
-        }
+        } *@
         </div>
 </div>
 
 @code {
     private String MotInput = String.Empty;
-    private List<Article_Db> Resultats = new List<Article_Db>();
     private async Task OnInput(ChangeEventArgs e)
     {
-        MotInput = e.Value.ToString().ToLower();
-        var db = ArticleDataManager.returndatabaseservice();
-        Resultats = db.Table<Article_Db>().Where(f => f.Forme.StartsWith(MotInput)).ToListAsync().Result.OrderBy(m => m.Forme).Take(100).ToList();
+        // MotInput = e.Value.ToString().ToLower();
+        // var db = ArticleDataManager.returndatabaseservice();
+        // Resultats = db.Table<Article_Db>().Where(f => f.Forme.StartsWith(MotInput)).ToListAsync().Result.OrderBy(m => m.Forme).Take(100).ToList();
         
-        foreach (var article in Resultats)
-        {
-            article.Sens = db.Table<Sens_DB>().Where(s => s.IdArticle == article.Id).ToListAsync().Result;
-            foreach (var sens in article.Sens)
-            {
-                sens.Segment = db.Table<Segment_DB>().Where(s => s.IdSens == sens.Id).ToListAsync().Result;
-            }
-        }
+        // foreach (var article in Resultats)
+        // {
+        //     article.Sens = db.Table<Sens_DB>().Where(s => s.IdArticle == article.Id).ToListAsync().Result;
+        //     foreach (var sens in article.Sens)
+        //     {
+        //         sens.Segment = db.Table<Segment_DB>().Where(s => s.IdSens == sens.Id).ToListAsync().Result;
+        //     }
+        // }
         
         await InvokeAsync(StateHasChanged);
     }

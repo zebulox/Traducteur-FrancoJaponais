@@ -1,5 +1,7 @@
 ﻿using DataModels.Model;
+using DataModels.Model.Dictionary;
 using SQLite;
+using System.Diagnostics;
 using System.Text.Json;
 using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 
@@ -20,6 +22,14 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
         {
             await database.CreateTableAsync<HiromiPhrase>();
             await database.CreateTableAsync<HiromiCourse>();
+
+            await database.CreateTableAsync<Word>();
+            await database.CreateTableAsync<FrenchWord>();
+            await database.CreateTableAsync<JapaneseWord>();
+            await database.CreateTableAsync<Tag>();
+            await database.CreateTableAsync<WordFrench>();
+            await database.CreateTableAsync<WordJapanese>();
+            await database.CreateTableAsync<WordTag>();
             return true;
         }
         public async Task<bool> InitCourData()
@@ -295,12 +305,133 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
         public async Task<bool> InitDicoData()
         {
             await InitWordsData();
+            await InitFrenchData();
+            await InitJapaneseData();
+            await InitTagData();
+            await InitWordFrenchAssocData();
+            await InitWordJapaneseAssocData();
+            await InitWordTagAssocData();
             return true;
         }
 
         private async Task InitWordsData()
         {
+            //optimisation https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/bulk-insert
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWords);
+            using var reader = new StreamReader(stream);
+            var contents = reader.ReadToEnd();
+            var words = JsonSerializer.Deserialize<List<Word>>(contents);
 
+            List<Word> bulkInsert = new List<Word>();
+            while (words.Count > 0)
+            {
+                Debug.WriteLine($"{words.Count}");
+                bulkInsert = words.Take(1000).ToList();
+                await database.InsertAllAsync(bulkInsert);
+                words.RemoveRange(0, bulkInsert.Count);
+            }
+        }
+
+        private async Task InitFrenchData()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoFrench);
+            using var reader = new StreamReader(stream);
+            var contents = reader.ReadToEnd();
+            var words = JsonSerializer.Deserialize<List<FrenchWord>>(contents);
+
+            List<FrenchWord> bulkInsert = new List<FrenchWord>();
+            while (words.Count > 0)
+            {
+                Debug.WriteLine($"{words.Count}");
+                bulkInsert = words.Take(1000).ToList();
+                await database.InsertAllAsync(bulkInsert);
+                words.RemoveRange(0, bulkInsert.Count);
+            }
+        }
+
+        private async Task InitJapaneseData()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoJapanese);
+            using var reader = new StreamReader(stream);
+            var contents = reader.ReadToEnd();
+            var words = JsonSerializer.Deserialize<List<JapaneseWord>>(contents);
+
+            List<JapaneseWord> bulkInsert = new List<JapaneseWord>();
+            while (words.Count > 0)
+            {
+                Debug.WriteLine($"{words.Count}");
+                bulkInsert = words.Take(1000).ToList();
+                await database.InsertAllAsync(bulkInsert);
+                words.RemoveRange(0, bulkInsert.Count);
+            }
+        }
+
+        private async Task InitTagData()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoTags);
+            using var reader = new StreamReader(stream);
+            var contents = reader.ReadToEnd();
+            var words = JsonSerializer.Deserialize<List<Tag>>(contents);
+
+            List<Tag> bulkInsert = new List<Tag>();
+            while (words.Count > 0)
+            {
+                Debug.WriteLine($"{words.Count}");
+                bulkInsert = words.Take(1000).ToList();
+                await database.InsertAllAsync(bulkInsert);
+                words.RemoveRange(0, bulkInsert.Count);
+            }
+        }
+
+        private async Task InitWordFrenchAssocData()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWordsFrench);
+            using var reader = new StreamReader(stream);
+            var contents = reader.ReadToEnd();
+            var words = JsonSerializer.Deserialize<List<WordFrench>>(contents);
+
+            List<WordFrench> bulkInsert = new List<WordFrench>();
+            while (words.Count > 0)
+            {
+                Debug.WriteLine($"{words.Count}");
+                bulkInsert = words.Take(1000).ToList();
+                await database.InsertAllAsync(bulkInsert);
+                words.RemoveRange(0, bulkInsert.Count);
+            }
+        }
+
+        private async Task InitWordJapaneseAssocData()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWordsJapanese);
+            using var reader = new StreamReader(stream);
+            var contents = reader.ReadToEnd();
+            var words = JsonSerializer.Deserialize<List<WordJapanese>>(contents);
+
+            List<WordJapanese> bulkInsert = new List<WordJapanese>();
+            while (words.Count > 0)
+            {
+                Debug.WriteLine($"{words.Count}");
+                bulkInsert = words.Take(1000).ToList();
+                await database.InsertAllAsync(bulkInsert);
+                words.RemoveRange(0, bulkInsert.Count);
+            }
+        }
+
+        private async Task InitWordTagAssocData()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWordsTags);
+            using var reader = new StreamReader(stream);
+            var contents = reader.ReadToEnd();
+            var words = JsonSerializer.Deserialize<List<WordTag>>(contents);
+
+            List<WordTag> bulkInsert = new List<WordTag>();
+            while (words.Count > 0)
+            {
+                Debug.WriteLine($"{words.Count}");
+                bulkInsert = words.Take(1000).ToList();
+                await database.InsertAllAsync(bulkInsert);
+                words.RemoveRange(0, bulkInsert.Count);
+            }
         }
 
     }
