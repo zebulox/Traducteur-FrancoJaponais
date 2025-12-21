@@ -20,6 +20,12 @@ namespace Traducteur_FrancoJaponais.Constants
             Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 
         /*Ressources*/
-        public const string DicoFrJapRessource = "fr_fra_jpn_normalized.json";
+        public const string DicoWords = "";
+        public const string DicoFrench = "";
+        public const string DicoJapanese = "";
+        public const string DicoTags = "";
+        public const string DicoWordsTags = "";
+        public const string DicoWordsFrench = "";
+        public const string DicoWordsJapanese = "";
     }
 }
