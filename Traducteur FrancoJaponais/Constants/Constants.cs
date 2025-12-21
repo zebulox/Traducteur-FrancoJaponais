@@ -20,12 +20,12 @@ namespace Traducteur_FrancoJaponais.Constants
             Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 
         /*Ressources*/
-        public const string DicoWords = "";
-        public const string DicoFrench = "";
-        public const string DicoJapanese = "";
-        public const string DicoTags = "";
-        public const string DicoWordsTags = "";
-        public const string DicoWordsFrench = "";
-        public const string DicoWordsJapanese = "";
+        public const string DicoWords = "Words.json";
+        public const string DicoFrench = "FrenchWords.json";
+        public const string DicoJapanese = "JapanseWords.json";
+        public const string DicoTags = "Tags.json";
+        public const string DicoWordsTags = "TagWord.json";
+        public const string DicoWordsFrench = "WordFrench.json";
+        public const string DicoWordsJapanese = "WordJapanese.json";
     }
 }

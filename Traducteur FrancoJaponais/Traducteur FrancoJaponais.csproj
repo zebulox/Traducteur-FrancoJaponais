@@ -62,6 +62,16 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Remove="Resources\Raw\FrenchWords.json" />
+      <Content Remove="Resources\Raw\JapanseWords.json" />
+      <Content Remove="Resources\Raw\Tags.json" />
+      <Content Remove="Resources\Raw\TagWord.json" />
+      <Content Remove="Resources\Raw\WordFrench.json" />
+      <Content Remove="Resources\Raw\WordJapanese.json" />
+      <Content Remove="Resources\Raw\Words.json" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="10.0.11" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
