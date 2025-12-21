@@ -1,7 +1,15 @@
 ﻿@page "/Dictionary"
 @using DataModels.Model
+@using DataModels.Model.Dictionary
 @using Traducteur_FrancoJaponais.Constants
 @using Traducteur_FrancoJaponais.Services.DataBase.Interface
+@inject IDataManager<Word> WordDataManager;
+@inject IDataManager<FrenchWord> FrenchWordDataManager;
+@inject IDataManager<JapaneseWord> JapaneseWordDataManager;
+@inject IDataManager<Tag> TagDataManager;
+@inject IDataManager<WordFrench> WordFrenchDataManager;
+@inject IDataManager<WordJapanese> WordJapaneseDataManager;
+@inject IDataManager<WordTag> WordTagDataManager;
 
 <h3 class="text-center bolder mt-5">Dictionary</h3>
 
@@ -21,17 +29,17 @@
 
 <div class="d-flex flex-column align-center justify-spaced">
     <div class="accordion" id="accordionDico">
-@*         @foreach (Article_Db mot in Resultats)
+        @foreach (FrenchWord mot in Resultats)
         {
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=@($"#collapse{mot.Id}") aria-expanded="true" aria-controls=@($"collapse{mot.Id}")>
-                        @mot.Forme
+                        @mot.Value
                     </button>
                 </h2>
                 <div id=@($"collapse{mot.Id}") class="accordion-collapse collapse" data-bs-parent="#accordionDico">
                     <div class="accordion-body">
-                        @foreach (Sens_DB sens in mot.Sens)
+@*                         @foreach (Sens_DB sens in mot.Sens)
                         {
                             <div class="card">
                                 <div class="card-body">
@@ -46,21 +54,22 @@
 
                                 </div>
                             </div>
-                        }
+                        } *@
                     </div>
                 </div>
             </div>
-        } *@
+        }
         </div>
 </div>
 
 @code {
     private String MotInput = String.Empty;
+    List<FrenchWord> Resultats = new List<FrenchWord>();
     private async Task OnInput(ChangeEventArgs e)
     {
-        // MotInput = e.Value.ToString().ToLower();
-        // var db = ArticleDataManager.returndatabaseservice();
-        // Resultats = db.Table<Article_Db>().Where(f => f.Forme.StartsWith(MotInput)).ToListAsync().Result.OrderBy(m => m.Forme).Take(100).ToList();
+        MotInput = e.Value.ToString().ToLower();
+        var db = WordDataManager.returndatabaseservice();
+        Resultats = db.Table<FrenchWord>().Where(f => f.Value.StartsWith(MotInput)).ToListAsync().Result.OrderBy(m => m.Value).Take(100).ToList();
         
         // foreach (var article in Resultats)
         // {
