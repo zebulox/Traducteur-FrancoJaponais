@@ -59,6 +59,14 @@
                                             {
                                                 <span class="badge text-bg-success">@tag</span>
                                             }
+                                            else if (TagCss.Domaine.Contains(tag))
+                                            {
+                                                <span class="badge text-bg-info">@tag</span>
+                                            }
+                                            else if (TagCss.Origines.Contains(tag))
+                                            {
+                                                <span class="badge text-bg-dark">@tag</span>
+                                            }
                                             else
                                             {
                                                 <span class="badge text-bg-primary">@tag</span>
