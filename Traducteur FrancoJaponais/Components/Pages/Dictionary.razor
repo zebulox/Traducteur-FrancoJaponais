@@ -55,7 +55,14 @@
                                     <h5 class="card-title">
                                         @foreach (var tag in mot.Tags)
                                         {
-                                            <span class="badge text-bg-primary">@tag</span>
+                                            if (TagCss.Orthographe.Contains(tag))
+                                            {
+                                                <span class="badge text-bg-success">@tag</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge text-bg-primary">@tag</span>
+                                            }
                                         }    
                                     </h5>
                                     @foreach (String Japanese in mot.Japaneses)
