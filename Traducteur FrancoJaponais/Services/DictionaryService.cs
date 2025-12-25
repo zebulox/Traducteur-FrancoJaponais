@@ -9,7 +9,6 @@ namespace Traducteur_FrancoJaponais.Services
     public class DictionaryService : IDictionaryService
     {
         public ObservableCollection<DicoDisplayFrenchWord> FromFrenchResults { get; set; }
-        public int Count { get { return FromFrenchResults.Count(); } }
         private ISQLiteAsyncConnection db;
         public DictionaryService(IDataBaseService dbConnexion)
         {
