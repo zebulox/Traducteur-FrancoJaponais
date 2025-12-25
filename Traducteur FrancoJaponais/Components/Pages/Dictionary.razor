@@ -18,46 +18,67 @@
         @* <InputText id="MotInput" @bind-Value="MotInput" @oninput="OnInput"></InputText> *@
         <InputText id="MotInput" @bind-Value="MotInput"></InputText>
     </div>
-    <button type="button" class="btn btn-primary" @onclick="Search">Chercher</button>
-</div>
+    <button type="button" class="btn btn-primary" @onclick="Search">Chercher<span class="ms-1 badge rounded-pill bg-danger">@Count</span></button>
 
-<div class="d-flex flex-column align-center justify-spaced">
-    <div class="accordion" id="accordionDico">
-        @foreach (DicoDisplayFrenchWord mot in Lresults)
-        {
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=@($"#collapse{mot.Id}") aria-expanded="true" aria-controls=@($"collapse{mot.Id}")>
-                        @mot.French <span>@mot.Id</span>
-                    </button>
-                </h2>
-                <div id=@($"collapse{mot.Id}") class="accordion-collapse collapse" data-bs-parent="#accordionDico">
-                    <div class="accordion-body">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    @foreach (var tag in mot.Tags)
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" @onclick="Previous">Previous</a></li>
+            @foreach(int page in AllPages)
+            {
+                if (page == CurrentPage)
+                {
+                    <li class="page-item active"><a class="page-link" @onclick="(() => SkipToPage(page))">@(page)</a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link" @onclick="(() => SkipToPage(page))">@(page)</a></li>
+                }
+            }
+            <li class="page-item"><a class="page-link" @onclick="Next">Next</a></li>
+        </ul>
+    </nav>
+
+    <div class="d-flex flex-column align-center justify-spaced">
+        <div class="accordion" id="accordionDico">
+            @foreach (DicoDisplayFrenchWord mot in Lresults)
+            {
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=@($"#collapse{mot.Id}") aria-expanded="true" aria-controls=@($"collapse{mot.Id}")>
+                            @mot.French
+                        </button>
+                    </h2>
+                    <div id=@($"collapse{mot.Id}") class="accordion-collapse collapse" data-bs-parent="#accordionDico">
+                        <div class="accordion-body">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        @foreach (var tag in mot.Tags)
+                                        {
+                                            <span class="badge text-bg-primary">@tag</span>
+                                        }    
+                                    </h5>
+                                    @foreach (String Japanese in mot.Japaneses)
                                     {
-                                        <span class="badge text-bg-primary">@tag</span>
-                                    }    
-                                </h5>
-                                @foreach (String Japanese in mot.Japaneses)
-                                {
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">@Japanese</h6>
-                                }
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">@Japanese</h6>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            }
             </div>
-        }
-        </div>
+    </div>
 </div>
 
 @code {
     private String MotInput = String.Empty;
     List<DicoDisplayFrenchWord> Lresults = new List<DicoDisplayFrenchWord>();
-
+    public int Count = 0;
+    public int PagesCount = 0;
+    public int CurrentPage = 0;
+    public List<int> AllPages = new List<int>();
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -67,14 +88,55 @@
     {
         DictionaryService.FromFrenchResults.CollectionChanged -= OnResultsChanged;
         DictionaryService.FromFrenchResults = new ObservableCollection<DicoDisplayFrenchWord>();
+        Lresults = new List<DicoDisplayFrenchWord>();
         DictionaryService.FromFrenchResults.CollectionChanged += OnResultsChanged;
+        Count = 0;
+        CurrentPage = 1;
+        AllPages = new List<int>() { 1};
+        InvokeAsync(StateHasChanged);
 
         DictionaryService.GetFromFrench(MotInput);
     }
 
     private void OnResultsChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        Lresults = DictionaryService.FromFrenchResults.ToList();
+        Count = DictionaryService.FromFrenchResults.Count();
+        PagesCount = Count % 10 == 0 ? (Count / 10) : (Count / 10) + 1;
+        AllPages = new List<int>();
+        for (int i = 1; i < PagesCount+1; i++)
+        {
+            AllPages.Add(i);
+        }
+        UpdateDisplay();
+    }
+
+    private void Previous()
+    {
+        if (CurrentPage > 1)
+        {
+            CurrentPage--;
+            UpdateDisplay();
+        }
+    }
+
+    private void Next()
+    {
+        if (CurrentPage < PagesCount)
+        {
+            CurrentPage++;
+            UpdateDisplay();
+        }
+    }
+
+    private void SkipToPage(int page)
+    {
+        CurrentPage = page;
+        UpdateDisplay();
+    }
+
+    private void UpdateDisplay()
+    {
+        Lresults = DictionaryService.FromFrenchResults.ToList().Skip((CurrentPage - 1) * 10).Take(10).ToList();
         InvokeAsync(StateHasChanged);
     }
 }

@@ -9,6 +9,7 @@ namespace Traducteur_FrancoJaponais.Services
     public class DictionaryService : IDictionaryService
     {
         public ObservableCollection<DicoDisplayFrenchWord> FromFrenchResults { get; set; }
+        public int Count { get { return FromFrenchResults.Count(); } }
         private ISQLiteAsyncConnection db;
         public DictionaryService(IDataBaseService dbConnexion)
         {
@@ -18,10 +19,9 @@ namespace Traducteur_FrancoJaponais.Services
         public async Task GetFromFrench(string query)
         {
             var AllFrenchMatch = await GetFrenchFromQuery(query);
-
             foreach (var french in AllFrenchMatch)
             {
-                GetWordFireAndForget(french);
+                await GetWordFireAndForget(french);
             }
         }
 
@@ -32,19 +32,33 @@ namespace Traducteur_FrancoJaponais.Services
             var japanese = new List<Japanese>();
             foreach (var frjp in frJpAsso)
             {
-                japanese.Add(await db.Table<Japanese>().Where(j => j.Id == frjp.Jid).FirstOrDefaultAsync());
+                var results = await db.Table<Japanese>().Where(j => j.Id == frjp.Jid).ToListAsync();
+                foreach (var item in results)
+                {
+                    if (!japanese.Any(j => j.Id == item.Id))
+                    {
+                        japanese.Add(item);
+                    }
+                }
             }
 
             var jpTagasso = new List<JapaneseTag>();
             foreach (var jp in japanese)
             {
-                jpTagasso.Add(await db.Table<JapaneseTag>().Where(j => j.Jid == jp.Id).FirstOrDefaultAsync());
+                jpTagasso.AddRange(await db.Table<JapaneseTag>().Where(j => j.Jid == jp.Id).ToListAsync());
             }
 
             var tag = new List<Tag>();
             foreach (var jptag in jpTagasso)
             {
-                tag.Add(await db.Table<Tag>().Where(t => t.Id == jptag.Tid).FirstOrDefaultAsync());
+                var results = await db.Table<Tag>().Where(t => t.Id == jptag.Tid).ToListAsync();
+                foreach (var item in results)
+                {
+                    if (!tag.Any(t => t.Id == item.Id))
+                    {
+                        tag.Add(item);
+                    }
+                }
             }
 
             FromFrenchResults.Add(
@@ -60,7 +74,7 @@ namespace Traducteur_FrancoJaponais.Services
 
         private async Task<List<French>> GetFrenchFromQuery(string query)
         {
-            return await db.Table<French>().Where(f => f.Value.Contains(query)).ToListAsync();
+            return await db.Table<French>().Where(f => f.Value.Contains(query.ToLower())).ToListAsync();
         }
     }
 }
