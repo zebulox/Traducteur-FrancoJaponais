@@ -8,9 +8,12 @@ namespace DataModels.Model.Dictionary
 {
     public class Tag : IDataModel
     {
-        public Tag() { }
+        public Tag()
+        {
+
+        }
         [PrimaryKey]
         public int Id { get; set; }
-        public String Value { get; set; }
+        public string? Value { get; set; }
     }
 }

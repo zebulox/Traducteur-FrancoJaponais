@@ -62,13 +62,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="Resources\Raw\FrenchWords.json" />
-      <Content Remove="Resources\Raw\JapanseWords.json" />
-      <Content Remove="Resources\Raw\Tags.json" />
-      <Content Remove="Resources\Raw\TagWord.json" />
-      <Content Remove="Resources\Raw\WordFrench.json" />
-      <Content Remove="Resources\Raw\WordJapanese.json" />
-      <Content Remove="Resources\Raw\Words.json" />
+      <Content Remove="Resources\Raw\French.json" />
+      <Content Remove="Resources\Raw\FrenchJapanese.json" />
+      <Content Remove="Resources\Raw\Japanese.json" />
+      <Content Remove="Resources\Raw\JapaneseTag.json" />
+      <Content Remove="Resources\Raw\Tag.json" />
     </ItemGroup>
 
     <ItemGroup>

@@ -2,15 +2,13 @@
 @using DataModels.DisplayModels
 @using DataModels.Model
 @using DataModels.Model.Dictionary
+@using System.Collections.ObjectModel
+@using System.Collections.Specialized
 @using Traducteur_FrancoJaponais.Constants
+@using Traducteur_FrancoJaponais.Services
 @using Traducteur_FrancoJaponais.Services.DataBase.Interface
-@inject IDataManager<Word> WordDataManager;
-@inject IDataManager<FrenchWord> FrenchWordDataManager;
-@inject IDataManager<JapaneseWord> JapaneseWordDataManager;
-@inject IDataManager<Tag> TagDataManager;
-@inject IDataManager<WordFrench> WordFrenchDataManager;
-@inject IDataManager<WordJapanese> WordJapaneseDataManager;
-@inject IDataManager<WordTag> WordTagDataManager;
+@inject IDictionaryService DictionaryService;
+
 
 <h3 class="text-center bolder mt-5">Dictionary</h3>
 
@@ -30,7 +28,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=@($"#collapse{mot.Id}") aria-expanded="true" aria-controls=@($"collapse{mot.Id}")>
-                        @mot.French
+                        @mot.French <span>@mot.Id</span>
                     </button>
                 </h2>
                 <div id=@($"collapse{mot.Id}") class="accordion-collapse collapse" data-bs-parent="#accordionDico">
@@ -43,7 +41,7 @@
                                         <span class="badge text-bg-primary">@tag</span>
                                     }    
                                 </h5>
-                                @foreach (String Japanese in mot.Japanese)
+                                @foreach (String Japanese in mot.Japaneses)
                                 {
                                     <h6 class="card-subtitle mb-2 text-body-secondary">@Japanese</h6>
                                 }
@@ -58,83 +56,25 @@
 
 @code {
     private String MotInput = String.Empty;
-    List<FrenchWord> ResultatsFr = new List<FrenchWord>();
     List<DicoDisplayFrenchWord> Lresults = new List<DicoDisplayFrenchWord>();
-    // private async Task OnInput(ChangeEventArgs e)
-    // {
-    //     MotInput = e.Value.ToString().ToLower();
-    // }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
 
     private async void Search()
     {
-        Lresults = await PerformFrenchSearch();
+        DictionaryService.FromFrenchResults.CollectionChanged -= OnResultsChanged;
+        DictionaryService.FromFrenchResults = new ObservableCollection<DicoDisplayFrenchWord>();
+        DictionaryService.FromFrenchResults.CollectionChanged += OnResultsChanged;
 
-        await InvokeAsync(StateHasChanged);
+        DictionaryService.GetFromFrench(MotInput);
     }
 
-    private async Task<List<DicoDisplayFrenchWord>> PerformFrenchSearch()
+    private void OnResultsChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        var ret = new List<DicoDisplayFrenchWord>();
-        var db = WordDataManager.returndatabaseservice();
-        ResultatsFr = db.Table<FrenchWord>().Where(f => f.Value.StartsWith(MotInput)).ToListAsync().Result.OrderBy(m => m.Value).Take(10).ToList();
-
-        var assocFr_Word = new List<WordFrench>();//= db.Table<WordFrench>().Where(f => ResultatsFr.Select(x => x.Id).ToList().Contains(f.FId.Value)).ToListAsync().Result;
-        foreach (var item in ResultatsFr)
-        {
-            assocFr_Word.AddRange(await db.Table<WordFrench>().Where(f => f.FId == item.Id).ToListAsync());
-        }
-
-        var words = new List<Word>();//db.Table<Word>().Where(f => assocFr_Word.Select(x => x.WId).ToList().Contains(f.Id)).ToListAsync().Result;
-        foreach (var item in assocFr_Word)
-        {
-            words.AddRange(await db.Table<Word>().Where(f => f.Id == item.WId).ToListAsync());
-        }
-
-        var assocJp_Word = new List<WordJapanese>();//db.Table<WordJapanese>().Where(f => words.Select(x => x.Id).ToList().Contains(f.WId.Value)).ToListAsync().Result;
-        foreach (var item in words)
-        {
-            assocJp_Word.AddRange(await db.Table<WordJapanese>().Where(f => f.WId == item.Id).ToListAsync());
-        }
-
-        var japanese = new List<JapaneseWord>();//db.Table<JapaneseWord>().Where(f => assocJp_Word.Select(x => x.JId).ToList().Contains(f.Id)).ToListAsync().Result;
-        foreach (var item in assocJp_Word)
-        {
-            if (!japanese.Any(x => x.Id == item.JId))
-            {
-                japanese.AddRange(await db.Table<JapaneseWord>().Where(f => f.Id == item.JId).ToListAsync());
-            }
-        }
-
-        var assocTag_Word = new List<WordTag>();//db.Table<WordTag>().Where(f => words.Select(x => x.Id).ToList().Contains(f.WId.Value)).ToListAsync().Result;
-        foreach (var item in words)
-        {
-            assocTag_Word.AddRange(await db.Table<WordTag>().Where(f => f.WId == item.Id).ToListAsync());
-        }
-
-        var tags = new List<Tag>();//db.Table<Tag>().Where(f => assocTag_Word.Select(x => x.TId).ToList().Contains(f.Id)).ToListAsync().Result;
-        foreach (var item in assocTag_Word)
-        {
-            if (!tags.Any(x => x.Id == item.TId))
-            {
-                tags.AddRange(await db.Table<Tag>().Where(f => f.Id == item.TId).ToListAsync());
-            }
-        }
-
-        foreach (var item in ResultatsFr)
-        {
-            var word = words.FirstOrDefault(x => x.Id == assocFr_Word.FirstOrDefault(w => w.FId == item.Id).WId);
-            var ljaps = japanese.FindAll(x => assocJp_Word.FindAll(w => w.WId == word.Id).Select(y => y.JId).ToList().Contains(x.Id));
-            var ltags = tags.FindAll(x => assocTag_Word.FindAll(w => w.WId == word.Id).Select(y => y.TId).ToList().Contains(x.Id));
-            ret.Add(new DicoDisplayFrenchWord()
-            {
-                Id = word.Id,
-                ResearchString = word.ResearchString,
-                French = item.Value,
-                Japanese = ljaps.Select(j => j.Value).ToList(),
-                Tags = ltags.Select(j => j.Value).ToList(),
-
-            });
-        }
-        return ret;
+        Lresults = DictionaryService.FromFrenchResults.ToList();
+        InvokeAsync(StateHasChanged);
     }
 }

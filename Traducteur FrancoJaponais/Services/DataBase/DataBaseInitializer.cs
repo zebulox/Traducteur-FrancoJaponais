@@ -20,16 +20,26 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
 
         public async Task<bool> InitDataBaseTables()
         {
+            await database.DropTableAsync<HiromiPhrase>();
             await database.CreateTableAsync<HiromiPhrase>();
+
+            await database.DropTableAsync<HiromiCourse>();
             await database.CreateTableAsync<HiromiCourse>();
 
-            await database.CreateTableAsync<Word>();
-            await database.CreateTableAsync<FrenchWord>();
-            await database.CreateTableAsync<JapaneseWord>();
+            await database.DropTableAsync<French>();
+            await database.CreateTableAsync<French>();
+
+            await database.DropTableAsync<Japanese>();
+            await database.CreateTableAsync<Japanese>();
+
+            await database.DropTableAsync<Tag>();
             await database.CreateTableAsync<Tag>();
-            await database.CreateTableAsync<WordFrench>();
-            await database.CreateTableAsync<WordJapanese>();
-            await database.CreateTableAsync<WordTag>();
+
+            await database.DropTableAsync<FrenchJapanese>();
+            await database.CreateTableAsync<FrenchJapanese>();
+
+            await database.DropTableAsync<JapaneseTag>();
+            await database.CreateTableAsync<JapaneseTag>();
             return true;
         }
         public async Task<bool> InitCourData()
@@ -304,42 +314,22 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
 
         public async Task<bool> InitDicoData()
         {
-            await InitWordsData();
             await InitFrenchData();
             await InitJapaneseData();
             await InitTagData();
-            await InitWordFrenchAssocData();
-            await InitWordJapaneseAssocData();
-            await InitWordTagAssocData();
+            await InitFrenchJapaneseAssocData();
+            await InitJapaneseTagAssocData();
             return true;
-        }
-
-        private async Task InitWordsData()
-        {
-            //optimisation https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/bulk-insert
-            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWords);
-            using var reader = new StreamReader(stream);
-            var contents = reader.ReadToEnd();
-            var words = JsonSerializer.Deserialize<List<Word>>(contents);
-
-            List<Word> bulkInsert = new List<Word>();
-            while (words.Count > 0)
-            {
-                Debug.WriteLine($"{words.Count}");
-                bulkInsert = words.Take(1000).ToList();
-                await database.InsertAllAsync(bulkInsert);
-                words.RemoveRange(0, bulkInsert.Count);
-            }
         }
 
         private async Task InitFrenchData()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoFrench);
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.FrenchJsonFile);
             using var reader = new StreamReader(stream);
             var contents = reader.ReadToEnd();
-            var words = JsonSerializer.Deserialize<List<FrenchWord>>(contents);
+            var words = JsonSerializer.Deserialize<List<French>>(contents);
 
-            List<FrenchWord> bulkInsert = new List<FrenchWord>();
+            List<French> bulkInsert = new List<French>();
             while (words.Count > 0)
             {
                 Debug.WriteLine($"{words.Count}");
@@ -351,12 +341,12 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
 
         private async Task InitJapaneseData()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoJapanese);
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.JapaneseJsonFile);
             using var reader = new StreamReader(stream);
             var contents = reader.ReadToEnd();
-            var words = JsonSerializer.Deserialize<List<JapaneseWord>>(contents);
+            var words = JsonSerializer.Deserialize<List<Japanese>>(contents);
 
-            List<JapaneseWord> bulkInsert = new List<JapaneseWord>();
+            List<Japanese> bulkInsert = new List<Japanese>();
             while (words.Count > 0)
             {
                 Debug.WriteLine($"{words.Count}");
@@ -368,7 +358,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
 
         private async Task InitTagData()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoTags);
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.TagJsonFile);
             using var reader = new StreamReader(stream);
             var contents = reader.ReadToEnd();
             var words = JsonSerializer.Deserialize<List<Tag>>(contents);
@@ -383,14 +373,14 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             }
         }
 
-        private async Task InitWordFrenchAssocData()
+        private async Task InitFrenchJapaneseAssocData()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWordsFrench);
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.FrenchJapaneseJsonFile);
             using var reader = new StreamReader(stream);
             var contents = reader.ReadToEnd();
-            var words = JsonSerializer.Deserialize<List<WordFrench>>(contents);
+            var words = JsonSerializer.Deserialize<List<FrenchJapanese>>(contents);
 
-            List<WordFrench> bulkInsert = new List<WordFrench>();
+            List<FrenchJapanese> bulkInsert = new List<FrenchJapanese>();
             while (words.Count > 0)
             {
                 Debug.WriteLine($"{words.Count}");
@@ -400,31 +390,14 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             }
         }
 
-        private async Task InitWordJapaneseAssocData()
+        private async Task InitJapaneseTagAssocData()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWordsJapanese);
+            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.JapaneseTagJsonFile);
             using var reader = new StreamReader(stream);
             var contents = reader.ReadToEnd();
-            var words = JsonSerializer.Deserialize<List<WordJapanese>>(contents);
+            var words = JsonSerializer.Deserialize<List<JapaneseTag>>(contents);
 
-            List<WordJapanese> bulkInsert = new List<WordJapanese>();
-            while (words.Count > 0)
-            {
-                Debug.WriteLine($"{words.Count}");
-                bulkInsert = words.Take(1000).ToList();
-                await database.InsertAllAsync(bulkInsert);
-                words.RemoveRange(0, bulkInsert.Count);
-            }
-        }
-
-        private async Task InitWordTagAssocData()
-        {
-            using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.DicoWordsTags);
-            using var reader = new StreamReader(stream);
-            var contents = reader.ReadToEnd();
-            var words = JsonSerializer.Deserialize<List<WordTag>>(contents);
-
-            List<WordTag> bulkInsert = new List<WordTag>();
+            List<JapaneseTag> bulkInsert = new List<JapaneseTag>();
             while (words.Count > 0)
             {
                 Debug.WriteLine($"{words.Count}");
