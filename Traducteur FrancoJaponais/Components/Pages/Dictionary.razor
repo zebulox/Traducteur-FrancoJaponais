@@ -88,12 +88,11 @@
     {
         DictionaryService.FromFrenchResults.CollectionChanged -= OnResultsChanged;
         DictionaryService.FromFrenchResults = new ObservableCollection<DicoDisplayFrenchWord>();
-        Lresults = new List<DicoDisplayFrenchWord>();
         DictionaryService.FromFrenchResults.CollectionChanged += OnResultsChanged;
         Count = 0;
         CurrentPage = 1;
         AllPages = new List<int>() { 1};
-        InvokeAsync(StateHasChanged);
+        UpdateDisplay();
 
         DictionaryService.GetFromFrench(MotInput);
     }
