@@ -67,9 +67,13 @@
                                             {
                                                 <span class="badge text-bg-dark">@tag</span>
                                             }
-                                            else
+                                            else if (TagCss.JLPT.Contains(tag))
                                             {
                                                 <span class="badge text-bg-primary">@tag</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge text-bg-secondary">@tag</span>
                                             }
                                         }    
                                     </h5>

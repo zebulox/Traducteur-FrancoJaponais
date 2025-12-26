@@ -196,5 +196,13 @@ namespace Traducteur_FrancoJaponais.Constants
             "Vietnamese origin",
             "Yiddish origin",
         };
+        public static List<String> JLPT = new List<string>()
+        {
+            "JLPT N1",
+            "JLPT N2",
+            "JLPT N3",
+            "JLPT N4",
+            "JLPT N5",
+        };
     }
 }
