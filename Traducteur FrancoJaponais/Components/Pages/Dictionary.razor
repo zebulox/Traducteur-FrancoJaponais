@@ -7,6 +7,7 @@
 @using Traducteur_FrancoJaponais.Constants
 @using Traducteur_FrancoJaponais.Services
 @using Traducteur_FrancoJaponais.Services.DataBase.Interface
+@using Traducteur_FrancoJaponais.Components.Pages.components
 @inject IDictionaryService DictionaryService;
 
 
@@ -39,53 +40,10 @@
     </nav>
 
     <div class="d-flex flex-column align-center justify-spaced">
-        <div class="accordion" id="accordionDico">
+        <div class="accordion" id="accordionWord">
             @foreach (DicoDisplayFrenchWord mot in Lresults)
             {
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=@($"#collapse{mot.Id}") aria-expanded="true" aria-controls=@($"collapse{mot.Id}")>
-                            @mot.French
-                        </button>
-                    </h2>
-                    <div id=@($"collapse{mot.Id}") class="accordion-collapse collapse" data-bs-parent="#accordionDico">
-                        <div class="accordion-body">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        @foreach (var tag in mot.Tags)
-                                        {
-                                            if (TagCss.Orthographe.Contains(tag))
-                                            {
-                                                <span class="badge text-bg-success">@tag</span>
-                                            }
-                                            else if (TagCss.Domaine.Contains(tag))
-                                            {
-                                                <span class="badge text-bg-info">@tag</span>
-                                            }
-                                            else if (TagCss.Origines.Contains(tag))
-                                            {
-                                                <span class="badge text-bg-dark">@tag</span>
-                                            }
-                                            else if (TagCss.JLPT.Contains(tag))
-                                            {
-                                                <span class="badge text-bg-primary">@tag</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="badge text-bg-secondary">@tag</span>
-                                            }
-                                        }    
-                                    </h5>
-                                    @foreach (String Japanese in mot.Japaneses)
-                                    {
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">@Japanese</h6>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <DicoDisplayFrenchWordComponent Word="@mot"></DicoDisplayFrenchWordComponent>
             }
             </div>
     </div>

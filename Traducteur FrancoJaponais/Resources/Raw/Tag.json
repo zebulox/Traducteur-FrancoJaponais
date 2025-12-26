@@ -29,7 +29,7 @@
   },
   {
     "Id": 215,
-    "Value": "Ainu origin"
+    "Value": "ainu origin"
   },
   {
     "Id": 126,
@@ -37,11 +37,11 @@
   },
   {
     "Id": 142,
-    "Value": "Ancient Greek origin"
+    "Value": "ancient greek origin"
   },
   {
     "Id": 175,
-    "Value": "Arabic origin"
+    "Value": "arabic origin"
   },
   {
     "Id": 14,
@@ -113,15 +113,15 @@
   },
   {
     "Id": 207,
-    "Value": "Brazilian"
+    "Value": "brazilian"
   },
   {
     "Id": 93,
-    "Value": "Buddhism"
+    "Value": "buddhism"
   },
   {
     "Id": 246,
-    "Value": "Burmese origin"
+    "Value": "burmese origin"
   },
   {
     "Id": 150,
@@ -145,15 +145,15 @@
   },
   {
     "Id": 226,
-    "Value": "Chinese mythology"
+    "Value": "chinese mythology"
   },
   {
     "Id": 176,
-    "Value": "Chinese origin"
+    "Value": "chinese origin"
   },
   {
     "Id": 94,
-    "Value": "Christianity"
+    "Value": "christianity"
   },
   {
     "Id": 240,
@@ -197,11 +197,11 @@
   },
   {
     "Id": 243,
-    "Value": "Czech origin"
+    "Value": "czech origin"
   },
   {
     "Id": 249,
-    "Value": "Danish origin"
+    "Value": "danish origin"
   },
   {
     "Id": 69,
@@ -225,7 +225,7 @@
   },
   {
     "Id": 137,
-    "Value": "Dutch origin"
+    "Value": "dutch origin"
   },
   {
     "Id": 230,
@@ -245,7 +245,7 @@
   },
   {
     "Id": 187,
-    "Value": "ENAMDICT/JMnedict words"
+    "Value": "enamdict/jmnedict words"
   },
   {
     "Id": 143,
@@ -253,7 +253,7 @@
   },
   {
     "Id": 114,
-    "Value": "English origin"
+    "Value": "english origin"
   },
   {
     "Id": 157,
@@ -301,7 +301,7 @@
   },
   {
     "Id": 248,
-    "Value": "Finnish origin"
+    "Value": "finnish origin"
   },
   {
     "Id": 115,
@@ -317,7 +317,7 @@
   },
   {
     "Id": 120,
-    "Value": "French origin"
+    "Value": "french origin"
   },
   {
     "Id": 192,
@@ -349,7 +349,7 @@
   },
   {
     "Id": 87,
-    "Value": "German origin"
+    "Value": "german origin"
   },
   {
     "Id": 44,
@@ -381,7 +381,7 @@
   },
   {
     "Id": 134,
-    "Value": "Greek mythology"
+    "Value": "greek mythology"
   },
   {
     "Id": 217,
@@ -393,11 +393,11 @@
   },
   {
     "Id": 237,
-    "Value": "Hawaiian origin"
+    "Value": "hawaiian origin"
   },
   {
     "Id": 214,
-    "Value": "Hindi origin"
+    "Value": "hindi origin"
   },
   {
     "Id": 30,
@@ -405,7 +405,7 @@
   },
   {
     "Id": 172,
-    "Value": "Hokkaido-ben"
+    "Value": "hokkaido-ben"
   },
   {
     "Id": 40,
@@ -421,7 +421,7 @@
   },
   {
     "Id": 47,
-    "Value": "Ichidan verb"
+    "Value": "ichidan verb"
   },
   {
     "Id": 76,
@@ -433,11 +433,11 @@
   },
   {
     "Id": 138,
-    "Value": "Internet"
+    "Value": "internet"
   },
   {
     "Id": 97,
-    "Value": "Internet slang"
+    "Value": "internet slang"
   },
   {
     "Id": 25,
@@ -465,31 +465,31 @@
   },
   {
     "Id": 180,
-    "Value": "Italian origin"
+    "Value": "italian origin"
   },
   {
     "Id": 179,
-    "Value": "Japanese mythology"
+    "Value": "japanese mythology"
   },
   {
     "Id": 6,
-    "Value": "JLPT N1"
+    "Value": "jlpt n1"
   },
   {
     "Id": 83,
-    "Value": "JLPT N2"
+    "Value": "jlpt n2"
   },
   {
     "Id": 73,
-    "Value": "JLPT N3"
+    "Value": "jlpt n3"
   },
   {
     "Id": 2,
-    "Value": "JLPT N4"
+    "Value": "jlpt n4"
   },
   {
     "Id": 20,
-    "Value": "JLPT N5"
+    "Value": "jlpt n5"
   },
   {
     "Id": 41,
@@ -501,15 +501,15 @@
   },
   {
     "Id": 64,
-    "Value": "Kansai-ben"
+    "Value": "kansai-ben"
   },
   {
     "Id": 153,
-    "Value": "Kantou-ben"
+    "Value": "kantou-ben"
   },
   {
     "Id": 167,
-    "Value": "Korean origin"
+    "Value": "korean origin"
   },
   {
     "Id": 130,
@@ -517,15 +517,15 @@
   },
   {
     "Id": 112,
-    "Value": "Kyoto-ben"
+    "Value": "kyoto-ben"
   },
   {
     "Id": 121,
-    "Value": "Kyuushuu-ben"
+    "Value": "kyuushuu-ben"
   },
   {
     "Id": 156,
-    "Value": "Latin origin"
+    "Value": "latin origin"
   },
   {
     "Id": 123,
@@ -549,7 +549,7 @@
   },
   {
     "Id": 168,
-    "Value": "Malay origin"
+    "Value": "malay origin"
   },
   {
     "Id": 52,
@@ -557,7 +557,7 @@
   },
   {
     "Id": 247,
-    "Value": "Manchu origin"
+    "Value": "manchu origin"
   },
   {
     "Id": 239,
@@ -601,11 +601,11 @@
   },
   {
     "Id": 206,
-    "Value": "Modern Greek origin"
+    "Value": "modern greek origin"
   },
   {
     "Id": 178,
-    "Value": "Mongolian origin"
+    "Value": "mongolian origin"
   },
   {
     "Id": 201,
@@ -629,7 +629,7 @@
   },
   {
     "Id": 250,
-    "Value": "Norwegian origin"
+    "Value": "norwegian origin"
   },
   {
     "Id": 10,
@@ -693,7 +693,7 @@
   },
   {
     "Id": 202,
-    "Value": "Osaka-ben"
+    "Value": "osaka-ben"
   },
   {
     "Id": 67,
@@ -741,7 +741,7 @@
   },
   {
     "Id": 154,
-    "Value": "Portuguese origin"
+    "Value": "portuguese origin"
   },
   {
     "Id": 15,
@@ -805,19 +805,19 @@
   },
   {
     "Id": 162,
-    "Value": "Roman mythology"
+    "Value": "roman mythology"
   },
   {
     "Id": 136,
-    "Value": "Russian origin"
+    "Value": "russian origin"
   },
   {
     "Id": 161,
-    "Value": "Ryuukyuu-ben"
+    "Value": "ryuukyuu-ben"
   },
   {
     "Id": 151,
-    "Value": "Sanskrit origin"
+    "Value": "sanskrit origin"
   },
   {
     "Id": 4,
@@ -837,7 +837,7 @@
   },
   {
     "Id": 147,
-    "Value": "Shinto"
+    "Value": "shinto"
   },
   {
     "Id": 238,
@@ -857,7 +857,7 @@
   },
   {
     "Id": 140,
-    "Value": "Spanish origin"
+    "Value": "spanish origin"
   },
   {
     "Id": 103,
@@ -893,15 +893,15 @@
   },
   {
     "Id": 251,
-    "Value": "Swedish origin"
+    "Value": "swedish origin"
   },
   {
     "Id": 244,
-    "Value": "Tagalog origin"
+    "Value": "tagalog origin"
   },
   {
     "Id": 232,
-    "Value": "Tahitian origin"
+    "Value": "tahitian origin"
   },
   {
     "Id": 165,
@@ -913,19 +913,19 @@
   },
   {
     "Id": 203,
-    "Value": "Thai origin"
+    "Value": "thai origin"
   },
   {
     "Id": 245,
-    "Value": "Tibetan origin"
+    "Value": "tibetan origin"
   },
   {
     "Id": 227,
-    "Value": "Tosa-ben"
+    "Value": "tosa-ben"
   },
   {
     "Id": 171,
-    "Value": "Touhoku-ben"
+    "Value": "touhoku-ben"
   },
   {
     "Id": 128,
@@ -937,11 +937,11 @@
   },
   {
     "Id": 163,
-    "Value": "Tsugaru-ben"
+    "Value": "tsugaru-ben"
   },
   {
     "Id": 220,
-    "Value": "Turkish origin"
+    "Value": "turkish origin"
   },
   {
     "Id": 104,
@@ -957,7 +957,7 @@
   },
   {
     "Id": 253,
-    "Value": "Uzbek origin"
+    "Value": "uzbek origin"
   },
   {
     "Id": 36,
@@ -973,7 +973,7 @@
   },
   {
     "Id": 166,
-    "Value": "Vietnamese origin"
+    "Value": "vietnamese origin"
   },
   {
     "Id": 56,
@@ -989,7 +989,7 @@
   },
   {
     "Id": 211,
-    "Value": "Yiddish origin"
+    "Value": "yiddish origin"
   },
   {
     "Id": 169,
