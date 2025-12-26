@@ -7,14 +7,14 @@
             @Word.French
         </button>
     </h2>
-    <div id=@($"collapse{Word.Id}") class="accordion-collapse collapse" data-bs-parent="#accordionWord">
+    <div id=@($"collapse{Word.Id}") class="accordion-collapse collapse" data-bs-parent="#@AccordionName">
         <div class="accordion-body">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
                         @foreach (var tag in Word.Tags)
                         {
-                            if (TagCss.Orthographe.Contains(tag))
+                            if (TagCss.Grammaire.Contains(tag))
                             {
                                 <span class="badge text-bg-success">@tag</span>
                             }
@@ -49,4 +49,6 @@
 @code {
     [Parameter]
     public DicoDisplayFrenchWord Word { get; set; }
+    [Parameter]
+    public string AccordionName { get; set; }
 }

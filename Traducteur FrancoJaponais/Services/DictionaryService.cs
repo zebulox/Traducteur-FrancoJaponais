@@ -26,6 +26,8 @@ namespace Traducteur_FrancoJaponais.Services
 
         public async Task GetFromTag(string query)
         {
+            if (query == null)
+                return;
             var tag = await GetTag(query.ToLower());
             var jpTagAsoc = await GetJapaneseAssocFromTag(tag.Id);
 

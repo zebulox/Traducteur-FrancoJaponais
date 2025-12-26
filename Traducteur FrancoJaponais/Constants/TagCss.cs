@@ -6,7 +6,7 @@ namespace Traducteur_FrancoJaponais.Constants
 {
     public static class TagCss
     {
-        public static List<String> Orthographe = new List<string>()
+        public static List<String> Grammaire = new List<string>()
         {
             "&#x27;ku&#x27; adjective (archaic)",
             "&#x27;shiku&#x27; adjective (archaic)",
