@@ -19,6 +19,10 @@
         @* <InputText id="MotInput" @bind-Value="MotInput" @oninput="OnInput"></InputText> *@
         <InputText id="MotInput" @bind-Value="MotInput"></InputText>
     </div>
+    <div class="form-check form-switch">
+        <InputCheckbox  class="form-check-input" type="checkbox" @bind-Value=@isJapaneseSearch role="switch" id="switchJapanesFrenchSearch"/>
+        <label class="form-check-label" for="switchJapanesFrenchSearch">Search From Japanese</label>
+    </div>
     <button type="button" class="btn btn-primary" @onclick="Search">Chercher<span class="ms-1 badge rounded-pill bg-danger">@Count</span></button>
 
     <nav aria-label="Page navigation">
@@ -56,6 +60,7 @@
     public int PagesCount = 0;
     public int CurrentPage = 0;
     public List<int> AllPages = new List<int>();
+    private bool isJapaneseSearch = false;
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -71,7 +76,15 @@
         AllPages = new List<int>() { 1};
         UpdateDisplay();
 
-        DictionaryService.GetFromFrench(MotInput);
+        if (isJapaneseSearch)
+        {
+            DictionaryService.GetFromJapanese(MotInput);
+        }
+        else
+        {
+            DictionaryService.GetFromFrench(MotInput);
+        }
+        
     }
 
     private void OnResultsChanged(object? sender, NotifyCollectionChangedEventArgs e)

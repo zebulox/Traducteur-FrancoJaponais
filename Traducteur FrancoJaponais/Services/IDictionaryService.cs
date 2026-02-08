@@ -11,6 +11,7 @@ namespace Traducteur_FrancoJaponais.Services
     {
         public ObservableCollection<DicoDisplayFrenchWord> FromFrenchResults { get; set; }
         Task GetFromFrench(string query);
+        Task GetFromJapanese(string query);
         Task GetFromTag(string query);
 
     }

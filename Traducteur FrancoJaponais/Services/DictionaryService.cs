@@ -20,7 +20,18 @@ namespace Traducteur_FrancoJaponais.Services
             var AllFrenchMatch = await GetFrenchFromQuery(query);
             foreach (var french in AllFrenchMatch)
             {
-                await GetWordFireAndForget(french);
+                await GetWordFromFrenchFireAndForget(french);
+            }
+        }
+
+
+        //doublons pris en flag sur la recherche, les Ids sont différents pour la base?
+        public async Task GetFromJapanese(string query)
+        {
+            var AllJapaneseMatch = await GetJapaneseFromQuery(query);
+            foreach (var japanese in AllJapaneseMatch)
+            {
+                await GetWordFromJapaneseFireAndForget(japanese);
             }
         }
 
@@ -37,7 +48,12 @@ namespace Traducteur_FrancoJaponais.Services
             }
         }
 
-        private async Task GetWordFireAndForget(French french)
+        private async Task<List<French>> GetFrenchFromQuery(string query)
+        {
+            return await db.Table<French>().Where(f => f.Value.Contains(query.ToLower())).ToListAsync();
+        }
+
+        private async Task GetWordFromFrenchFireAndForget(French french)
         {
             var frJpAsso = await db.Table<FrenchJapanese>().Where(fj => fj.Fid == french.Id).ToListAsync();
 
@@ -84,9 +100,57 @@ namespace Traducteur_FrancoJaponais.Services
             );
         }
 
-        private async Task<List<French>> GetFrenchFromQuery(string query)
+        
+
+        private async Task<List<Japanese>> GetJapaneseFromQuery(string query)
         {
-            return await db.Table<French>().Where(f => f.Value.Contains(query.ToLower())).ToListAsync();
+            return await db.Table<Japanese>().Where(f => f.Value3.Contains(query.ToLower()) || f.Value2.Contains(query.ToLower())).ToListAsync();
+        }
+
+        private async Task GetWordFromJapaneseFireAndForget(Japanese japanese)
+        {
+            var frJpAsso = await db.Table<FrenchJapanese>().Where(fj => fj.Jid == japanese.Id).ToListAsync();
+
+            var french = new List<French>();
+            foreach (var frjp in frJpAsso)
+            {
+                var results = await db.Table<French>().Where(f => f.Id == frjp.Fid).ToListAsync();
+                foreach (var item in results)
+                {
+                    if (!french.Any(j => j.Value == item.Value))
+                    {
+                        french.Add(item);
+                    }
+                }
+            }
+
+            var jpTagasso = new List<JapaneseTag>();
+            jpTagasso.AddRange(await db.Table<JapaneseTag>().Where(j => j.Jid == japanese.Id).ToListAsync());
+            
+
+            var tag = new List<Tag>();
+            foreach (var jptag in jpTagasso)
+            {
+                var results = await db.Table<Tag>().Where(t => t.Id == jptag.Tid).ToListAsync();
+                foreach (var item in results)
+                {
+                    if (!tag.Any(t => t.Id == item.Id))
+                    {
+                        tag.Add(item);
+                    }
+                }
+            }
+
+            FromFrenchResults.Add(
+                new DicoDisplayFrenchWord()
+                {
+                    Id = japanese.Id,
+                    French = $"{japanese.Value1} : {japanese.Value2} : {japanese.Value3}",
+                    Japaneses = french.Select(f => f.Value).ToList(),
+                    Tags = tag.Select(j => j.Value).ToList()
+                }
+            );
+            
         }
 
         private async Task<Tag> GetTag(string query)
