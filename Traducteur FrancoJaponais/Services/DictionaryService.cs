@@ -1,6 +1,7 @@
 ﻿using DataModels.DisplayModels;
 using DataModels.Model.Dictionary;
 using SQLite;
+using System;
 using System.Collections.ObjectModel;
 using Traducteur_FrancoJaponais.Services.DataBase.Interface;
 
@@ -15,9 +16,9 @@ namespace Traducteur_FrancoJaponais.Services
             FromFrenchResults = new ObservableCollection<DicoDisplayFrenchWord>();
             db = dbConnexion.Getdatabase();
         }
-        public async Task GetFromFrench(string query)
+        public async Task GetFromFrench(string query, bool isExact)
         {
-            var AllFrenchMatch = await GetFrenchFromQuery(query);
+            var AllFrenchMatch = await GetFrenchFromQuery(query, isExact);
             foreach (var french in AllFrenchMatch)
             {
                 await GetWordFromFrenchFireAndForget(french);
@@ -26,9 +27,9 @@ namespace Traducteur_FrancoJaponais.Services
 
 
         //doublons pris en flag sur la recherche, les Ids sont différents pour la base?
-        public async Task GetFromJapanese(string query)
+        public async Task GetFromJapanese(string query, bool isExact)
         {
-            var AllJapaneseMatch = await GetJapaneseFromQuery(query);
+            var AllJapaneseMatch = await GetJapaneseFromQuery(query, isExact);
             foreach (var japanese in AllJapaneseMatch)
             {
                 await GetWordFromJapaneseFireAndForget(japanese);
@@ -48,8 +49,12 @@ namespace Traducteur_FrancoJaponais.Services
             }
         }
 
-        private async Task<List<French>> GetFrenchFromQuery(string query)
+        private async Task<List<French>> GetFrenchFromQuery(string query, bool isExact)
         {
+            if (isExact)
+            {
+                return await db.Table<French>().Where(f => f.Value.Equals(query.ToLower())).ToListAsync();
+            }
             return await db.Table<French>().Where(f => f.Value.Contains(query.ToLower())).ToListAsync();
         }
 
@@ -89,21 +94,34 @@ namespace Traducteur_FrancoJaponais.Services
                 }
             }
 
-            FromFrenchResults.Add(
-                new DicoDisplayFrenchWord() 
-                { 
-                    Id = french.Id,
-                    French = french.Value,
-                    Japaneses = japanese.Select(j => j.Value1 + " : " + j.Value2 + " : " + j.Value3).ToList(),
-                    Tags = tag.Select(j => j.Value).ToList()
-                }
-            );
+            //FromFrenchResults.Add(
+            //    new DicoDisplayFrenchWord() 
+            //    { 
+            //        Id = french.Id,
+            //        French = french.Value,
+            //        Japaneses = japanese.Select(j => j.Value1 + " : " + j.Value2 + " : " + j.Value3).ToList(),
+            //        Tags = tag.Select(j => j.Value).ToList()
+            //    }
+            //);
+
+            var word = new DicoDisplayFrenchWord()
+            {
+                Id = french.Id,
+                French = french.Value,
+                Japaneses = japanese.Select(j => j.Value1 + " : " + j.Value2 + " : " + j.Value3).ToList(),
+                Tags = tag.Select(j => j.Value).ToList()
+            };
+            SortedAdd(word);
         }
 
         
 
-        private async Task<List<Japanese>> GetJapaneseFromQuery(string query)
+        private async Task<List<Japanese>> GetJapaneseFromQuery(string query, bool isExact)
         {
+            if (isExact)
+            {
+                return await db.Table<Japanese>().Where(f => f.Value3.Equals(query.ToLower()) || f.Value2.Contains(query.ToLower())).ToListAsync();
+            }
             return await db.Table<Japanese>().Where(f => f.Value3.Contains(query.ToLower()) || f.Value2.Contains(query.ToLower())).ToListAsync();
         }
 
@@ -141,16 +159,25 @@ namespace Traducteur_FrancoJaponais.Services
                 }
             }
 
-            FromFrenchResults.Add(
-                new DicoDisplayFrenchWord()
-                {
-                    Id = japanese.Id,
-                    French = $"{japanese.Value1} : {japanese.Value2} : {japanese.Value3}",
-                    Japaneses = french.Select(f => f.Value).ToList(),
-                    Tags = tag.Select(j => j.Value).ToList()
-                }
-            );
-            
+            //FromFrenchResults.Add(
+            //    new DicoDisplayFrenchWord()
+            //    {
+            //        Id = japanese.Id,
+            //        French = $"{japanese.Value1} : {japanese.Value2} : {japanese.Value3}",
+            //        Japaneses = french.Select(f => f.Value).ToList(),
+            //        Tags = tag.Select(j => j.Value).ToList()
+            //    }
+            //);
+
+            var word = new DicoDisplayFrenchWord()
+            {
+                Id = japanese.Id,
+                French = $"{japanese.Value1} : {japanese.Value2} : {japanese.Value3}",
+                Japaneses = french.Select(f => f.Value).ToList(),
+                Tags = tag.Select(j => j.Value).ToList()
+            };
+            SortedAdd(word);
+
         }
 
         private async Task<Tag> GetTag(string query)
@@ -192,16 +219,37 @@ namespace Traducteur_FrancoJaponais.Services
                     tags.Add(tag);
                 }
             }
-            FromFrenchResults.Add(
-                new DicoDisplayFrenchWord()
-                {
-                    Id = japaneseWord.Id,
-                    French = japaneseDisplay,
-                    Japaneses = french.Select(j => j.Value).ToList(),
-                    Tags = tags.Select(j => j.Value).ToList()
-                }
-            );
+            //FromFrenchResults.Add(
+            //    new DicoDisplayFrenchWord()
+            //    {
+            //        Id = japaneseWord.Id,
+            //        French = japaneseDisplay,
+            //        Japaneses = french.Select(j => j.Value).ToList(),
+            //        Tags = tags.Select(j => j.Value).ToList()
+            //    }
+            //);
+            var word = new DicoDisplayFrenchWord()
+            {
+                Id = japaneseWord.Id,
+                French = japaneseDisplay,
+                Japaneses = french.Select(j => j.Value).ToList(),
+                Tags = tags.Select(j => j.Value).ToList()
+            };
+            SortedAdd(word);
 
+        }
+
+        private void SortedAdd(DicoDisplayFrenchWord word)
+        {
+            var index = BinarySearch(word);
+            if (index < 0) index = ~index;
+            FromFrenchResults.Insert(index, word);
+        }
+
+        private int BinarySearch(DicoDisplayFrenchWord word)
+        {
+            var comparer = Comparer<DicoDisplayFrenchWord>.Create((a, b) => a.French.CompareTo(b.French));  // reverse comparer
+            return FromFrenchResults.ToList().BinarySearch(word, comparer);
         }
     }
 }

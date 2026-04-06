@@ -13,20 +13,33 @@
 
 <h3 class="text-center bolder mt-5">Dictionary</h3>
 
-<div class="d-flex flex-column mt-3 text-center vh-80 align-center justify-spaced">
+<div class="d-flex flex-column mt-3 text-center vh-80 justify-content-between">
     <div>
         <label for="latinInput">Mot : </label>
         @* <InputText id="MotInput" @bind-Value="MotInput" @oninput="OnInput"></InputText> *@
         <InputText id="MotInput" @bind-Value="MotInput"></InputText>
     </div>
-    <div class="form-check form-switch">
+    <div class="form-check form-switch d-flex justify-content-center align-items-center gap-2">
         <InputCheckbox  class="form-check-input" type="checkbox" @bind-Value=@isJapaneseSearch role="switch" id="switchJapanesFrenchSearch"/>
         <label class="form-check-label" for="switchJapanesFrenchSearch">Search From Japanese</label>
     </div>
+    <div class="form-check form-switch d-flex justify-content-center align-items-center gap-2">
+        <InputCheckbox class="form-check-input" type="checkbox" @bind-Value=@isExact role="switch" id="switchContainsExactSearch" />
+        <label class="form-check-label" for="switchContainsExactSearch">Search Exact</label>
+    </div>
     <button type="button" class="btn btn-primary" @onclick="Search">Chercher<span class="ms-1 badge rounded-pill bg-danger">@Count</span></button>
 
+    <div class="d-flex flex-column justify-content-between">
+        <div class="accordion w-100" id="accordionWord">
+            @foreach (DicoDisplayFrenchWord mot in Lresults)
+            {
+                <DicoDisplayFrenchWordComponent Word="@mot" AccordionName="accordionWord"></DicoDisplayFrenchWordComponent>
+            }
+            </div>
+    </div>
+
     <nav aria-label="Page navigation">
-        <ul class="pagination">
+        <ul class="pagination flex-wrap justify-content-center w-100">
             <li class="page-item"><a class="page-link" @onclick="Previous">Previous</a></li>
             @foreach(int page in AllPages)
             {
@@ -42,15 +55,6 @@
             <li class="page-item"><a class="page-link" @onclick="Next">Next</a></li>
         </ul>
     </nav>
-
-    <div class="d-flex flex-column align-center justify-spaced">
-        <div class="accordion" id="accordionWord">
-            @foreach (DicoDisplayFrenchWord mot in Lresults)
-            {
-                <DicoDisplayFrenchWordComponent Word="@mot" AccordionName="accordionWord"></DicoDisplayFrenchWordComponent>
-            }
-            </div>
-    </div>
 </div>
 
 @code {
@@ -61,6 +65,7 @@
     public int CurrentPage = 0;
     public List<int> AllPages = new List<int>();
     private bool isJapaneseSearch = false;
+    private bool isExact = false;
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -78,11 +83,11 @@
 
         if (isJapaneseSearch)
         {
-            DictionaryService.GetFromJapanese(MotInput);
+            DictionaryService.GetFromJapanese(MotInput, isExact);
         }
         else
         {
-            DictionaryService.GetFromFrench(MotInput);
+            DictionaryService.GetFromFrench(MotInput, isExact);
         }
         
     }

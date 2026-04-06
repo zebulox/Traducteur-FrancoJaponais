@@ -322,7 +322,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             return true;
         }
 
-        private async Task InitFrenchData()
+        public async Task<bool> InitFrenchData()
         {
             using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.FrenchJsonFile);
             using var reader = new StreamReader(stream);
@@ -337,9 +337,10 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 await database.InsertAllAsync(bulkInsert);
                 words.RemoveRange(0, bulkInsert.Count);
             }
+            return true;
         }
 
-        private async Task InitJapaneseData()
+        public async Task<bool> InitJapaneseData()
         {
             using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.JapaneseJsonFile);
             using var reader = new StreamReader(stream);
@@ -354,9 +355,10 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 await database.InsertAllAsync(bulkInsert);
                 words.RemoveRange(0, bulkInsert.Count);
             }
+            return true;
         }
 
-        private async Task InitTagData()
+        public async Task<bool> InitTagData()
         {
             using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.TagJsonFile);
             using var reader = new StreamReader(stream);
@@ -371,9 +373,10 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 await database.InsertAllAsync(bulkInsert);
                 words.RemoveRange(0, bulkInsert.Count);
             }
+            return true;
         }
 
-        private async Task InitFrenchJapaneseAssocData()
+        public async Task<bool> InitFrenchJapaneseAssocData()
         {
             using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.FrenchJapaneseJsonFile);
             using var reader = new StreamReader(stream);
@@ -388,9 +391,10 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 await database.InsertAllAsync(bulkInsert);
                 words.RemoveRange(0, bulkInsert.Count);
             }
+            return true;
         }
 
-        private async Task InitJapaneseTagAssocData()
+        public async Task<bool> InitJapaneseTagAssocData()
         {
             using var stream = await FileSystem.OpenAppPackageFileAsync(Constants.Constants.JapaneseTagJsonFile);
             using var reader = new StreamReader(stream);
@@ -405,6 +409,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 await database.InsertAllAsync(bulkInsert);
                 words.RemoveRange(0, bulkInsert.Count);
             }
+            return true;
         }
 
     }

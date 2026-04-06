@@ -28,9 +28,9 @@
     </select>
     <button type="button" class="btn btn-primary" @onclick="Search">Chercher<span class="ms-1 badge rounded-pill bg-danger">@Lresults.Count()</span></button>
 </div>
-<div class="d-flex flex-column mt-3 text-center vh-80 align-center justify-spaced">
-    <div class="d-flex flex-column align-center justify-spaced">
-        <div class="accordion" id="accordionWord">
+<div class="d-flex flex-column mt-3 text-center vh-80 justify-content-between">
+    <div class="d-flex flex-column justify-content-between">
+        <div class="accordion w-100" id="accordionWord">
             @foreach (DicoDisplayFrenchWord mot in Lresults)
             {
                 <DicoDisplayFrenchWordComponent Word="@mot" AccordionName="accordionWord"></DicoDisplayFrenchWordComponent>

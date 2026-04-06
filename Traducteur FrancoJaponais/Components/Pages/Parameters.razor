@@ -36,11 +36,20 @@
     </div>
 </div> *@
 
+<div class="d-flex mt-3 text-center align-center justify-spaced">
+    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="@progressProgress">@progressLabel</div>
+    </div>
+</div>
+
 @code {
     private string spinnerClassInitDataBaseTable = "text-primary";
     private string spinnerClassInitData = "text-primary";
     private string spinnerClassInitDataDico = "text-primary";
     private string spinnerClassBackupDb = "text-primary";
+
+    private string progressLabel = "";
+    private string progressProgress = "width: 0%";
 
     private async Task InitDataBaseTables()
     {
@@ -62,10 +71,41 @@
     private async Task InitDataDico()
     {
         spinnerClassInitDataDico = "spinner-grow text-primary";
-        if (await dataBaseInitializer.InitDicoData())
-        {
-            spinnerClassInitDataDico = "text-primary";
-        }
+        // if (await dataBaseInitializer.InitDicoData())
+        // {
+        //     spinnerClassInitDataDico = "text-primary";
+        // }
+        progressLabel = "Init French Words";
+        progressProgress = "width: 0%";
+        InvokeAsync(StateHasChanged);
+        await dataBaseInitializer.InitFrenchData();
+
+        progressLabel = "Init Japanese Words";
+        progressProgress = "width: 20%";
+        InvokeAsync(StateHasChanged);
+        await dataBaseInitializer.InitJapaneseData();
+
+        progressLabel = "Init Tag Data";
+        progressProgress = "width: 40%";
+        InvokeAsync(StateHasChanged);
+        await dataBaseInitializer.InitTagData();
+
+        progressLabel = "Init French Japanese Link";
+        progressProgress = "width: 60%";
+        InvokeAsync(StateHasChanged);
+        await dataBaseInitializer.InitFrenchJapaneseAssocData();
+
+        progressLabel = "Init Japanese Tag Link";
+        progressProgress = "width: 80%";
+        InvokeAsync(StateHasChanged);
+        await dataBaseInitializer.InitJapaneseTagAssocData();
+
+        progressLabel = "Init Complete";
+        
+        
+        
+        progressProgress = "width: 100%";
+        spinnerClassInitDataDico = "text-primary";
     }
     private void BackupDb()
     {

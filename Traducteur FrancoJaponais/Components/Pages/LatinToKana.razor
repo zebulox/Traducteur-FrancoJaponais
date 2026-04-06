@@ -16,6 +16,10 @@
         <span id="hiraganaOutput" class="fw-bolder">@HiraganaTrad</span>
     </div>
     <div>
+        <label for="katakanaOutput">Katakana : </label>
+        <span id="katakanaOutput" class="fw-bolder">@KatakanaTrad</span>
+    </div>
+    <div>
         <button class="btn btn-primary  mx-auto" @onclick="Translate">Traduire</button>
     </div>
 </div>
@@ -25,6 +29,7 @@
 @code {
     String InputText = String.Empty;
     String HiraganaTrad = String.Empty;
+    String KatakanaTrad = String.Empty;
     private void Translate()
     {
         string inputtest = InputText;
@@ -33,5 +38,6 @@
     private void OnInput(ChangeEventArgs e)
     {
         HiraganaTrad = LatinToHiraganaConverter.ConvertLatinToHiragana(e.Value.ToString().ToLower());
+        KatakanaTrad = LatinToHiraganaConverter.ConvertLatinToKatakana(e.Value.ToString().ToLower());
     }
 }

@@ -8,6 +8,13 @@ namespace Traducteur_FrancoJaponais.Services.DataBase.Interface
     {
         Task<bool> InitDataBaseTables();
         Task<bool> InitCourData();
-        Task<bool> InitDicoData();
+        //Task<bool> InitDicoData();
+
+
+        Task<bool> InitFrenchData();
+        Task<bool> InitJapaneseData();
+        Task<bool> InitTagData();
+        Task<bool> InitFrenchJapaneseAssocData();
+        Task<bool> InitJapaneseTagAssocData();
     }
 }

@@ -10,8 +10,8 @@ namespace Traducteur_FrancoJaponais.Services
     public interface IDictionaryService
     {
         public ObservableCollection<DicoDisplayFrenchWord> FromFrenchResults { get; set; }
-        Task GetFromFrench(string query);
-        Task GetFromJapanese(string query);
+        Task GetFromFrench(string query, bool isExact);
+        Task GetFromJapanese(string query, bool isExact);
         Task GetFromTag(string query);
 
     }
