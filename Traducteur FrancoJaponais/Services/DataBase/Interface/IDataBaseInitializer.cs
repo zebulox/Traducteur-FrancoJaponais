@@ -16,5 +16,7 @@ namespace Traducteur_FrancoJaponais.Services.DataBase.Interface
         Task<bool> InitTagData();
         Task<bool> InitFrenchJapaneseAssocData();
         Task<bool> InitJapaneseTagAssocData();
+
+        Task<bool> InitGrammarRules();
     }
 }

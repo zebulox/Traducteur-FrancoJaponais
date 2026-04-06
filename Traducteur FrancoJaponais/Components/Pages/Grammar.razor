@@ -1,0 +1,22 @@
+﻿@page "/Grammar"
+@using Traducteur_FrancoJaponais.Services.DataBase.Interface
+@using DataModels.Model.Grammar
+@using Traducteur_FrancoJaponais.Components.Pages.components
+@inject IDataManager<GrammarTheme> GrammarThemeDataManager;
+
+
+<h3 class="text-center bolder mt-5">Grammar</h3>
+
+<div class="d-flex flex-column mt-3 text-center vh-80 justify-content-between">
+    <div class="accordion accordion-flush" id="Grammaraccordion">
+    @* TODO Voir si on peut se passer du .Result et faire le chargement en async pur *@
+    @foreach (GrammarTheme item in GrammarThemeDataManager.GetAll().Result)
+    {
+            <GrammarLesson Lesson="@item"></GrammarLesson>
+    }
+    </div>
+</div>
+
+@code {
+
+}

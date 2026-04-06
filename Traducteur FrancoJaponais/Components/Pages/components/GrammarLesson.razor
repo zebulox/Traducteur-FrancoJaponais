@@ -1,0 +1,66 @@
+﻿@using Traducteur_FrancoJaponais.Services.DataBase.Interface
+@using DataModels.Model.Grammar
+
+@inject IDataManager<GrammarRule> GrammarRuleDataManager;
+@inject IDataManager<GrammarVocabulary> GrammarVocabularyDataManager;
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <div class="d-flex p-3">
+            <button class="accordion-button collapsed" style="font-weight: bolder !important;" type="button" data-bs-toggle="collapse" data-bs-target=@($"#flush-collapse{Lesson.Id}") aria-expanded="false" aria-controls=@($"flush-collapse{Lesson.Id}")>
+                #@Lesson.Name
+            </button>
+        </div>
+    </h2>
+    <div id=@($"flush-collapse{Lesson.Id}") class="accordion-collapse collapse" data-bs-parent="#Grammaraccordion">
+        <div class="accordion-body">
+            <div class="card text-center">
+                <div class="card-header">
+                    Grammaire : 
+                </div>
+                <div class="card-body">
+                    @foreach (GrammarRule rule in Rules)
+                    {
+                        <p class="card-text">@(new MarkupString(rule.Rule))</p>
+                    }
+
+                    <div class="separator"></div>
+
+                    @foreach (GrammarVocabulary word in Vocabulary)
+                    {
+                        <p class="card-text fw-bold">@(word.French) => @(word.Japanese)</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public GrammarTheme Lesson { get; set; }
+    public List<GrammarRule> Rules { get; set; }
+    public List<GrammarVocabulary> Vocabulary { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue<GrammarTheme>(nameof(Lesson), out GrammarTheme course))
+        {
+            if (course != null)
+            {
+                try
+                {
+                    var db = GrammarRuleDataManager.returndatabaseservice();
+                    Rules = db.Table<GrammarRule>().Where(f => f.GrammarThemeId == course.Id).ToListAsync().Result;
+
+                    db = GrammarVocabularyDataManager.returndatabaseservice();
+                    Vocabulary = db.Table<GrammarVocabulary>().Where(f => f.GrammarThemeId == course.Id).ToListAsync().Result;
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+        }
+        await base.SetParametersAsync(parameters);
+    }
+}

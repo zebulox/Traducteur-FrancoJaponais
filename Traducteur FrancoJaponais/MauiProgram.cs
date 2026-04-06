@@ -1,5 +1,6 @@
 ﻿using DataModels.Model;
 using DataModels.Model.Dictionary;
+using DataModels.Model.Grammar;
 using Microsoft.Extensions.Logging;
 using Plugin.Maui.OCR;
 using Traducteur_FrancoJaponais.Services;
@@ -32,6 +33,11 @@ namespace Traducteur_FrancoJaponais
             builder.Services.AddSingleton<IDataManager<Tag>>(new DataManagerService<Tag>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
             builder.Services.AddSingleton<IDataManager<FrenchJapanese>>(new DataManagerService<FrenchJapanese>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
             builder.Services.AddSingleton<IDataManager<JapaneseTag>>(new DataManagerService<JapaneseTag>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
+
+            builder.Services.AddSingleton<IDataManager<GrammarTheme>>(new DataManagerService<GrammarTheme>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
+            builder.Services.AddSingleton<IDataManager<GrammarRule>>(new DataManagerService<GrammarRule>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
+            builder.Services.AddSingleton<IDataManager<GrammarVocabulary>>(new DataManagerService<GrammarVocabulary>(builder.Services.BuildServiceProvider().GetService<IDataBaseService>()));
+
 
             builder.Services.AddSingleton<IPermissionManager>(new PermissionManager());
             builder.Services.AddSingleton<IDataBaseInitializer>(new DataBaseInitializer(builder.Services.BuildServiceProvider().GetService<IDataBaseService>().Getdatabase()));

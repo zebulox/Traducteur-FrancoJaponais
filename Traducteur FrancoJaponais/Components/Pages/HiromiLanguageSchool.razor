@@ -203,7 +203,7 @@
 
     private void OnInputLatin(ChangeEventArgs e)
     {
-        NewPhrase.Japonais = LatinToHiraganaConverter.ConvertLatinToHiragana(e.Value.ToString().ToLower());
+        NewPhrase.Japonais = LatinConverter.ConvertLatinToHiragana(e.Value.ToString().ToLower());
     }
 
     void Reload()

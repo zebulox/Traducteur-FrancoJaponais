@@ -5,7 +5,7 @@ using Traducteur_FrancoJaponais.Constants;
 
 namespace Traducteur_FrancoJaponais.Services.Translation
 {
-    public static class LatinToHiraganaConverter
+    public static class LatinConverter
     {
         public static String ConvertLatinToHiragana(String latin)
         {

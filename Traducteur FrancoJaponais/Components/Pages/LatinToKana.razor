@@ -37,7 +37,7 @@
     }
     private void OnInput(ChangeEventArgs e)
     {
-        HiraganaTrad = LatinToHiraganaConverter.ConvertLatinToHiragana(e.Value.ToString().ToLower());
-        KatakanaTrad = LatinToHiraganaConverter.ConvertLatinToKatakana(e.Value.ToString().ToLower());
+        HiraganaTrad = LatinConverter.ConvertLatinToHiragana(e.Value.ToString().ToLower());
+        KatakanaTrad = LatinConverter.ConvertLatinToKatakana(e.Value.ToString().ToLower());
     }
 }
