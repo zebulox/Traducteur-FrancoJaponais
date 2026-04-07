@@ -122,3 +122,9 @@ h1:focus {
     width: 80%;
     margin-left: 10%;
 }
+
+.badge {
+    white-space: normal !important;
+    word-break: break-word;
+    max-width: 100%;
+}

@@ -19,10 +19,12 @@
                     Grammaire : 
                 </div>
                 <div class="card-body">
-                    @foreach (GrammarRule rule in Rules)
-                    {
-                        <p class="card-text">@(new MarkupString(rule.Rule))</p>
-                    }
+                    <div class="card-text d-flex flex-wrap align-items-center gap-2">
+                        @foreach (GrammarRule rule in Rules)
+                        {
+                            <p class="card-text">@(new MarkupString(rule.Rule))</p>
+                        }
+                    </div>
 
                     <div class="separator"></div>
 

@@ -700,6 +700,9 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new GrammarVocabulary() { Id = 195, GrammarThemeId = 6, French = "L'année dernière", Japanese = "きょねん"},
                 new GrammarVocabulary() { Id = 196, GrammarThemeId = 6, French = "Téléphone", Japanese = "でんわ"},
                 new GrammarVocabulary() { Id = 197, GrammarThemeId = 6, French = "Téléphoner", Japanese = "でんわ する"},
+                new GrammarVocabulary() { Id = 198, GrammarThemeId = 6, French = "Inviter", Japanese = "まねく"},
+                new GrammarVocabulary() { Id = 199, GrammarThemeId = 6, French = "Se dépécher", Japanese = "いそぐ"},
+                new GrammarVocabulary() { Id = 200, GrammarThemeId = 6, French = "Appeler", Japanese = "ょぶ"},
             };
             await database.InsertAllAsync(Cour6);
 
@@ -774,6 +777,29 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new GrammarRule() { Id = 42, GrammarThemeId = 5, Rule = "Se chaine <span class=\"badge text-bg-success\">いえ の まえ の き</span>"},
             };
             await database.InsertAllAsync(Cour5);
+
+            List<GrammarRule> Cour6 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 43, GrammarThemeId = 6, Rule = "La forme passée"},
+                new GrammarRule() { Id = 44, GrammarThemeId = 6, Rule = "ichidan => retirer le radicale et ajouter <span class=\"badge text-bg-primary\">-た</span> <span class=\"badge text-bg-success\">たべる => たべた</span>"},
+                new GrammarRule() { Id = 45, GrammarThemeId = 6, Rule = "ichidan => retirer le radicale et ajouter <span class=\"badge text-bg-primary\">-ました</span> <span class=\"badge text-bg-success\">たべる => たべました</span>"},
+                new GrammarRule() { Id = 46, GrammarThemeId = 6, Rule = "godan => remplacer <span class=\"badge text-bg-primary\">-u</span> par <span class=\"badge text-bg-primary\">-i</span> et ajouter <span class=\"badge text-bg-primary\">-ました</span> <span class=\"badge text-bg-success\">のむ => のみました</span>"},
+                new GrammarRule() { Id = 47, GrammarThemeId = 6, Rule = "godan => La forme en <span class=\"badge text-bg-primary\">-た</span> dépends de la fin du verbe"},
+                new GrammarRule() { Id = 48, GrammarThemeId = 6, Rule = "godan => <span class=\"badge text-bg-primary\">-す</span> remplacé par <span class=\"badge text-bg-primary\">-し</span> avec l'ajout de <span class=\"badge text-bg-primary\">-た</span> <span class=\"badge text-bg-success\">はなす => はなした</span>"},
+                new GrammarRule() { Id = 49, GrammarThemeId = 6, Rule = "godan => <span class=\"badge text-bg-primary\">-く</span> remplacé par <span class=\"badge text-bg-primary\">-い</span> avec l'ajout de <span class=\"badge text-bg-primary\">-た</span> <span class=\"badge text-bg-success\">まねく => まねいた</span>"},
+                new GrammarRule() { Id = 50, GrammarThemeId = 6, Rule = "godan => <span class=\"badge text-bg-primary\">-ぐ</span> remplacé par <span class=\"badge text-bg-primary\">-い</span> avec l'ajout de <span class=\"badge text-bg-primary\">-だ</span> <span class=\"badge text-bg-success\">いそぐ => いそいだ</span>"},
+                new GrammarRule() { Id = 51, GrammarThemeId = 6, Rule = "godan => <span class=\"badge text-bg-primary\">-む</span> <span class=\"badge text-bg-primary\">-ぬ</span> <span class=\"badge text-bg-primary\">-ぶ</span> remplacé par <span class=\"badge text-bg-primary\">-ん</span> avec l'ajout de <span class=\"badge text-bg-primary\">-だ</span> <span class=\"badge text-bg-success\">ょぶ => ょんだ</span>"},
+                new GrammarRule() { Id = 52, GrammarThemeId = 6, Rule = "godan => <span class=\"badge text-bg-primary\">-う</span> <span class=\"badge text-bg-primary\">-つ</span> <span class=\"badge text-bg-primary\">-る</span> remplacé par <span class=\"badge text-bg-primary\">-つ</span> avec l'ajout de <span class=\"badge text-bg-primary\">-た</span> <span class=\"badge text-bg-success\">ある => あつた</span>"},
+                new GrammarRule() { Id = 53, GrammarThemeId = 6, Rule = "Attention <span class=\"badge text-bg-danger\">いく</span> devient <span class=\"badge text-bg-danger\">いつた</span>"},
+                new GrammarRule() { Id = 54, GrammarThemeId = 6, Rule = "La forme passée négative"},
+                new GrammarRule() { Id = 55, GrammarThemeId = 6, Rule = "Pour tous les verbes on ajoute <span class=\"badge text-bg-primary\">-でした</span> à la forme négative <span class=\"badge text-bg-primary\">-ません</span> <span class=\"badge text-bg-success\">いく => いきません でした</span>"},
+                new GrammarRule() { Id = 56, GrammarThemeId = 6, Rule = "Pour tous les verbes on remplace <span class=\"badge text-bg-primary\">-ない</span> par la forme passée <span class=\"badge text-bg-primary\">-なつかた</span> <span class=\"badge text-bg-success\">いく => いかなつかた</span>"},
+                new GrammarRule() { Id = 57, GrammarThemeId = 6, Rule = "Particule <span class=\"badge text-bg-primary\">に</span>"},
+                new GrammarRule() { Id = 58, GrammarThemeId = 6, Rule = "la particule <span class=\"badge text-bg-primary\">に</span> sert à désigner le destinataire d'une action <span class=\"badge text-bg-success\">そぼ に しやしん を おくりました</span>"},
+                new GrammarRule() { Id = 59, GrammarThemeId = 6, Rule = "Particule <span class=\"badge text-bg-primary\">と</span>"},
+                new GrammarRule() { Id = 60, GrammarThemeId = 6, Rule = "la particule <span class=\"badge text-bg-primary\">と</span> peut être accompagné de la locution <span class=\"badge text-bg-primary\">いつしょ に </span>, lit. ensemble, avec <span class=\"badge text-bg-success\">ともだち と いしょに いきます</span>"},
+            };
+            await database.InsertAllAsync(Cour6);
             return true;
         }
     }
