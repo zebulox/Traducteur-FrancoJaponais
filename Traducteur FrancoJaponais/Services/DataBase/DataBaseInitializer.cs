@@ -703,8 +703,144 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new GrammarVocabulary() { Id = 198, GrammarThemeId = 6, French = "Inviter", Japanese = "まねく"},
                 new GrammarVocabulary() { Id = 199, GrammarThemeId = 6, French = "Se dépécher", Japanese = "いそぐ"},
                 new GrammarVocabulary() { Id = 200, GrammarThemeId = 6, French = "Appeler", Japanese = "ょぶ"},
+                new GrammarVocabulary() { Id = 201, GrammarThemeId = 6, French = "Envoyer", Japanese = "おくる"},
             };
             await database.InsertAllAsync(Cour6);
+
+            List<GrammarVocabulary> Cour7 = new List<GrammarVocabulary>()
+            {
+                new GrammarVocabulary() { Id = 202, GrammarThemeId = 7, French = "Toujours", Japanese = "いつも"},
+                new GrammarVocabulary() { Id = 203, GrammarThemeId = 7, French = "Pain", Japanese = "パン"},
+                new GrammarVocabulary() { Id = 204, GrammarThemeId = 7, French = "Boulangerie", Japanese = "パンや"},
+                new GrammarVocabulary() { Id = 205, GrammarThemeId = 7, French = "Etudier", Japanese = "べんきょう する"},
+                new GrammarVocabulary() { Id = 206, GrammarThemeId = 7, French = "Bâtiment", Japanese = "たてもの"},
+                new GrammarVocabulary() { Id = 207, GrammarThemeId = 7, French = "Souvent, bien", Japanese = "ょく"},
+                new GrammarVocabulary() { Id = 208, GrammarThemeId = 7, French = "Un peu", Japanese = "ちょつと"},
+                new GrammarVocabulary() { Id = 209, GrammarThemeId = 7, French = "Dessin, tableau", Japanese = "え"},
+                new GrammarVocabulary() { Id = 210, GrammarThemeId = 7, French = "Jardin public, parc", Japanese = "こうえん"},
+            };
+            await database.InsertAllAsync(Cour7);
+
+            List<GrammarVocabulary> Cour8 = new List<GrammarVocabulary>()
+            {
+                new GrammarVocabulary() { Id = 211, GrammarThemeId = 8, French = "Etudiant", Japanese = "がくせい"},
+                new GrammarVocabulary() { Id = 212, GrammarThemeId = 8, French = "Médecin", Japanese = "いしや"},
+                new GrammarVocabulary() { Id = 213, GrammarThemeId = 8, French = "Employé de banque", Japanese = "ぎんこういん"},
+                new GrammarVocabulary() { Id = 214, GrammarThemeId = 8, French = "Base-ball", Japanese = "やきゆう"},
+                new GrammarVocabulary() { Id = 215, GrammarThemeId = 8, French = "Tous les matins", Japanese = "まいあさ"},
+                new GrammarVocabulary() { Id = 216, GrammarThemeId = 8, French = "Maison", Japanese = "いえ"},
+                new GrammarVocabulary() { Id = 217, GrammarThemeId = 8, French = "Premier Ministre", Japanese = "しゆしょう"},
+                new GrammarVocabulary() { Id = 218, GrammarThemeId = 8, French = "Chine", Japanese = "ちゆうごく"},
+                new GrammarVocabulary() { Id = 219, GrammarThemeId = 8, French = "Afrique", Japanese = "アフリカ"},
+                new GrammarVocabulary() { Id = 220, GrammarThemeId = 8, French = "Ecosse", Japanese = "スコツトランド"},
+                new GrammarVocabulary() { Id = 221, GrammarThemeId = 8, French = "Animal", Japanese = "どうぶつ"},
+                new GrammarVocabulary() { Id = 222, GrammarThemeId = 8, French = "Lion", Japanese = "ライオン"},
+                new GrammarVocabulary() { Id = 223, GrammarThemeId = 8, French = "Capitale d'un pays", Japanese = "しゆと"},
+                new GrammarVocabulary() { Id = 224, GrammarThemeId = 8, French = "Spaghetti", Japanese = "スパゲツテイ"},
+                new GrammarVocabulary() { Id = 225, GrammarThemeId = 8, French = "Cerisier", Japanese = "さくら"},
+                new GrammarVocabulary() { Id = 226, GrammarThemeId = 8, French = "Fleurir", Japanese = "さく"},
+                new GrammarVocabulary() { Id = 227, GrammarThemeId = 8, French = "La terre", Japanese = "ちきゆう"},
+                new GrammarVocabulary() { Id = 228, GrammarThemeId = 8, French = "Avril", Japanese = "しがつ"},
+                new GrammarVocabulary() { Id = 229, GrammarThemeId = 8, French = "Planète", Japanese = "わくせい"},
+                new GrammarVocabulary() { Id = 230, GrammarThemeId = 8, French = "Boisson", Japanese = "のみもの"},
+                new GrammarVocabulary() { Id = 231, GrammarThemeId = 8, French = "Sources chaudes", Japanese = "おんせん"},
+                new GrammarVocabulary() { Id = 232, GrammarThemeId = 8, French = "Beaucoup", Japanese = "たくさん"},
+                new GrammarVocabulary() { Id = 233, GrammarThemeId = 8, French = "Vite, tôt", Japanese = "はやく"},
+                new GrammarVocabulary() { Id = 234, GrammarThemeId = 8, French = "Se lever", Japanese = "おきる"},
+                new GrammarVocabulary() { Id = 235, GrammarThemeId = 8, French = "Petit déjeuner", Japanese = "あさごはん"},
+                new GrammarVocabulary() { Id = 236, GrammarThemeId = 8, French = "Jus de fruit", Japanese = "ジュース"},
+                new GrammarVocabulary() { Id = 237, GrammarThemeId = 8, French = "Confiture", Japanese = "ジャム"},
+                new GrammarVocabulary() { Id = 238, GrammarThemeId = 8, French = "Miel", Japanese = "はちみつ"},
+                new GrammarVocabulary() { Id = 239, GrammarThemeId = 8, French = "Croissant", Japanese = "クロワツサン"},
+                new GrammarVocabulary() { Id = 240, GrammarThemeId = 8, French = "Infos (TV radio)", Japanese = "ニユス"},
+                new GrammarVocabulary() { Id = 241, GrammarThemeId = 8, French = "Série TV", Japanese = "ドラマ"},
+            };
+            await database.InsertAllAsync(Cour8);
+
+            List<GrammarVocabulary> Cour9 = new List<GrammarVocabulary>()
+            {
+                new GrammarVocabulary() { Id = 242, GrammarThemeId = 9, French = "Avoir / être froid", Japanese = "さむい"},
+                new GrammarVocabulary() { Id = 243, GrammarThemeId = 9, French = "Etre cher / haut", Japanese = "たかい"},
+                new GrammarVocabulary() { Id = 244, GrammarThemeId = 9, French = "Avoir bon goût", Japanese = "おいしい"},
+                new GrammarVocabulary() { Id = 245, GrammarThemeId = 9, French = "Etre loin", Japanese = "とおい"},
+                new GrammarVocabulary() { Id = 246, GrammarThemeId = 9, French = "Etre neuf / nouveau", Japanese = "あたらしい"},
+                new GrammarVocabulary() { Id = 247, GrammarThemeId = 9, French = "Etre agréable / joyeux", Japanese = "たのしい"},
+                new GrammarVocabulary() { Id = 248, GrammarThemeId = 9, French = "Etre grand", Japanese = "おおきい"},
+                new GrammarVocabulary() { Id = 249, GrammarThemeId = 9, French = "Etre petit", Japanese = "ちいさい"},
+                new GrammarVocabulary() { Id = 250, GrammarThemeId = 9, French = "Etre difficile", Japanese = "むずかしい"},
+                new GrammarVocabulary() { Id = 251, GrammarThemeId = 9, French = "Etre intéréssant", Japanese = "おむしろい"},
+                new GrammarVocabulary() { Id = 252, GrammarThemeId = 9, French = "Etre vieux / ancient", Japanese = "ふるい"},
+                new GrammarVocabulary() { Id = 253, GrammarThemeId = 9, French = "Etre rouge", Japanese = "あかい"},
+                new GrammarVocabulary() { Id = 254, GrammarThemeId = 9, French = "Etre sombre", Japanese = "くらい"},
+                new GrammarVocabulary() { Id = 255, GrammarThemeId = 9, French = "Etre Magnifique", Japanese = "すばらしい"},
+                new GrammarVocabulary() { Id = 256, GrammarThemeId = 9, French = "Examen / concours", Japanese = "しけん"},
+                new GrammarVocabulary() { Id = 257, GrammarThemeId = 9, French = "Problème / sujet d'exam", Japanese = "もんだい"},
+                new GrammarVocabulary() { Id = 258, GrammarThemeId = 9, French = "Etre bon marché", Japanese = "やすい"},
+                new GrammarVocabulary() { Id = 259, GrammarThemeId = 9, French = "Etre noir", Japanese = "くろい"},
+                new GrammarVocabulary() { Id = 260, GrammarThemeId = 9, French = "Homme (être humain)", Japanese = "ひと"},
+                new GrammarVocabulary() { Id = 261, GrammarThemeId = 9, French = "Etre bien", Japanese = "いい"},
+            };
+            await database.InsertAllAsync(Cour9);
+
+            List<GrammarVocabulary> Cour10 = new List<GrammarVocabulary>()
+            {
+                new GrammarVocabulary() { Id = 262, GrammarThemeId = 10, French = "Beau", Japanese = "きれい"},
+                new GrammarVocabulary() { Id = 263, GrammarThemeId = 10, French = "Célèbre", Japanese = "ゆうめい"},
+                new GrammarVocabulary() { Id = 264, GrammarThemeId = 10, French = "Pratique", Japanese = "べんり"},
+                new GrammarVocabulary() { Id = 265, GrammarThemeId = 10, French = "Solide", Japanese = "jょうぶ"},
+                new GrammarVocabulary() { Id = 266, GrammarThemeId = 10, French = "Gentil, aimable", Japanese = "しんせつ"},
+                new GrammarVocabulary() { Id = 267, GrammarThemeId = 10, French = "Ville", Japanese = "まち"},
+                new GrammarVocabulary() { Id = 268, GrammarThemeId = 10, French = "Appartement", Japanese = "アパート"},
+                new GrammarVocabulary() { Id = 269, GrammarThemeId = 10, French = "En bonne santé, en forme", Japanese = "げんき"},
+                new GrammarVocabulary() { Id = 270, GrammarThemeId = 10, French = "Mignon, chic", Japanese = "すてき"},
+                new GrammarVocabulary() { Id = 271, GrammarThemeId = 10, French = "Pull", Japanese = "セーター"},
+                new GrammarVocabulary() { Id = 272, GrammarThemeId = 10, French = "Chaussure", Japanese = "くつ"},
+                new GrammarVocabulary() { Id = 273, GrammarThemeId = 10, French = "Ski", Japanese = "スキー"},
+                new GrammarVocabulary() { Id = 274, GrammarThemeId = 10, French = "Voyage", Japanese = "りょこう"},
+                new GrammarVocabulary() { Id = 275, GrammarThemeId = 10, French = "La cuisine", Japanese = "りょうり"},
+                new GrammarVocabulary() { Id = 276, GrammarThemeId = 10, French = "Les maths", Japanese = "すうがく"},
+                new GrammarVocabulary() { Id = 277, GrammarThemeId = 10, French = "Devenir", Japanese = "なる"},
+                new GrammarVocabulary() { Id = 278, GrammarThemeId = 10, French = "Aimer", Japanese = "すき / だいすき"},
+                new GrammarVocabulary() { Id = 279, GrammarThemeId = 10, French = "Pas aimer", Japanese = "きらい / だいきらい"},
+                new GrammarVocabulary() { Id = 280, GrammarThemeId = 10, French = "Vouloir (je voudrais / j'aimerai avoir) Expr. le désir", Japanese = "ほしい"},
+                new GrammarVocabulary() { Id = 281, GrammarThemeId = 10, French = "Adroit, fort", Japanese = "じょうず"},
+                new GrammarVocabulary() { Id = 282, GrammarThemeId = 10, French = "Maladroit, nul", Japanese = "へた"},
+            };
+            await database.InsertAllAsync(Cour10);
+
+            List<GrammarVocabulary> Cour11 = new List<GrammarVocabulary>()
+            {
+                new GrammarVocabulary() { Id = 283, GrammarThemeId = 11, French = "Etre réparé, guéri", Japanese = "なおる"},
+                new GrammarVocabulary() { Id = 284, GrammarThemeId = 11, French = "Sortir, quitter un lieu", Japanese = "でる"},
+                new GrammarVocabulary() { Id = 285, GrammarThemeId = 11, French = "Se lever", Japanese = "おきる"},
+                new GrammarVocabulary() { Id = 286, GrammarThemeId = 11, French = "Rester", Japanese = "のこる"},
+                new GrammarVocabulary() { Id = 287, GrammarThemeId = 11, French = "Réparer, guérir", Japanese = "なおす"},
+                new GrammarVocabulary() { Id = 288, GrammarThemeId = 11, French = "Sortir (de sa poche ...)", Japanese = "だす"},
+                new GrammarVocabulary() { Id = 289, GrammarThemeId = 11, French = "Relever, réveiller", Japanese = "おこす"},
+                new GrammarVocabulary() { Id = 290, GrammarThemeId = 11, French = "Laisser", Japanese = "のこす"},
+                new GrammarVocabulary() { Id = 291, GrammarThemeId = 11, French = "Quelque chose commence", Japanese = "はじまる"},
+                new GrammarVocabulary() { Id = 292, GrammarThemeId = 11, French = "S'arreter", Japanese = "とまる"},
+                new GrammarVocabulary() { Id = 293, GrammarThemeId = 11, French = "Faire l'object d'une décision", Japanese = "きまる"},
+                new GrammarVocabulary() { Id = 294, GrammarThemeId = 11, French = "Cours", Japanese = "じゆうぎょう"},
+                new GrammarVocabulary() { Id = 295, GrammarThemeId = 11, French = "Commencer quelque chose", Japanese = "はじめる"},
+                new GrammarVocabulary() { Id = 296, GrammarThemeId = 11, French = "Arrêter", Japanese = "とめる"},
+                new GrammarVocabulary() { Id = 297, GrammarThemeId = 11, French = "Décider", Japanese = "きめる"},
+                new GrammarVocabulary() { Id = 298, GrammarThemeId = 11, French = "Mariage", Japanese = "けつこん"},
+                new GrammarVocabulary() { Id = 299, GrammarThemeId = 11, French = "Maintenant, en ce moment", Japanese = "いま"},
+                new GrammarVocabulary() { Id = 300, GrammarThemeId = 11, French = "Habiter", Japanese = "すむ"},
+                new GrammarVocabulary() { Id = 301, GrammarThemeId = 11, French = "Tous les jours", Japanese = "まいにち"},
+                new GrammarVocabulary() { Id = 302, GrammarThemeId = 11, French = "Travailler, être employé", Japanese = "はたらく"},
+                new GrammarVocabulary() { Id = 303, GrammarThemeId = 11, French = "Tous les soirs", Japanese = "まいばん"},
+                new GrammarVocabulary() { Id = 304, GrammarThemeId = 11, French = "Lunettes", Japanese = "めがね"},
+                new GrammarVocabulary() { Id = 305, GrammarThemeId = 11, French = "T-shirt (tshiyatsu)", Japanese = "tシヤツ"},
+                new GrammarVocabulary() { Id = 306, GrammarThemeId = 11, French = "Jean", Japanese = "ジーンズ"},
+                new GrammarVocabulary() { Id = 307, GrammarThemeId = 11, French = "Mettre des lunettes", Japanese = " (めがね を) かける"},
+                new GrammarVocabulary() { Id = 308, GrammarThemeId = 11, French = "Enfiler (un vêtement)", Japanese = "きる"},
+                new GrammarVocabulary() { Id = 309, GrammarThemeId = 11, French = "Enfiler (par les pieds)", Japanese = "はく"},
+                new GrammarVocabulary() { Id = 310, GrammarThemeId = 11, French = "Entreprise", Japanese = "かいしや"},
+                new GrammarVocabulary() { Id = 311, GrammarThemeId = 11, French = "Caisse (reji)", Japanese = "レジ"},
+            };
+            await database.InsertAllAsync(Cour11);
 
             return true;
         }
@@ -800,6 +936,138 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new GrammarRule() { Id = 60, GrammarThemeId = 6, Rule = "la particule <span class=\"badge text-bg-primary\">と</span> peut être accompagné de la locution <span class=\"badge text-bg-primary\">いつしょ に </span>, lit. ensemble, avec <span class=\"badge text-bg-success\">ともだち と いしょに いきます</span>"},
             };
             await database.InsertAllAsync(Cour6);
+
+            List<GrammarRule> Cour7 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 61, GrammarThemeId = 7, Rule = "Les démonstratifs"},
+                new GrammarRule() { Id = 62, GrammarThemeId = 7, Rule = "Les démonstratifs spatiaux"},
+                new GrammarRule() { Id = 63, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">ここ</span> ici proche <span class=\"badge text-bg-success\">ここ に あります</span> lit. C 'est juste là"},
+                new GrammarRule() { Id = 64, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">そこ</span> distance moyenne"},
+                new GrammarRule() { Id = 65, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">あそこ</span> éloigné"},
+                new GrammarRule() { Id = 66, GrammarThemeId = 7, Rule = "Les démonstratifs (adverbe ça)"},
+                new GrammarRule() { Id = 67, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">これ</span> ici proche <span class=\"badge text-bg-success\">これ は ください</span> lit. Celui là (proche) s'il vous plait"},
+                new GrammarRule() { Id = 68, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">それ</span> distance moyenne"},
+                new GrammarRule() { Id = 69, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">あれ</span> éloigné"},
+                new GrammarRule() { Id = 70, GrammarThemeId = 7, Rule = "Les démonstratifs (adjectif)"},
+                new GrammarRule() { Id = 71, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">この</span> ici proche <span class=\"badge text-bg-success\">この へや で べんきょう します</span> lit. J'étudie dans cette pièce (juste à coté)"},
+                new GrammarRule() { Id = 72, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">その</span> distance moyenne"},
+                new GrammarRule() { Id = 73, GrammarThemeId = 7, Rule = "par ordre de distance <span class=\"badge text-bg-primary\">あの</span> éloigné"},
+            };
+            await database.InsertAllAsync(Cour7);
+
+            List<GrammarRule> Cour8 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 74, GrammarThemeId = 8, Rule = "La particule <span class=\"badge text-bg-primary\">だ</span>"},
+                new GrammarRule() { Id = 75, GrammarThemeId = 8, Rule = "<span class=\"badge text-bg-primary\">だ</span> peut remplacer <span class=\"badge text-bg-primary\">です</span> <span class=\"badge text-bg-success\">フランス の ざつち だ</span>"},
+                new GrammarRule() { Id = 76, GrammarThemeId = 8, Rule = "Présent affirmatif <span class=\"badge text-bg-primary\">だ / です</span> Fam. <span class=\"badge text-bg-primary\">です</span> Gen."},
+                new GrammarRule() { Id = 77, GrammarThemeId = 8, Rule = "Présent négatif <span class=\"badge text-bg-primary\">で は ない</span> Fam. <span class=\"badge text-bg-primary\">で は ありません</span> Gen."},
+                new GrammarRule() { Id = 78, GrammarThemeId = 8, Rule = "Passé affirmatif <span class=\"badge text-bg-primary\">だつた</span> Fam. <span class=\"badge text-bg-primary\">でした</span> Gen."},
+                new GrammarRule() { Id = 79, GrammarThemeId = 8, Rule = "Passé négatif <span class=\"badge text-bg-primary\">で は なかつた</span> Fam. <span class=\"badge text-bg-primary\">で は ありません でした</span> Gen."},
+                new GrammarRule() { Id = 80, GrammarThemeId = 8, Rule = "La particule <span class=\"badge text-bg-primary\">は</span>"},
+                new GrammarRule() { Id = 81, GrammarThemeId = 8, Rule = "Toujours en tête de phrase"},
+                new GrammarRule() { Id = 82, GrammarThemeId = 8, Rule = "Utilisé pour parler d'une chose connu de tous les interlocuteurs"},
+                new GrammarRule() { Id = 83, GrammarThemeId = 8, Rule = "Sujet de la phrase en l'abscence de <span class=\"badge text-bg-primary\">が</span>"},
+                new GrammarRule() { Id = 84, GrammarThemeId = 8, Rule = "Sinon thème principal de la phrase"},
+                new GrammarRule() { Id = 85, GrammarThemeId = 8, Rule = "Si utilisé avec d'autres particules sauf <span class=\"badge text-bg-danger\">が</span> et <span class=\"badge text-bg-danger\">を</span> marque une oppostion"},
+                new GrammarRule() { Id = 86, GrammarThemeId = 8, Rule = "Ex.<span class=\"badge text-bg-success\">ともだち と ょく でんわ で はなします</span> => je parle bcp avec mes amis au tèl"},
+                new GrammarRule() { Id = 87, GrammarThemeId = 8, Rule = "Ex.<span class=\"badge text-bg-success\">ともだち と は ょく でんわ で はなします</span> => je parle bcp avec mes amis au tèl (sous entendu pas les autres)"},
+                new GrammarRule() { Id = 88, GrammarThemeId = 8, Rule = "La particule <span class=\"badge text-bg-primary\">も</span>"},
+                new GrammarRule() { Id = 89, GrammarThemeId = 8, Rule = "Remplace <span class=\"badge text-bg-primary\">は</span> <span class=\"badge text-bg-primary\">が</span> <span class=\"badge text-bg-primary\">を</span>"},
+                new GrammarRule() { Id = 90, GrammarThemeId = 8, Rule = "Si la seconde phrase est parallèle à la première"},
+                new GrammarRule() { Id = 91, GrammarThemeId = 8, Rule = "Ex.<span class=\"badge text-bg-success\">まいあさ コーヒー を のみます. ジユース も のみます</span>"},
+            };
+            await database.InsertAllAsync(Cour8);
+
+            List<GrammarRule> Cour9 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 92, GrammarThemeId = 9, Rule = "Les adjectifs"},
+                new GrammarRule() { Id = 93, GrammarThemeId = 9, Rule = "Adjectifs de la 1er cat. finnissent en <span class=\"badge text-bg-primary\">-い</span> qui suit toujours une voyelle"},
+                new GrammarRule() { Id = 94, GrammarThemeId = 9, Rule = "on les fait suivre de <span class=\"badge text-bg-primary\">です</span> ou simplement tel quel en forme Fam. <span class=\"badge text-bg-success\">おいしい / おいしい です</span>"},
+                new GrammarRule() { Id = 95, GrammarThemeId = 9, Rule = "La forme <span class=\"badge text-bg-primary\">-く</span>"},
+                new GrammarRule() { Id = 96, GrammarThemeId = 9, Rule = "on remplace le <span class=\"badge text-bg-primary\">-い</span> par <span class=\"badge text-bg-primary\">-く</span>"},
+                new GrammarRule() { Id = 97, GrammarThemeId = 9, Rule = "<span class=\"badge text-bg-success\">おいしい => おいしく</span>"},
+                new GrammarRule() { Id = 98, GrammarThemeId = 9, Rule = "Attention <span class=\"badge text-bg-danger\">いい => ょく</span>"},
+                new GrammarRule() { Id = 99, GrammarThemeId = 9, Rule = "La forme négative se construit a partir de la forme <span class=\"badge text-bg-primary\">-く</span>"},
+                new GrammarRule() { Id = 100, GrammarThemeId = 9, Rule = "<span class=\"badge text-bg-success\">おいしい => おいしくない / おいしく ありません</span>"},
+                new GrammarRule() { Id = 101, GrammarThemeId = 9, Rule = "La forme passée se construit a partir de la forme <span class=\"badge text-bg-primary\">-く</span> avec l'ajout de <span class=\"badge text-bg-primary\">-あつた</span>"},
+                new GrammarRule() { Id = 102, GrammarThemeId = 9, Rule = "ATTENTION <span class=\"badge text-bg-danger\">う + あ => あ</span> donc <span class=\"badge text-bg-danger\">く + あつた => かつた</span>"},
+                new GrammarRule() { Id = 103, GrammarThemeId = 9, Rule = "<span class=\"badge text-bg-success\">たのしい => たのしかつた</span>"},
+                new GrammarRule() { Id = 104, GrammarThemeId = 9, Rule = "Rajouter <span class=\"badge text-bg-primary\">-です</span> pour la forme polie"},
+                new GrammarRule() { Id = 105, GrammarThemeId = 9, Rule = "<span class=\"badge text-bg-success\">たのしかつた です</span>"},
+                new GrammarRule() { Id = 106, GrammarThemeId = 9, Rule = "Pour la forme passée négative jouer avec <span class=\"badge text-bg-primary\">なかつた</span> et <span class=\"badge text-bg-primary\">なかつた です</span>"},
+                new GrammarRule() { Id = 107, GrammarThemeId = 9, Rule = "Peut aussi être épithète d'un nom, dans ce cas se place devant le nom sans forme particulière"},
+                new GrammarRule() { Id = 108, GrammarThemeId = 9, Rule = "<span class=\"badge text-bg-success\">おもしろい ほん</span>"},
+                new GrammarRule() { Id = 109, GrammarThemeId = 9, Rule = "si on emploie plusieurs Adj. pour le m^me mot le premier se met à la forme <span class=\"badge text-bg-primary\">-くて</span> et la négation est <span class=\"badge text-bg-primary\">-なくて</span>"},
+                new GrammarRule() { Id = 110, GrammarThemeId = 9, Rule = "<span class=\"badge text-bg-success\">おおきくて くらい へや</span>"},
+            };
+            await database.InsertAllAsync(Cour9);
+
+            List<GrammarRule> Cour10 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 111, GrammarThemeId = 10, Rule = "Les adjectifs (2)"},
+                new GrammarRule() { Id = 112, GrammarThemeId = 10, Rule = "Adjectifs de la 2er cat. sont invariable, fonctionnent comme des noms"},
+                new GrammarRule() { Id = 113, GrammarThemeId = 10, Rule = "Suivis de <span class=\"badge text-bg-primary\">だ</span> ou <span class=\"badge text-bg-primary\">です</span>"},
+                new GrammarRule() { Id = 114, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">きれい だ / きれい です</span>"},
+                new GrammarRule() { Id = 115, GrammarThemeId = 10, Rule = "Pour la négation au présent on la construit avec <span class=\"badge text-bg-primary\">で は ない</span> <span class=\"badge text-bg-primary\">で は ありません</span>"},
+                new GrammarRule() { Id = 116, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">きれい で は ない</span> <span class=\"badge text-bg-success\">きれい で は ありません</span>"},
+                new GrammarRule() { Id = 117, GrammarThemeId = 10, Rule = "La forme passé se construit avec <span class=\"badge text-bg-primary\">だつた</span> <span class=\"badge text-bg-primary\">でした</span>"},
+                new GrammarRule() { Id = 118, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">きれい だつた / きれい でした</span>"},
+                new GrammarRule() { Id = 119, GrammarThemeId = 10, Rule = "Pour la négation au passé on utilise <span class=\"badge text-bg-primary\">で は なかつた</span> <span class=\"badge text-bg-primary\">で は ありません でした</span>"},
+                new GrammarRule() { Id = 120, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">きれい で は なかつた</span> <span class=\"badge text-bg-success\">きれい で は ありません でした</span>"},
+                new GrammarRule() { Id = 121, GrammarThemeId = 10, Rule = "Peut aussi être épithète d'un nom, dans ce cas se place devant le nom et on ajoute la particule <span class=\"badge text-bg-primary\">な</span>"},
+                new GrammarRule() { Id = 122, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">きれい な はな</span>"},
+                new GrammarRule() { Id = 123, GrammarThemeId = 10, Rule = "Si deux adjectifs se suivent et que le premier est invariable il est suivis de <span class=\"badge text-bg-primary\">で</span>"},
+                new GrammarRule() { Id = 124, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">ゆうめい で おいし レストラン です</span>"},
+                new GrammarRule() { Id = 125, GrammarThemeId = 10, Rule = "Le verbe Devenir <span class=\"badge text-bg-primary\">なる</span>"},
+                new GrammarRule() { Id = 126, GrammarThemeId = 10, Rule = "Si il suit un nom ou un adjectif invariable il est relié par <span class=\"badge text-bg-primary\">に</span>"},
+                new GrammarRule() { Id = 127, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">きれい な まち に なりました</span>"},
+                new GrammarRule() { Id = 128, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">ゆうめい に なつた</span>"},
+                new GrammarRule() { Id = 129, GrammarThemeId = 10, Rule = "Si il suit un nom ou un adjectif en <span class=\"badge text-bg-primary\">い</span> il faut le mettre à la forme <span class=\"badge text-bg-primary\">く</span>"},
+                new GrammarRule() { Id = 130, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">くらく なる</span>"},
+                new GrammarRule() { Id = 131, GrammarThemeId = 10, Rule = "Les notion d'aimer et détester se construisent avec des adjectifs <span class=\"badge text-bg-primary\">すき</span> et <span class=\"badge text-bg-primary\">きらい</span>"},
+                new GrammarRule() { Id = 132, GrammarThemeId = 10, Rule = "si on parle d'un objet on le relie par <span class=\"badge text-bg-primary\">が</span> et si c 'est une personne <span class=\"badge text-bg-primary\">は</span>"},
+                new GrammarRule() { Id = 133, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">やまさきさん は ぶんがく が だいすき です</span>"},
+                new GrammarRule() { Id = 134, GrammarThemeId = 10, Rule = "D'autres adjectifs ont la même construction"},
+                new GrammarRule() { Id = 135, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-primary\">ほしい</span> qui exprime le désir par exemple"},
+                new GrammarRule() { Id = 136, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">にほん の くるま が ほしい</span>"},
+                new GrammarRule() { Id = 137, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-primary\">じょうず</span> pour dire qu'on est bon dans qqch"},
+                new GrammarRule() { Id = 138, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">わたし は えいご が じょうず です</span>"},
+                new GrammarRule() { Id = 139, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-primary\">へた</span> pour dire l'inverse"},
+                new GrammarRule() { Id = 140, GrammarThemeId = 10, Rule = "<span class=\"badge text-bg-success\">わたし は にほんご が へた です</span>"},
+            };
+            await database.InsertAllAsync(Cour10);
+
+            List<GrammarRule> Cour11 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 141, GrammarThemeId = 11, Rule = "La forme en <span class=\"badge text-bg-primary\">-て</span>"},
+                new GrammarRule() { Id = 142, GrammarThemeId = 11, Rule = "Se construit comme la fomre passée"},
+                new GrammarRule() { Id = 143, GrammarThemeId = 11, Rule = "Verbes Simples <span class=\"badge text-bg-primary\">-て</span> s'ajoute au radical"},
+                new GrammarRule() { Id = 144, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">みる => みて</span>"},
+                new GrammarRule() { Id = 145, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">する => して</span>"},
+                new GrammarRule() { Id = 146, GrammarThemeId = 11, Rule = "Pour les autres "},
+                new GrammarRule() { Id = 147, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-primary\">-す</span> => <span class=\"badge text-bg-primary\">-して</span>"},
+                new GrammarRule() { Id = 148, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">はなす => はなして</span>"},
+                new GrammarRule() { Id = 149, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-primary\">-く</span> => <span class=\"badge text-bg-primary\">-いて</span>"},
+                new GrammarRule() { Id = 150, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">まねく => まねいて</span>"},
+                new GrammarRule() { Id = 151, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-danger\">いく => いつて</span>"},
+                new GrammarRule() { Id = 152, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-primary\">-ぐ</span> => <span class=\"badge text-bg-primary\">-いで</span>"},
+                new GrammarRule() { Id = 153, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">いそぐ => いすいで</span>"},
+                new GrammarRule() { Id = 154, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-primary\">-む</span> <span class=\"badge text-bg-primary\">-ぬ</span> <span class=\"badge text-bg-primary\">-ぶ</span> => <span class=\"badge text-bg-primary\">-んで</span>"},
+                new GrammarRule() { Id = 155, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">ょぶ => ょんで</span>"},
+                new GrammarRule() { Id = 156, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-primary\">-う</span> <span class=\"badge text-bg-primary\">-つ</span> <span class=\"badge text-bg-primary\">-る</span> => <span class=\"badge text-bg-primary\">-つて</span>"},
+                new GrammarRule() { Id = 157, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">ある => あつて</span>"},
+                new GrammarRule() { Id = 158, GrammarThemeId = 11, Rule = "Combiné avec le verbe <span class=\"badge text-bg-primary\">いる</span> peut exprimé une durée"},
+                new GrammarRule() { Id = 159, GrammarThemeId = 11, Rule = "- 1 durée limitée, l'action est en train de se faire"},
+                new GrammarRule() { Id = 160, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">こども は いま にわ で あそんで います</span>"},
+                new GrammarRule() { Id = 161, GrammarThemeId = 11, Rule = "En ce moment les enfants sont en train de jouer dans le jardin"},
+                new GrammarRule() { Id = 162, GrammarThemeId = 11, Rule = "- 2 durée longue, une action qui se répète régulièrement, une situation habituelle"},
+                new GrammarRule() { Id = 163, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">わたし は Grenoble に すんで います</span>"},
+                new GrammarRule() { Id = 164, GrammarThemeId = 11, Rule = "J'habite à grenoble"},
+                new GrammarRule() { Id = 165, GrammarThemeId = 11, Rule = "- 3 avec les verbes qui ne peuvent pas durer exprime le résultat de l'action"},
+                new GrammarRule() { Id = 166, GrammarThemeId = 11, Rule = "<span class=\"badge text-bg-success\">くるま とまつて いる</span>"},
+                new GrammarRule() { Id = 167, GrammarThemeId = 11, Rule = "la voiture est arretée"},
+            };
+            await database.InsertAllAsync(Cour11);
             return true;
         }
     }
