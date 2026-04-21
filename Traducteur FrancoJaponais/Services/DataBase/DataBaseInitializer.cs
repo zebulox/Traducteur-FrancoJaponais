@@ -842,6 +842,35 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             };
             await database.InsertAllAsync(Cour11);
 
+            List<GrammarVocabulary> Cour12 = new List<GrammarVocabulary>()
+            {
+                new GrammarVocabulary() { Id = 312, GrammarThemeId = 12, French = "Un", Japanese = "いち (一)"},
+                new GrammarVocabulary() { Id = 313, GrammarThemeId = 12, French = "Deux", Japanese = "に (二)"},
+                new GrammarVocabulary() { Id = 314, GrammarThemeId = 12, French = "Trois", Japanese = "さん (三)"},
+                new GrammarVocabulary() { Id = 315, GrammarThemeId = 12, French = "Quatre", Japanese = "ょん (し) (四)"},
+                new GrammarVocabulary() { Id = 316, GrammarThemeId = 12, French = "Cinq", Japanese = "ご (五)"},
+                new GrammarVocabulary() { Id = 317, GrammarThemeId = 12, French = "Six", Japanese = "ろく (六)"},
+                new GrammarVocabulary() { Id = 318, GrammarThemeId = 12, French = "Sept", Japanese = "なな (しち) (七)"},
+                new GrammarVocabulary() { Id = 319, GrammarThemeId = 12, French = "Huit", Japanese = "はち (八)"},
+                new GrammarVocabulary() { Id = 320, GrammarThemeId = 12, French = "Neuf", Japanese = "きゆう (く) (九)"},
+                new GrammarVocabulary() { Id = 321, GrammarThemeId = 12, French = "Dix", Japanese = "じゆう (十)"},
+                new GrammarVocabulary() { Id = 322, GrammarThemeId = 12, French = "Cent", Japanese = "ひやく (百)"},
+                new GrammarVocabulary() { Id = 323, GrammarThemeId = 12, French = "Mille", Japanese = "せん (千)"},
+                new GrammarVocabulary() { Id = 324, GrammarThemeId = 12, French = "Dix Mille", Japanese = "まん (万)"},
+                new GrammarVocabulary() { Id = 325, GrammarThemeId = 12, French = "Additionner", Japanese = "たす"},
+                new GrammarVocabulary() { Id = 326, GrammarThemeId = 12, French = "Soustraire", Japanese = "ひく"},
+                new GrammarVocabulary() { Id = 327, GrammarThemeId = 12, French = "Multiplier", Japanese = "かける"},
+                new GrammarVocabulary() { Id = 328, GrammarThemeId = 12, French = "Diviser", Japanese = "わる"},
+                new GrammarVocabulary() { Id = 329, GrammarThemeId = 12, French = "Yen", Japanese = "えん"},
+                new GrammarVocabulary() { Id = 330, GrammarThemeId = 12, French = "Euro (yuro)", Japanese = "ユーロ"},
+                new GrammarVocabulary() { Id = 331, GrammarThemeId = 12, French = "Dollar (doru)", Japanese = "ドル"},
+                new GrammarVocabulary() { Id = 332, GrammarThemeId = 12, French = "Compteur mince et plats", Japanese = "まい"},
+                new GrammarVocabulary() { Id = 333, GrammarThemeId = 12, French = "Cmpt Long et cylindrique", Japanese = "ほん"},
+                new GrammarVocabulary() { Id = 334, GrammarThemeId = 12, French = "Cmpt Cubiques ou ronds", Japanese = "こ"},
+                new GrammarVocabulary() { Id = 335, GrammarThemeId = 12, French = "Cmpt type livre", Japanese = "さつ"},
+            };
+            await database.InsertAllAsync(Cour12);
+
             return true;
         }
 
@@ -1068,6 +1097,43 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new GrammarRule() { Id = 167, GrammarThemeId = 11, Rule = "la voiture est arretée"},
             };
             await database.InsertAllAsync(Cour11);
+
+            List<GrammarRule> Cour12 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 168, GrammarThemeId = 12, Rule = "Un chiffre devant une unitée la multiplie"},
+                new GrammarRule() { Id = 169, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">三十 = 30</span>"},
+                new GrammarRule() { Id = 170, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">三百 = sanbyaku</span>"},
+                new GrammarRule() { Id = 171, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">六百 = roppyaku</span>"},
+                new GrammarRule() { Id = 172, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">八百 = happyyaku</span>"},
+                new GrammarRule() { Id = 173, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">三千 = sanzen</span>"},
+                new GrammarRule() { Id = 174, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">八千 = hassen</span>"},
+                new GrammarRule() { Id = 175, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">万 = ichiman</span>"},
+                new GrammarRule() { Id = 176, GrammarThemeId = 12, Rule = "Un chiffre après une unitée s'additionne"},
+                new GrammarRule() { Id = 177, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">十三 = 13</span>"},
+                new GrammarRule() { Id = 178, GrammarThemeId = 12, Rule = "Pour les opérations on construit une phrase comme suit"},
+                new GrammarRule() { Id = 179, GrammarThemeId = 12, Rule = "Chiffre Verbe Chiffre <span class=\"badge text-bg-primary\">は</span> resultat <span class=\"badge text-bg-primary\">です / に なります</span>"},
+                new GrammarRule() { Id = 180, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">40 ひく 8 は 32 です / に なります</span>"},
+                new GrammarRule() { Id = 181, GrammarThemeId = 12, Rule = "Tout ce qui spécifie le nombre se place après"},
+                new GrammarRule() { Id = 182, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">三十八 ユーロ</span>"},
+                new GrammarRule() { Id = 183, GrammarThemeId = 12, Rule = "Ajustements phonétiques our les classificateurs"},
+                new GrammarRule() { Id = 184, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">ほん => ぽん</span> pour 1, 6, 8, 10"},
+                new GrammarRule() { Id = 185, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">いつぽん</span>"},
+                new GrammarRule() { Id = 186, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">ろつぽん</span>"},
+                new GrammarRule() { Id = 187, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">はつぽん</span>"},
+                new GrammarRule() { Id = 189, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">じゆつぽん</span>"},
+                new GrammarRule() { Id = 190, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">ほん => ぼん</span> pour 3"},
+                new GrammarRule() { Id = 191, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">さんぼん</span>"},
+                new GrammarRule() { Id = 192, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">こ</span> pour 1, 6, 8, 10"},
+                new GrammarRule() { Id = 193, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">いつこ</span>"},
+                new GrammarRule() { Id = 194, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">ろつこ</span>"},
+                new GrammarRule() { Id = 195, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">はつこ</span>"},
+                new GrammarRule() { Id = 196, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">じゆつこ</span>"},
+                new GrammarRule() { Id = 197, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-success\">さつ</span> pour 1, 8, 10"},
+                new GrammarRule() { Id = 198, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">いつさつ</span>"},
+                new GrammarRule() { Id = 199, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">はつさつ</span>"},
+                new GrammarRule() { Id = 200, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">じゆつさつ</span>"},
+            };
+            await database.InsertAllAsync(Cour12);
             return true;
         }
     }
