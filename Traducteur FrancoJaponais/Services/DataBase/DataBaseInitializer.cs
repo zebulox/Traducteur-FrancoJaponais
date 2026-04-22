@@ -871,6 +871,31 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
             };
             await database.InsertAllAsync(Cour12);
 
+            List<GrammarVocabulary> Cour13 = new List<GrammarVocabulary>()
+            {
+                new GrammarVocabulary() { Id = 336, GrammarThemeId = 13, French = "Un", Japanese = "ひとつ (一つ)"},
+                new GrammarVocabulary() { Id = 337, GrammarThemeId = 13, French = "Deux", Japanese = "ふたつ (二つ)"},
+                new GrammarVocabulary() { Id = 338, GrammarThemeId = 13, French = "Trois", Japanese = "みつつ (三つ)"},
+                new GrammarVocabulary() { Id = 339, GrammarThemeId = 13, French = "Quatre", Japanese = "ょつつ (四つ)"},
+                new GrammarVocabulary() { Id = 340, GrammarThemeId = 13, French = "Cinq", Japanese = "いつつ (五つ)"},
+                new GrammarVocabulary() { Id = 341, GrammarThemeId = 13, French = "Six", Japanese = "むつつ (六つ)"},
+                new GrammarVocabulary() { Id = 342, GrammarThemeId = 13, French = "Sept", Japanese = "ななつ (七つ)"},
+                new GrammarVocabulary() { Id = 343, GrammarThemeId = 13, French = "Huit", Japanese = "やつつ  (八つ)"},
+                new GrammarVocabulary() { Id = 344, GrammarThemeId = 13, French = "Neuf", Japanese = "ここのつ (九つ)"},
+                new GrammarVocabulary() { Id = 345, GrammarThemeId = 13, French = "Dix", Japanese = "とお (十)"},
+                new GrammarVocabulary() { Id = 346, GrammarThemeId = 13, French = "Salle de cinéma", Japanese = "えいがかん"},
+                new GrammarVocabulary() { Id = 347, GrammarThemeId = 13, French = "Origami", Japanese = "おりがみ"},
+                new GrammarVocabulary() { Id = 348, GrammarThemeId = 13, French = "Fabriquer", Japanese = "つくる"},
+                new GrammarVocabulary() { Id = 349, GrammarThemeId = 13, French = "Papier", Japanese = "かみ"},
+                new GrammarVocabulary() { Id = 350, GrammarThemeId = 13, French = "Pinceau", Japanese = "ふで"},
+                new GrammarVocabulary() { Id = 351, GrammarThemeId = 13, French = "Tulipe (chiyurishipu)", Japanese = "チユーリシプ"},
+                new GrammarVocabulary() { Id = 352, GrammarThemeId = 13, French = "Bière", Japanese = "ビール"},
+                new GrammarVocabulary() { Id = 353, GrammarThemeId = 13, French = "Gomme (à effacer)", Japanese = "けしゴム"},
+                new GrammarVocabulary() { Id = 354, GrammarThemeId = 13, French = "Gâteau", Japanese = "ケーキ"},
+                new GrammarVocabulary() { Id = 355, GrammarThemeId = 13, French = "Pomme", Japanese = "りんご"},
+            };
+            await database.InsertAllAsync(Cour13);
+
             return true;
         }
 
@@ -1134,6 +1159,28 @@ namespace Traducteur_FrancoJaponais.Services.DataBase
                 new GrammarRule() { Id = 200, GrammarThemeId = 12, Rule = "<span class=\"badge text-bg-danger\">じゆつさつ</span>"},
             };
             await database.InsertAllAsync(Cour12);
+
+            List<GrammarRule> Cour13 = new List<GrammarRule>()
+            {
+                new GrammarRule() { Id = 201, GrammarThemeId = 13, Rule = "Compter les personnes, une ou deux utiliser le système japonais"},
+                new GrammarRule() { Id = 202, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-success\">ひとり => 1, ふたり => 2</span>"},
+                new GrammarRule() { Id = 203, GrammarThemeId = 13, Rule = "à partir de 3 utiliser le système chinois suivis de <span class=\"badge text-bg-primary\">にん</span>"},
+                new GrammarRule() { Id = 204, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-success\">八にん</span> 8 personnes"},
+                new GrammarRule() { Id = 205, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-danger\">四にん => yonin</span>"},
+                new GrammarRule() { Id = 206, GrammarThemeId = 13, Rule = "Quand on compte dans une phrase les objets comptés sont suivis de <span class=\"badge text-bg-primary\">が</span> ou <span class=\"badge text-bg-primary\">を</span>"},
+                new GrammarRule() { Id = 207, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-success\">わたし の にわ に は き が ろつぽん あります</span>"},
+                new GrammarRule() { Id = 208, GrammarThemeId = 13, Rule = "Question avec <span class=\"badge text-bg-primary\">いくつ</span> Combien (d'objets) ou <span class=\"badge text-bg-primary\">なんにん</span> Combien (de personnes)"},
+                new GrammarRule() { Id = 209, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-success\">りんご を いくつ たべました か</span> => <span class=\"badge text-bg-success\">りんご を 一つ たべました</span>"},
+                new GrammarRule() { Id = 210, GrammarThemeId = 13, Rule = "Quand le mot compté est suivis de <span class=\"badge text-bg-primary\">に, で, から, と, の</span> l'expression chiffré est placé devant lui est reliée par <span class=\"badge text-bg-primary\">の</span>"},
+                new GrammarRule() { Id = 211, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-success\">三にん の こども と こうえん で あそんで います</span>"},
+                new GrammarRule() { Id = 212, GrammarThemeId = 13, Rule = "Le verbe <span class=\"badge text-bg-primary\">くる</span> faire est irrégulier"},
+                new GrammarRule() { Id = 213, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-danger\">きます</span> <span class=\"badge text-bg-danger\">きません</span> <span class=\"badge text-bg-danger\">きました</span> <span class=\"badge text-bg-danger\">きた</span> <span class=\"badge text-bg-danger\">きて</span>  <span class=\"badge text-bg-danger\">こない</span>"},
+                new GrammarRule() { Id = 214, GrammarThemeId = 13, Rule = "La particule <span class=\"badge text-bg-primary\">と</span> sert aussi à faire une énumération"},
+                new GrammarRule() { Id = 215, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-success\">ばんごはん に ハム と チズ と パン を たつた</span>"},
+                new GrammarRule() { Id = 216, GrammarThemeId = 13, Rule = "Si les objets énumérés sont chiffrés la particule utilisé pour les mots est répétée à chaque fois"},
+                new GrammarRule() { Id = 217, GrammarThemeId = 13, Rule = "<span class=\"badge text-bg-success\">うちむらさん は けしごむ を 三こ と えんぴつ を 四ほん かつた</span>"},
+            };
+            await database.InsertAllAsync(Cour13);
             return true;
         }
     }
